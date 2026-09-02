@@ -15,12 +15,17 @@
   var MAX_SANS_COCHER = 6;
   var NB_DATES_PROPOSEES = 8;
 
-  var JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
-  var MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin',
-              'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
-
   var form = document.getElementById('reservation');
   if (!form) return;
+
+  /* Traduction : retombe sur le français si i18n.js n'est pas chargé. */
+  function T(cle, secours) {
+    var v = window.BonaI18n && window.BonaI18n.t(cle);
+    return v || secours;
+  }
+  function langue() {
+    return (window.BonaI18n && window.BonaI18n.courante()) || 'fr';
+  }
 
   var $ = function (sel) { return form.querySelector(sel); };
 
@@ -93,29 +98,46 @@
   }
 
   function construireDates() {
+    var l = langue();
+    var nomJour = new Intl.DateTimeFormat(l, { weekday: 'long' });
+    var nomDate = new Intl.DateTimeFormat(l, { day: 'numeric', month: 'long' });
+
+    champsDate.innerHTML = '';
+
     prochainesDates().forEach(function (d, i) {
       var iso = cleISO(d);
       var id = 'date-' + iso;
+      var coche = dateChoisie ? (iso === dateChoisie) : (i === 0);
 
       var label = document.createElement('label');
       label.className = 'chip';
       label.setAttribute('for', id);
       label.innerHTML =
-        '<input type="radio" name="date" id="' + id + '" value="' + iso + '"' + (i === 0 ? ' checked' : '') + '>' +
-        '<span class="chip__jour">' + JOURS[d.getDay()] + '</span>' +
-        '<span class="chip__date">' + d.getDate() + ' ' + MOIS[d.getMonth()] + '</span>';
+        '<input type="radio" name="date" id="' + id + '" value="' + iso + '"' + (coche ? ' checked' : '') + '>' +
+        '<span class="chip__jour">' + nomJour.format(d) + '</span>' +
+        '<span class="chip__date">' + nomDate.format(d) + '</span>';
 
       champsDate.appendChild(label);
     });
 
-    champsDate.addEventListener('change', function (e) {
-      if (e.target.name !== 'date') return;
-      dateChoisie = e.target.value;
-      chargerCreneaux(dateChoisie);
-    });
-
     var premier = champsDate.querySelector('input[name="date"]:checked');
     if (premier) dateChoisie = premier.value;
+  }
+
+  /** Options « 1 personne … 6 personnes », dans la langue courante. */
+  function construirePersonnes() {
+    var valeur = personnes.value || '2';
+    var un = T('resa.personne', 'personne');
+    var pl = T('resa.personnes.pl', 'personnes');
+
+    personnes.innerHTML = '';
+    for (var n = 1; n <= MAX_SANS_COCHER; n++) {
+      var o = document.createElement('option');
+      o.value = String(n);
+      o.textContent = n + ' ' + (n > 1 ? pl : un);
+      personnes.appendChild(o);
+    }
+    personnes.value = valeur;
   }
 
   /* ---------- Créneaux ---------- */
@@ -142,7 +164,7 @@
     });
 
     if (!libres) {
-      annoncer('Ce soir-là est complet. Choisissez une autre date ou écrivez-nous sur Instagram.', 'erreur');
+      annoncer(T('err.complet', 'Ce soir-là est complet. Choisissez une autre date.'), 'erreur');
     } else {
       annoncer('');
     }
@@ -156,7 +178,8 @@
       return;
     }
 
-    champsCreneau.innerHTML = '<p class="form__chargement">Recherche des créneaux disponibles…</p>';
+    champsCreneau.innerHTML = '<p class="form__chargement"></p>';
+    champsCreneau.firstChild.textContent = T('resa.chargement', 'Recherche des créneaux disponibles…');
 
     fetch(ENDPOINT + '?date=' + encodeURIComponent(date))
       .then(function (r) { return r.json(); })
@@ -186,9 +209,9 @@
         dateLibre.min = cleISO(new Date());
         dateLibre.value = cleISO(d);
       }
-      $('#personnes-libelle').textContent = 'Nombre de personnes attendues';
+      $('#personnes-libelle').textContent = T('resa.personnes.priv', 'Nombre de personnes attendues');
     } else {
-      $('#personnes-libelle').textContent = 'Nombre de personnes';
+      $('#personnes-libelle').textContent = T('resa.personnes', 'Nombre de personnes');
       if (dateChoisie) chargerCreneaux(dateChoisie);
     }
     annoncer('');
@@ -231,28 +254,46 @@
   }
 
   function verifier(d) {
-    if (!d.date) return 'Choisissez une date.';
-    if (d.type === 'reservation' && !d.creneau) return 'Choisissez un créneau.';
-    if (!(d.personnes >= 1)) return 'Indiquez le nombre de personnes.';
+    if (!d.date) return T('err.date', 'Choisissez une date.');
+    if (d.type === 'reservation' && !d.creneau) return T('err.creneau', 'Choisissez un créneau.');
+    if (!(d.personnes >= 1)) return T('err.personnes', 'Indiquez le nombre de personnes.');
     if (d.personnes > MAX_SANS_COCHER && !d.grandGroupe) {
-      return 'Au-delà de ' + MAX_SANS_COCHER + ' personnes, cochez « groupe de plus de ' + MAX_SANS_COCHER + ' ».';
+      return T('err.plus6', 'Au-delà de 6 personnes, cochez « Nous sommes plus de 6 ».');
     }
-    if (d.nom.trim().length < 2) return 'Indiquez votre nom.';
-    if (d.telephone.replace(/\D/g, '').length < 9) return 'Indiquez un numéro de téléphone valide.';
+    if (d.nom.trim().length < 2) return T('err.nom', 'Indiquez votre nom.');
+    if (d.telephone.replace(/\D/g, '').length < 9) return T('err.tel', 'Indiquez un numéro de téléphone valide.');
     return '';
   }
 
   function reussite(d) {
     var texte = d.type === 'privatisation'
-      ? 'Demande de privatisation envoyée. Nous vous rappelons pour en discuter.'
-      : 'Demande envoyée pour le ' + d.date + ' à ' + d.creneau + '. Nous vous confirmons par téléphone.';
+      ? T('resa.ok.priv', 'Demande de privatisation envoyée.')
+      : T('resa.ok.resa', 'Demande envoyée.');
 
-    form.innerHTML =
-      '<div class="form__merci">' +
-        '<p class="display">Merci ' + d.nom.split(' ')[0].replace(/[<>&]/g, '') + '</p>' +
-        '<p>' + texte + '</p>' +
-        '<a class="btn" href="index.html">Retour à l’accueil</a>' +
-      '</div>';
+    var bloc = document.createElement('div');
+    bloc.className = 'form__merci';
+
+    var titre = document.createElement('p');
+    titre.className = 'display';
+    titre.textContent = T('resa.merci', 'Merci') + ' ' + d.nom.split(' ')[0];
+
+    var corps = document.createElement('p');
+    if (d.type === 'reservation') {
+      var j = new Intl.DateTimeFormat(langue(), { weekday: 'long', day: 'numeric', month: 'long' });
+      texte += ' — ' + j.format(new Date(d.date + 'T12:00:00')) + ', ' + d.creneau + '.';
+    }
+    corps.textContent = texte;
+
+    var retour = document.createElement('a');
+    retour.className = 'btn';
+    retour.href = 'index.html';
+    retour.textContent = T('resa.retour', 'Retour à l’accueil');
+
+    bloc.appendChild(titre);
+    bloc.appendChild(corps);
+    bloc.appendChild(retour);
+    form.innerHTML = '';
+    form.appendChild(bloc);
   }
 
   form.addEventListener('submit', function (e) {
@@ -268,13 +309,13 @@
     }
 
     if (ENDPOINT === 'A_REMPLIR') {
-      annoncer('Le formulaire n’est pas encore relié : renseignez ENDPOINT dans assets/js/reservation.js.', 'erreur');
+      annoncer(T('err.endpoint', 'Le formulaire n’est pas encore relié.'), 'erreur');
       return;
     }
 
     envoiEnCours = true;
     bouton.disabled = true;
-    annoncer('Envoi en cours…', 'attente');
+    annoncer(T('resa.envoi', 'Envoi en cours…'), 'attente');
 
     fetch(ENDPOINT, {
       method: 'POST',
@@ -288,11 +329,11 @@
           reussite(d);
           return;
         }
-        annoncer((rep && rep.erreur) || 'Envoi impossible. Réessayez ou écrivez-nous sur Instagram.', 'erreur');
+        annoncer((rep && rep.erreur) || T('err.envoi', 'Envoi impossible.'), 'erreur');
         if (rep && rep.creneauPris) chargerCreneaux(d.date);
       })
       .catch(function () {
-        annoncer('Envoi impossible. Vérifiez votre connexion ou écrivez-nous sur Instagram.', 'erreur');
+        annoncer(T('err.envoi', 'Envoi impossible.'), 'erreur');
       })
       .then(function () {
         envoiEnCours = false;
@@ -303,10 +344,26 @@
   /* ---------- Démarrage ---------- */
 
   construireDates();
+  construirePersonnes();
   appliquerMode();
   appliquerEffectif();
   if (dateChoisie) chargerCreneaux(dateChoisie);
 
+  champsDate.addEventListener('change', function (e) {
+    if (e.target.name !== 'date') return;
+    dateChoisie = e.target.value;
+    chargerCreneaux(dateChoisie);
+  });
+
   for (var i = 0; i < modes.length; i++) modes[i].addEventListener('change', appliquerMode);
   grandGroupe.addEventListener('change', appliquerEffectif);
+
+  /* Changement de langue : les libellés générés en JS sont refaits. */
+  document.addEventListener('bona:langue', function () {
+    construireDates();
+    construirePersonnes();
+    $('#personnes-libelle').textContent = mode() === 'privatisation'
+      ? T('resa.personnes.priv', 'Nombre de personnes attendues')
+      : T('resa.personnes', 'Nombre de personnes');
+  });
 })();

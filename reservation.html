@@ -8,15 +8,21 @@
 <link rel="canonical" href="https://bonabordeaux.fr/reservation.html">
 <meta name="theme-color" content="#03203d">
 
+<link rel="alternate" hreflang="fr" href="https://bonabordeaux.fr/reservation.html">
+<link rel="alternate" hreflang="en" href="https://bonabordeaux.fr/reservation.html?lang=en">
+<link rel="alternate" hreflang="es" href="https://bonabordeaux.fr/reservation.html?lang=es">
+<link rel="alternate" hreflang="de" href="https://bonabordeaux.fr/reservation.html?lang=de">
+<link rel="alternate" hreflang="it" href="https://bonabordeaux.fr/reservation.html?lang=it">
+<link rel="alternate" hreflang="x-default" href="https://bonabordeaux.fr/reservation.html">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bona Brasserie">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="Réserver une table — Bona, Bordeaux">
 <meta property="og:description" content="Service du vendredi au dimanche, de 19h à 2h. Un groupe par quart d’heure. Privatisation sur demande.">
 <meta property="og:url" content="https://bonabordeaux.fr/reservation.html">
-<meta property="og:image" content="https://bonabordeaux.fr/assets/img/carte-velours.jpg">
+<meta property="og:image" content="https://bonabordeaux.fr/assets/img/burrata.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="robots" content="index, follow">
 
 <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/logo/favicon.svg">
@@ -61,20 +67,26 @@
   </symbol>
 </svg>
 
-<!-- ===== Header ===== -->
 <header class="header" id="header">
   <div class="wrap wrap--wide header__inner">
     <a class="brand" href="index.html" aria-label="Bona — accueil">
       <svg width="129.54" height="36.1" role="img" aria-label="Bona"><use href="#i-bona"></use></svg>
-      <span class="brand__tag">Brasserie</span>
+      <span class="brand__tag" data-i18n="brand.tag">Brasserie</span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Navigation principale">
-      <a href="index.html#histoire">Histoire</a>
-      <a href="carte.html">La carte</a>
-      <a href="index.html#galerie">Galerie</a>
-      <a href="reservation.html" class="is-active" aria-current="page">Réserver</a>
-      <a href="index.html#infos">Nous trouver</a>
+      <a href="index.html#histoire" data-i18n="nav.histoire">Histoire</a>
+      <a href="carte.html" data-i18n="nav.carte">La carte</a>
+      <a href="index.html#galerie" data-i18n="nav.galerie">Galerie</a>
+      <a href="reservation.html" class="is-active" aria-current="page" data-i18n="nav.reserver">Réserver</a>
+      <a href="index.html#infos" data-i18n="nav.trouver">Nous trouver</a>
+      <div class="langues langues--mobile" role="group" aria-label="Choisir la langue" data-i18n-attr="aria-label:a11y.langue">
+        <button type="button" data-langue="fr">FR</button>
+        <button type="button" data-langue="en">EN</button>
+        <button type="button" data-langue="es">ES</button>
+        <button type="button" data-langue="de">DE</button>
+        <button type="button" data-langue="it">IT</button>
+      </div>
       <div class="nav__socials">
         <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
         <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
@@ -82,30 +94,38 @@
       </div>
     </nav>
 
-    <div class="header__socials">
-      <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
-      <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
-      <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
+    <div class="header__actions">
+      <div class="langues" role="group" aria-label="Choisir la langue" data-i18n-attr="aria-label:a11y.langue">
+        <button type="button" data-langue="fr">FR</button>
+        <button type="button" data-langue="en">EN</button>
+        <button type="button" data-langue="es">ES</button>
+        <button type="button" data-langue="de">DE</button>
+        <button type="button" data-langue="it">IT</button>
+      </div>
+      <div class="header__socials">
+        <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
+        <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
+        <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
+      </div>
     </div>
 
-    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"
+            data-i18n-attr="aria-label:a11y.menu">
       <span></span><span></span>
     </button>
   </div>
 </header>
-
 <main>
 
-  <!-- ===== En-tête de page ===== -->
   <section class="page-hero page-hero--court">
     <div class="page-hero__media">
-      <img src="assets/img/carte-velours.jpg" alt="La carte de Bona devant un rideau de velours bleu nuit" fetchpriority="high">
+      <img src="assets/img/burrata.jpg" alt="Salade de burrata au basilic frais" fetchpriority="high">
     </div>
     <div class="wrap page-hero__inner">
-      <span class="eyebrow">Bona · Brasserie</span>
-      <h1 class="display">Réserver</h1>
+      <span class="eyebrow" data-i18n="carte.eyebrow">Bona · Brasserie</span>
+      <h1 class="display" data-i18n="resa.h1">Réserver</h1>
       <div class="rule"><i class="lozenge"></i></div>
-      <p>Un seul groupe par quart d’heure, de 19h00 à 01h30. Service du vendredi au dimanche.</p>
+      <p data-i18n="resa.sub">Un seul groupe par quart d’heure, de 19h00 à 01h30. Service du vendredi au dimanche.</p>
     </div>
   </section>
 
@@ -114,93 +134,85 @@
 
       <form id="reservation" class="form" novalidate>
 
-        <!-- Type de demande -->
         <fieldset class="field">
-          <legend class="field__label">Votre demande</legend>
+          <legend class="field__label" data-i18n="resa.demande">Votre demande</legend>
           <div class="segmented">
             <label class="segmented__option">
               <input type="radio" name="type" value="reservation" checked>
-              <span>Réserver une table</span>
+              <span data-i18n="resa.reserver">Réserver une table</span>
             </label>
             <label class="segmented__option">
               <input type="radio" name="type" value="privatisation">
-              <span>Privatisation</span>
+              <span data-i18n="resa.privatisation">Privatisation</span>
             </label>
           </div>
-          <p class="field__aide" id="aide-privatisation">
+          <p class="field__aide" id="aide-privatisation" data-i18n="resa.aide.priv">
             La privatisation concerne l’ensemble de la salle, sur devis. Indiquez la date souhaitée,
             nous vous rappelons pour en définir les détails.
           </p>
         </fieldset>
 
-        <!-- Date : soirs d'ouverture -->
         <fieldset class="field" id="bloc-dates">
-          <legend class="field__label">Quel soir ?</legend>
+          <legend class="field__label" data-i18n="resa.soir">Quel soir ?</legend>
           <div class="chips" id="dates"></div>
-          <p class="field__aide">Nous ouvrons le vendredi, le samedi et le dimanche.</p>
+          <p class="field__aide" data-i18n="resa.soir.aide">Nous ouvrons le vendredi, le samedi et le dimanche.</p>
         </fieldset>
 
-        <!-- Date : libre (privatisation) -->
         <div class="field" id="bloc-date-libre" hidden>
-          <label class="field__label" for="date-libre">Date souhaitée</label>
+          <label class="field__label" for="date-libre" data-i18n="resa.datesouhaitee">Date souhaitée</label>
           <input type="date" id="date-libre" name="date-libre">
         </div>
 
-        <!-- Créneaux -->
         <fieldset class="field" id="bloc-creneaux">
-          <legend class="field__label">À quelle heure ?</legend>
+          <legend class="field__label" data-i18n="resa.heure">À quelle heure ?</legend>
           <div class="slots" id="creneaux"></div>
-          <p class="field__aide">Les créneaux déjà pris n’apparaissent pas comme sélectionnables.</p>
+          <p class="field__aide" data-i18n="resa.heure.aide">Les créneaux déjà pris n’apparaissent pas comme sélectionnables.</p>
         </fieldset>
 
-        <!-- Effectif -->
         <div class="field">
-          <label class="field__label" for="personnes" id="personnes-libelle">Nombre de personnes</label>
-          <select id="personnes" name="personnes">
-            <option value="1">1 personne</option>
-            <option value="2" selected>2 personnes</option>
-            <option value="3">3 personnes</option>
-            <option value="4">4 personnes</option>
-            <option value="5">5 personnes</option>
-            <option value="6">6 personnes</option>
-          </select>
+          <label class="field__label" for="personnes" id="personnes-libelle" data-i18n="resa.personnes">Nombre de personnes</label>
+          <select id="personnes" name="personnes"></select>
 
           <label class="check">
             <input type="checkbox" id="grand-groupe" name="grand-groupe">
             <span class="check__case" aria-hidden="true"></span>
-            <span>Nous sommes plus de 6</span>
+            <span data-i18n="resa.plus6">Nous sommes plus de 6</span>
           </label>
         </div>
 
         <div class="field" id="bloc-effectif" hidden>
-          <label class="field__label" for="effectif">Combien serez-vous ?</label>
+          <label class="field__label" for="effectif" data-i18n="resa.combien">Combien serez-vous ?</label>
           <input type="number" id="effectif" name="effectif" min="7" max="60" step="1" inputmode="numeric">
-          <p class="field__aide">Nous vous rappelons pour organiser l’accueil du groupe.</p>
+          <p class="field__aide" data-i18n="resa.combien.aide">Nous vous rappelons pour organiser l’accueil du groupe.</p>
         </div>
 
-        <!-- Coordonnées -->
         <div class="field field--duo">
           <div>
-            <label class="field__label" for="nom">Nom</label>
+            <label class="field__label" for="nom" data-i18n="resa.nom">Nom</label>
             <input type="text" id="nom" name="nom" autocomplete="name" required>
           </div>
           <div>
-            <label class="field__label" for="telephone">Téléphone</label>
+            <label class="field__label" for="telephone" data-i18n="resa.tel">Téléphone</label>
             <input type="tel" id="telephone" name="telephone" autocomplete="tel" inputmode="tel" required>
           </div>
         </div>
 
         <div class="field">
-          <label class="field__label" for="email">E-mail <span class="field__option">facultatif</span></label>
+          <label class="field__label" for="email">
+            <span data-i18n="resa.email">E-mail</span> <span class="field__option" data-i18n="resa.facultatif">facultatif</span>
+          </label>
           <input type="email" id="email" name="email" autocomplete="email">
         </div>
 
         <div class="field">
-          <label class="field__label" for="message">Un mot pour nous <span class="field__option">facultatif</span></label>
-          <textarea id="message" name="message" rows="3" maxlength="500" placeholder="Allergie, anniversaire, poussette, une envie particulière…"></textarea>
+          <label class="field__label" for="message">
+            <span data-i18n="resa.message">Un mot pour nous</span> <span class="field__option" data-i18n="resa.facultatif">facultatif</span>
+          </label>
+          <textarea id="message" name="message" rows="3" maxlength="500"
+                    placeholder="Allergie, anniversaire, poussette, une envie particulière…"
+                    data-i18n-attr="placeholder:resa.message.ph"></textarea>
         </div>
 
-        <!-- Pot de miel : masqué aux humains, rempli par les robots -->
         <div class="pot-de-miel" aria-hidden="true">
           <label for="site">Ne pas remplir</label>
           <input type="text" id="site" name="site" tabindex="-1" autocomplete="off">
@@ -209,10 +221,10 @@
         <p class="form__etat" id="etat" role="status" aria-live="polite"></p>
 
         <button class="btn btn--solid btn--large" type="submit">
-          Envoyer la demande <svg><use href="#i-arrow"></use></svg>
+          <span data-i18n="resa.envoyer">Envoyer la demande</span> <svg><use href="#i-arrow"></use></svg>
         </button>
 
-        <p class="form__mentions">
+        <p class="form__mentions" data-i18n="resa.mentions">
           Votre demande n’est pas une confirmation : nous vous rappelons pour valider la table.
           Vos coordonnées servent uniquement à traiter cette réservation.
         </p>
@@ -220,16 +232,16 @@
 
       <aside class="rappel">
         <div class="rappel__bloc">
-          <span class="eyebrow">Horaires</span>
-          <p>Vendredi, samedi et dimanche<br>19:00 – 02:00</p>
+          <span class="eyebrow" data-i18n="hours.title">Horaires</span>
+          <p><span data-i18n="resa.jours">Vendredi, samedi et dimanche</span><br>19:00 – 02:00</p>
         </div>
         <div class="rappel__bloc">
-          <span class="eyebrow">Adresse</span>
+          <span class="eyebrow" data-i18n="footer.adresse">Adresse</span>
           <p>20 rue Sanche de Pomiers<br>33000 Bordeaux</p>
         </div>
         <div class="rappel__bloc">
-          <span class="eyebrow">Une question ?</span>
-          <p><a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener">Écrivez-nous sur Instagram</a></p>
+          <span class="eyebrow" data-i18n="resa.question">Une question ?</span>
+          <p><a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" data-i18n="resa.instagram">Écrivez-nous sur Instagram</a></p>
         </div>
       </aside>
 
@@ -237,49 +249,50 @@
   </section>
 </main>
 
-<!-- ===== Footer ===== -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer__top">
       <div class="footer__brand">
         <svg width="129.54" height="36.1" role="img" aria-label="Bona"><use href="#i-bona"></use></svg>
-        <p>Brasserie bordelaise. Une cuisine exclusivement faite maison, halal, à partir de produits frais rigoureusement sélectionnés.</p>
+        <p data-i18n="footer.desc">Brasserie bordelaise. Une cuisine exclusivement faite maison, halal, à partir de produits frais rigoureusement sélectionnés.</p>
       </div>
 
       <div>
-        <h4>Adresse</h4>
+        <h4 data-i18n="footer.adresse">Adresse</h4>
         <address>
           20 rue Sanche de Pomiers<br>
           33000 Bordeaux, France
         </address>
         <ul style="margin-top:14px">
-          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=20+rue+Sanche+de+Pomiers+33000+Bordeaux" target="_blank" rel="noopener">Ouvrir dans Google Maps</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=20+rue+Sanche+de+Pomiers+33000+Bordeaux" target="_blank" rel="noopener" data-i18n="footer.maps">Ouvrir dans Google Maps</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Navigation</h4>
+        <h4 data-i18n="footer.navigation">Navigation</h4>
         <ul>
-          <li><a href="index.html#histoire">Notre histoire</a></li>
-          <li><a href="carte.html">La carte</a></li>
-          <li><a href="reservation.html">Réserver</a></li>
-          <li><a href="index.html#infos">Horaires &amp; accès</a></li>
+          <li><a href="index.html#histoire" data-i18n="footer.histoire">Notre histoire</a></li>
+          <li><a href="carte.html" data-i18n="nav.carte">La carte</a></li>
+          <li><a href="reservation.html" data-i18n="nav.reserver">Réserver</a></li>
+          <li><a href="carte.html#allergenes" data-i18n="footer.allergenes">Allergènes</a></li>
+          <li><a href="index.html#infos" data-i18n="footer.horaires">Horaires &amp; accès</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <span>© <span id="year">2026</span> Bona Brasserie — Bordeaux. Tous droits réservés.</span>
+      <span>© <span id="year">2026</span> <span data-i18n="footer.droits">Bona Brasserie — Bordeaux. Tous droits réservés.</span></span>
       <div class="socials">
         <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
         <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
         <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
-        <a href="https://g.page/r/CTl2bNih9Pk8EAE/review" target="_blank" rel="noopener" aria-label="Avis Google"><svg><use href="#i-google"></use></svg></a>
+        <a href="https://g.page/r/CTl2bNih9Pk8EAE/review" target="_blank" rel="noopener" aria-label="Google"><svg><use href="#i-google"></use></svg></a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/reservation.js" defer></script>
 </body>

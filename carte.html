@@ -4,17 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La carte — Bona, brasserie à Bordeaux</title>
-<meta name="description" content="La carte de Bona : entrées, plats, accompagnements à volonté, sauces, desserts et boissons maison. Cuisine 100% faite maison et halal, 20 rue Sanche de Pomiers à Bordeaux.">
+<meta name="description" content="La carte de Bona : entrées, plats, accompagnements, sauces, desserts et boissons maison. Cuisine 100% faite maison et halal, 20 rue Sanche de Pomiers à Bordeaux.">
 <link rel="canonical" href="https://bonabordeaux.fr/carte.html">
 <meta name="theme-color" content="#03203d">
+
+<link rel="alternate" hreflang="fr" href="https://bonabordeaux.fr/carte.html">
+<link rel="alternate" hreflang="en" href="https://bonabordeaux.fr/carte.html?lang=en">
+<link rel="alternate" hreflang="es" href="https://bonabordeaux.fr/carte.html?lang=es">
+<link rel="alternate" hreflang="de" href="https://bonabordeaux.fr/carte.html?lang=de">
+<link rel="alternate" hreflang="it" href="https://bonabordeaux.fr/carte.html?lang=it">
+<link rel="alternate" hreflang="x-default" href="https://bonabordeaux.fr/carte.html">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bona Brasserie">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="La carte — Bona, brasserie à Bordeaux">
-<meta property="og:description" content="Entrées, plats, accompagnements à volonté, desserts et boissons maison. 100% fait maison et halal.">
+<meta property="og:description" content="La carte de Bona : entrées, plats, accompagnements, sauces, desserts et boissons maison. Cuisine 100% faite maison et halal, 20 rue Sanche de Pomiers à Bordeaux.">
 <meta property="og:url" content="https://bonabordeaux.fr/carte.html">
-<meta property="og:image" content="https://bonabordeaux.fr/assets/img/tartine-boeuf.jpg">
+<meta property="og:image" content="https://bonabordeaux.fr/assets/img/brochettes.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
@@ -59,21 +66,26 @@
     <circle cx="12" cy="10.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/>
   </symbol>
 </svg>
-
-<!-- ===== Header ===== -->
 <header class="header" id="header">
   <div class="wrap wrap--wide header__inner">
     <a class="brand" href="index.html" aria-label="Bona — accueil">
       <svg width="129.54" height="36.1" role="img" aria-label="Bona"><use href="#i-bona"></use></svg>
-      <span class="brand__tag">Brasserie</span>
+      <span class="brand__tag" data-i18n="brand.tag">Brasserie</span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Navigation principale">
-      <a href="index.html#histoire">Histoire</a>
-      <a href="carte.html" class="is-active" aria-current="page">La carte</a>
-      <a href="index.html#galerie">Galerie</a>
-      <a href="reservation.html">Réserver</a>
-      <a href="index.html#infos">Nous trouver</a>
+      <a href="index.html#histoire" data-i18n="nav.histoire">Histoire</a>
+      <a href="carte.html" class="is-active" aria-current="page" data-i18n="nav.carte">La carte</a>
+      <a href="index.html#galerie" data-i18n="nav.galerie">Galerie</a>
+      <a href="reservation.html" data-i18n="nav.reserver">Réserver</a>
+      <a href="index.html#infos" data-i18n="nav.trouver">Nous trouver</a>
+      <div class="langues langues--mobile" role="group" aria-label="Choisir la langue" data-i18n-attr="aria-label:a11y.langue">
+        <button type="button" data-langue="fr">FR</button>
+        <button type="button" data-langue="en">EN</button>
+        <button type="button" data-langue="es">ES</button>
+        <button type="button" data-langue="de">DE</button>
+        <button type="button" data-langue="it">IT</button>
+      </div>
       <div class="nav__socials">
         <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
         <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
@@ -81,13 +93,23 @@
       </div>
     </nav>
 
-    <div class="header__socials">
-      <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
-      <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
-      <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
+    <div class="header__actions">
+      <div class="langues" role="group" aria-label="Choisir la langue" data-i18n-attr="aria-label:a11y.langue">
+        <button type="button" data-langue="fr">FR</button>
+        <button type="button" data-langue="en">EN</button>
+        <button type="button" data-langue="es">ES</button>
+        <button type="button" data-langue="de">DE</button>
+        <button type="button" data-langue="it">IT</button>
+      </div>
+      <div class="header__socials">
+        <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
+        <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
+        <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
+      </div>
     </div>
 
-    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"
+            data-i18n-attr="aria-label:a11y.menu">
       <span></span><span></span>
     </button>
   </div>
@@ -95,326 +117,380 @@
 
 <main>
 
-  <!-- ===== En-tête de page ===== -->
   <section class="page-hero">
     <div class="page-hero__media">
-      <img src="assets/img/tartine-boeuf.jpg" alt="Tartine de bœuf effiloché dressée sur une assiette longue" fetchpriority="high">
+      <img src="assets/img/brochettes.jpg" alt="Brochettes de viande dressées sur une assiette longue" fetchpriority="high">
     </div>
     <div class="wrap page-hero__inner">
-      <span class="eyebrow">Bona · Brasserie</span>
-      <h1 class="display">La carte</h1>
+      <span class="eyebrow" data-i18n="carte.eyebrow">Bona · Brasserie</span>
+      <h1 class="display" data-i18n="carte.h1">La carte</h1>
       <div class="rule"><i class="lozenge"></i></div>
-      <p>Une cuisine exclusivement faite maison, halal, à partir de produits frais rigoureusement sélectionnés.</p>
+      <p data-i18n="carte.sub">Une cuisine exclusivement faite maison, halal, à partir de produits frais rigoureusement sélectionnés.</p>
     </div>
   </section>
 
-  <!-- ===== Sommaire ===== -->
   <nav class="menu-nav" aria-label="Sommaire de la carte">
     <ul>
-      <li><a href="#entrees">Entrées</a></li>
-      <li><a href="#plats">Plats</a></li>
-      <li><a href="#accompagnements">Accompagnements</a></li>
-      <li><a href="#sauces">Sauces</a></li>
-      <li><a href="#desserts">Desserts</a></li>
-      <li><a href="#boissons">Boissons</a></li>
-      <li><a href="#allergenes">Allergènes</a></li>
+      <li><a href="#entrees" data-i18n="carte.nav.entrees">Entrées</a></li>
+      <li><a href="#plats" data-i18n="carte.nav.plats">Plats</a></li>
+      <li><a href="#accompagnements" data-i18n="carte.nav.accomp">Accompagnements</a></li>
+      <li><a href="#sauces" data-i18n="carte.nav.sauces">Sauces</a></li>
+      <li><a href="#desserts" data-i18n="carte.nav.desserts">Desserts</a></li>
+      <li><a href="#boissons" data-i18n="carte.nav.boissons">Boissons</a></li>
+      <li><a href="#allergenes" data-i18n="carte.nav.allerg">Allergènes</a></li>
     </ul>
   </nav>
 
   <section class="section">
     <div class="wrap">
 
-      <!-- Entrées -->
       <div class="course" id="entrees">
         <div class="course__head reveal">
-          <h2 class="display">Entrée</h2>
-          <p>Pour ouvrir le service</p>
+          <h2 class="display" data-i18n="carte.entrees.title">Entrées</h2>
+          <p data-i18n="carte.entrees.note">À partager ou pour soi</p>
         </div>
         <div class="frame reveal">
           <i class="frame__dot frame__dot--tl"></i><i class="frame__dot frame__dot--tr"></i>
           <i class="frame__dot frame__dot--bl"></i><i class="frame__dot frame__dot--br"></i>
           <div class="dishes">
             <article class="dish-row">
-              <h3>Tartines</h3><span class="price">8 €</span>
-              <p class="desc">Pain toasteur (Boulangerie Cérès), cœur de burrata fumé, sauce persillée, parmesan, bœuf effiloché cuit 7 h.</p>
-              <div class="tags"><span class="tag">Gluten</span><span class="tag">Lait</span></div>
+              <h3 data-i18n="d.tartines.n">Tartines</h3>
+              <span class="price">10 €</span>
+              <p class="desc" data-i18n="d.tartines.d">Pain toasteur (Boulangerie Cérès), cœur de burrata fumé, sauce persillée, parmesan, bœuf effiloché cuit 7 h.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.gluten">Gluten</span><span class="tag" data-i18n="tag.lait">Lait</span></div>
             </article>
             <article class="dish-row">
-              <h3>Salade de burrata</h3><span class="price">13 €</span>
-              <p class="desc">Burrata 250 g, salade, tomates cerises, croûton, parmesan, sauce persillée et vinaigrette maison.</p>
-              <div class="tags"><span class="tag">Gluten</span><span class="tag">Lait</span></div>
+              <h3 data-i18n="d.bouchees.n">Bouchées Bona × 3</h3>
+              <span class="price">8 €</span>
+              <p class="desc" data-i18n="d.bouchees.d">Cœur de burrata sur tartines : une au légume, une au bœuf effiloché, une au saumon fumé.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.gluten">Gluten</span><span class="tag" data-i18n="tag.lait">Lait</span><span class="tag" data-i18n="tag.poisson">Poisson</span></div>
             </article>
             <article class="dish-row">
-              <h3>Brochettes de viande</h3><span class="price">5 €</span>
-              <p class="desc">2 × poulet mariné ou 2 × mouton mariné.</p>
-              <div class="tags"><span class="tag">Sans allergène</span></div>
+              <h3 data-i18n="d.saladeburrata.n">Salade de burrata</h3>
+              <span class="price">12 €</span>
+              <p class="desc" data-i18n="d.saladeburrata.d">Burrata 100 g, salade, tomates cerises, croûton, parmesan, sauce persillée et vinaigrette maison.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.gluten">Gluten</span><span class="tag" data-i18n="tag.lait">Lait</span></div>
+            </article>
+            <article class="dish-row">
+              <h3 data-i18n="d.brochettes.n">Brochettes de viande</h3>
+              <span class="price">6 €</span>
+              <p class="desc" data-i18n="d.brochettes.d">3 × poulet mariné.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
             </article>
           </div>
         </div>
       </div>
 
-      <!-- Plats -->
       <div class="course" id="plats">
         <div class="course__head reveal">
-          <h2 class="display">Plats</h2>
-          <p>Le cœur de la maison</p>
+          <h2 class="display" data-i18n="carte.plats.title">Plats</h2>
+          <p data-i18n="carte.plats.note">Le cœur de la maison</p>
         </div>
         <div class="formula reveal">
-          <span class="display">Servis à volonté</span>
-          <p>Chaque plat est accompagné d’une <strong>salade</strong> et d’un <strong>accompagnement au choix, à volonté</strong>.</p>
+          <span class="display" data-i18n="carte.formule.title">Salade et accompagnement inclus</span>
+          <p data-i18n-html="carte.formule.text">Chaque plat est accompagné d’une <strong>salade</strong> et d’un <strong>accompagnement au choix</strong>. Accompagnement supplémentaire : <strong>+ 3 €</strong>.</p>
         </div>
         <div class="frame reveal">
           <i class="frame__dot frame__dot--tl"></i><i class="frame__dot frame__dot--tr"></i>
           <i class="frame__dot frame__dot--bl"></i><i class="frame__dot frame__dot--br"></i>
           <div class="dishes">
             <article class="dish-row">
-              <h3>Ailes de poulet</h3><span class="price">15 €</span>
-              <p class="desc">4 pièces marinées persillées.</p>
-              <div class="tags"><span class="tag">Sans allergène</span></div>
+              <h3 data-i18n="d.ailes.n">Ailes de poulet</h3>
+              <span class="price">15 €</span>
+              <p class="desc" data-i18n="d.ailes.d">4 pièces marinées persillées.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
             </article>
             <article class="dish-row">
-              <h3>Pavé de saumon</h3><span class="price">20 €</span>
-              <p class="desc">200 g snacké à la plancha, accompagné de sauce chien, arrosé de jus de citron, ail et thym frais, fleur de sel.</p>
-              <div class="tags"><span class="tag">Poisson</span></div>
+              <h3 data-i18n="d.burratplat.n">Salade de burrata</h3>
+              <span class="price">15 €</span>
+              <p class="desc" data-i18n="d.burratplat.d">Burrata 250 g, accompagnée de légumes ou de saumon fumé. Végétarien avec les légumes.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.vegetarien">Végétarien</span><span class="tag" data-i18n="tag.lait">Lait</span><span class="tag" data-i18n="tag.poisson">Poisson</span></div>
             </article>
             <article class="dish-row">
-              <h3>Faux-filet</h3><span class="price">25 €</span>
-              <p class="desc">400 g – 500 g parfumé au thym et à l’ail, sublimé de fleur de sel et poivre noir.</p>
-              <div class="tags"><span class="tag">Sans allergène</span></div>
+              <h3 data-i18n="d.saumon.n">Pavé de saumon</h3>
+              <span class="price">20 €</span>
+              <p class="desc" data-i18n="d.saumon.d">200 g snacké à la plancha, accompagné de sauce chien, arrosé de jus de citron, ail et thym frais, fleur de sel.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.poisson">Poisson</span></div>
             </article>
             <article class="dish-row">
-              <h3>Magret entier</h3><span class="price">25 €</span>
-              <p class="desc">400 g – 500 g cuit à la plancha, laqué au miel &amp; thym frais, fleur de sel et poivre noir moulu.</p>
-              <div class="tags"><span class="tag">Sans allergène</span></div>
+              <h3 data-i18n="d.fauxfilet.n">Faux-filet 300 g</h3>
+              <span class="price">20 €</span>
+              <p class="desc" data-i18n="d.fauxfilet.d">Parfumé au thym et à l’ail, sublimé de fleur de sel et poivre noir.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
             </article>
             <article class="dish-row">
-              <h3>Côtelettes d’agneau</h3><span class="price">20 €</span>
-              <p class="desc">3 pièces marinées 72 h, secret du chef.</p>
-              <div class="tags"><span class="tag">Sans allergène</span></div>
+              <h3 data-i18n="d.entrecote.n">Entrecôte grillée 400 g</h3>
+              <span class="price">25 €</span>
+              <p class="desc" data-i18n="d.entrecote.d">Grillée à la braise, thym et ail, fleur de sel et poivre noir moulu.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
             </article>
             <article class="dish-row">
-              <h3>Meule de parmesan</h3><span class="price">25 €</span>
-              <p class="desc">Crème de truffes, noix aromatisée à la truffe.</p>
-              <div class="tags"><span class="tag">Lait</span><span class="tag">Fruits à coque</span></div>
+              <h3 data-i18n="d.magret.n">Magret entier</h3>
+              <span class="price">25 €</span>
+              <p class="desc" data-i18n="d.magret.d">400 g – 500 g cuit à la plancha, laqué au miel & thym frais, fleur de sel et poivre noir moulu.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
+            </article>
+            <article class="dish-row">
+              <h3 data-i18n="d.cotelettes.n">Côtelettes d’agneau</h3>
+              <span class="price">20 €</span>
+              <p class="desc" data-i18n="d.cotelettes.d">3 pièces marinées, secret du chef.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
+            </article>
+            <article class="dish-row">
+              <h3 data-i18n="d.cotebœuf.n">Côte de bœuf à partager 1 kg</h3>
+              <span class="price">50 €</span>
+              <p class="desc" data-i18n="d.cotebœuf.d">Pour deux, grillée à la braise, thym et ail, fleur de sel et poivre noir.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
             </article>
           </div>
         </div>
       </div>
 
-      <!-- Accompagnements -->
       <div class="course" id="accompagnements">
         <div class="course__head reveal">
-          <h2 class="display">Accompagnements</h2>
-          <p>Au choix, à volonté</p>
+          <h2 class="display" data-i18n="carte.accomp.title">Accompagnements</h2>
+          <p data-i18n="carte.accomp.note">Un accompagnement inclus par plat</p>
         </div>
         <div class="frame reveal">
           <i class="frame__dot frame__dot--tl"></i><i class="frame__dot frame__dot--tr"></i>
           <i class="frame__dot frame__dot--bl"></i><i class="frame__dot frame__dot--br"></i>
           <div class="dishes">
             <article class="dish-row">
-              <h3>Riz sauce forestière</h3><span class="price">Inclus</span>
-              <p class="desc">Riz parfumé à la crème de thym et poêlée de champignons bruns à l’ail.</p>
-              <div class="tags"><span class="tag">Lait</span></div>
+              <h3 data-i18n="d.riz.n">Riz sauce forestière</h3>
+              <span class="price" data-i18n="prix.inclus">Inclus</span>
+              <p class="desc" data-i18n="d.riz.d">Riz parfumé à la crème de thym et poêlée de champignons bruns à l’ail.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.lait">Lait</span></div>
             </article>
             <article class="dish-row">
-              <h3>Haricots rouges</h3><span class="price">Inclus</span>
-              <p class="desc">Cassonade de haricots rouges confits à la tomate et aux oignons.</p>
-              <div class="tags"><span class="tag">Sans allergène</span></div>
+              <h3 data-i18n="d.haricots.n">Haricots rouges</h3>
+              <span class="price" data-i18n="prix.inclus">Inclus</span>
+              <p class="desc" data-i18n="d.haricots.d">Cassonade de haricots rouges confits à la tomate et aux oignons.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
             </article>
             <article class="dish-row">
-              <h3>Poêlée de légumes</h3><span class="price">Inclus</span>
-              <p class="desc">Déclinaison de légumes croquants : poivrons, oignons rouges, brocolis, choux et poireaux.</p>
-              <div class="tags"><span class="tag">Sans allergène</span></div>
+              <h3 data-i18n="d.legumes.n">Poêlée de légumes</h3>
+              <span class="price" data-i18n="prix.inclus">Inclus</span>
+              <p class="desc" data-i18n="d.legumes.d">Déclinaison de légumes croquants : poivrons, oignons rouges, brocolis, choux et poireaux.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
             </article>
             <article class="dish-row">
-              <h3>Pommes de terre grenailles</h3><span class="price">Inclus</span>
-              <p class="desc">Rôties au four, relevées d’une persillade maison à la fleur de sel.</p>
-              <div class="tags"><span class="tag">Sans allergène</span></div>
+              <h3 data-i18n="d.grenailles.n">Pommes de terre grenailles</h3>
+              <span class="price" data-i18n="prix.inclus">Inclus</span>
+              <p class="desc" data-i18n="d.grenailles.d">Rôties au four, relevées d’une persillade maison à la fleur de sel.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
             </article>
             <article class="dish-row">
-              <h3>Pâtes fraîches</h3><span class="price">Inclus</span>
-              <p class="desc">Pâtes fraîches de tradition, sublimées par notre sauce du moment selon l’arrivage du jour.</p>
-              <div class="tags"><span class="tag">Gluten</span><span class="tag">Œufs</span></div>
+              <h3 data-i18n="d.pates.n">Pâtes fraîches</h3>
+              <span class="price" data-i18n="prix.inclus">Inclus</span>
+              <p class="desc" data-i18n="d.pates.d">Pâtes fraîches de tradition, sublimées par notre sauce du moment selon l’arrivage du jour.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.gluten">Gluten</span><span class="tag" data-i18n="tag.oeufs">Œufs</span></div>
             </article>
           </div>
+          <p class="notice" data-i18n="carte.accomp.extra">Accompagnement supplémentaire : + 3 €</p>
         </div>
       </div>
 
-      <!-- Sauces -->
       <div class="course" id="sauces">
         <div class="course__head reveal">
-          <h2 class="display">Sauces de viande</h2>
-          <p>Trois signatures maison</p>
+          <h2 class="display" data-i18n="carte.sauces.title">Sauces de viande</h2>
+          <p data-i18n="carte.sauces.note">À volonté</p>
         </div>
         <div class="frame reveal">
           <i class="frame__dot frame__dot--tl"></i><i class="frame__dot frame__dot--tr"></i>
           <i class="frame__dot frame__dot--bl"></i><i class="frame__dot frame__dot--br"></i>
           <div class="dishes">
-            <article class="dish-row"><h3>Sauce verte</h3><span class="price">Inclus</span><div class="tags"><span class="tag">Sans allergène</span></div></article>
-            <article class="dish-row"><h3>Sauce poivre</h3><span class="price">Inclus</span><div class="tags"><span class="tag">Lait</span></div></article>
-            <article class="dish-row"><h3>Sauce chien</h3><span class="price">Inclus</span><div class="tags"><span class="tag">Sans allergène</span></div></article>
+            <article class="dish-row">
+              <h3 data-i18n="d.sverte.n">Sauce verte</h3>
+              <span class="price" data-i18n="prix.inclus">Inclus</span>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
+            </article>
+            <article class="dish-row">
+              <h3 data-i18n="d.spoivre.n">Sauce poivre</h3>
+              <span class="price" data-i18n="prix.inclus">Inclus</span>
+              <div class="tags"><span class="tag" data-i18n="tag.lait">Lait</span></div>
+            </article>
+            <article class="dish-row">
+              <h3 data-i18n="d.schien.n">Sauce chien</h3>
+              <span class="price" data-i18n="prix.inclus">Inclus</span>
+              <div class="tags"><span class="tag" data-i18n="tag.aucun">Sans allergène</span></div>
+            </article>
           </div>
         </div>
       </div>
 
-      <!-- Desserts -->
       <div class="course" id="desserts">
         <div class="course__head reveal">
-          <h2 class="display">Desserts</h2>
-          <p>Selon l’arrivage</p>
+          <h2 class="display" data-i18n="carte.desserts.title">Desserts</h2>
+          <p data-i18n="carte.desserts.note">Selon l’arrivage</p>
         </div>
         <div class="frame reveal">
           <i class="frame__dot frame__dot--tl"></i><i class="frame__dot frame__dot--tr"></i>
           <i class="frame__dot frame__dot--bl"></i><i class="frame__dot frame__dot--br"></i>
           <div class="dishes">
             <article class="dish-row">
-              <h3>Tartelette</h3><span class="price">5 €</span>
-              <p class="desc">Selon arrivage.</p>
-              <div class="tags"><span class="tag">Gluten</span><span class="tag">Œufs</span><span class="tag">Lait</span></div>
+              <h3 data-i18n="d.tartelette.n">Tartelette</h3>
+              <span class="price">5 €</span>
+              <p class="desc" data-i18n="d.tartelette.d">Selon arrivage.</p>
+              <div class="tags"><span class="tag" data-i18n="tag.gluten">Gluten</span><span class="tag" data-i18n="tag.oeufs">Œufs</span><span class="tag" data-i18n="tag.lait">Lait</span></div>
             </article>
             <article class="dish-row">
-              <h3>Dessert du moment</h3><span class="price">Nous consulter</span>
-              <p class="desc">Demandez au serveur : la création change au fil des arrivages.</p>
+              <h3 data-i18n="d.dessertmoment.n">Dessert du moment</h3>
+              <span class="price" data-i18n="prix.consulter">Nous consulter</span>
+              <p class="desc" data-i18n="d.dessertmoment.d">Demandez au serveur : la création change au fil des arrivages.</p>
             </article>
           </div>
         </div>
       </div>
 
-      <!-- Boissons -->
       <div class="course" id="boissons">
         <div class="course__head reveal">
-          <h2 class="display">Boissons</h2>
-          <p>Sans alcool · Maison</p>
+          <h2 class="display" data-i18n="carte.boissons.title">Boissons</h2>
+          <p data-i18n="carte.boissons.note">Sans alcool · Maison</p>
         </div>
         <div class="frame reveal">
           <i class="frame__dot frame__dot--tl"></i><i class="frame__dot frame__dot--tr"></i>
           <i class="frame__dot frame__dot--bl"></i><i class="frame__dot frame__dot--br"></i>
           <div class="dishes">
             <article class="dish-row">
-              <h3>Bissap</h3><span class="price">6 €</span>
-              <p class="desc">Inspiration d’Afrique de l’Ouest aux fleurs d’hibiscus infusées, subtilement sucrée et parfumée à la menthe.</p>
+              <h3 data-i18n="d.gingembre.n">Gingembre</h3>
+              <span class="price">6 €</span>
+              <p class="desc" data-i18n="d.gingembre.d">Boisson intense et tonifiante au pur jus de gingembre frais, relevée d’une note de citron vert.</p>
             </article>
             <article class="dish-row">
-              <h3>Gingembre</h3><span class="price">6 €</span>
-              <p class="desc">Boisson intense et tonifiante au pur jus de gingembre frais, relevée d’une note de citron vert.</p>
+              <h3 data-i18n="d.bonba.n">Bonba</h3>
+              <span class="price">6 €</span>
+              <p class="desc" data-i18n="d.bonba.d">Sans alcool : mélange original de pêche, de fruits rouges et d’une pointe de citron.</p>
             </article>
             <article class="dish-row">
-              <h3>Bibite Bona</h3><span class="price">6 €</span>
-              <p class="desc">Mandarinata : mandarine verte et lime · Arancia rossa : jus d’orange sanguine · Lemon bitter : jus de citron.</p>
+              <h3 data-i18n="d.bibite.n">Bibite Bona</h3>
+              <span class="price">6 €</span>
+              <p class="desc" data-i18n="d.bibite.d">Mandarinata : mandarine verte et lime · Arancia rossa : jus d’orange sanguine · Lemon bitter : jus de citron.</p>
             </article>
             <article class="dish-row">
-              <h3>Virgin piña colada</h3><span class="price">4 €</span>
-              <p class="desc">Un classique exotique et crémeux mariant la douceur de la noix de coco et la fraîcheur de l’ananas.</p>
+              <h3 data-i18n="d.pinacolada.n">Virgin piña colada</h3>
+              <span class="price">4 €</span>
+              <p class="desc" data-i18n="d.pinacolada.d">Un classique exotique et crémeux mariant la douceur de la noix de coco et la fraîcheur de l’ananas.</p>
             </article>
             <article class="dish-row">
-              <h3>Virgin mojito</h3><span class="price">4 €</span>
-              <p class="desc">L’incontournable fraîcheur : menthe fraîche pilée, morceaux de citron vert et eau pétillante.</p>
+              <h3 data-i18n="d.fraiseananas.n">Virgin cocktail fraise ananas</h3>
+              <span class="price">4 €</span>
+              <p class="desc" data-i18n="d.fraiseananas.d">Fraise et ananas, sans alcool, frais et acidulé.</p>
             </article>
             <article class="dish-row">
-              <h3>Softs</h3><span class="price">3 €</span>
-              <p class="desc">Coca, Fanta.</p>
+              <h3 data-i18n="d.tropical.n">Virgin cocktail tropical</h3>
+              <span class="price">4 €</span>
+              <p class="desc" data-i18n="d.tropical.d">Mangue, fruit de la passion et citron, sans alcool.</p>
+            </article>
+            <article class="dish-row">
+              <h3 data-i18n="d.softs.n">Softs</h3>
+              <span class="price">2 €</span>
+              <p class="desc" data-i18n="d.softs.d">Coca, Fanta.</p>
             </article>
           </div>
         </div>
       </div>
 
-      <!-- Allergènes -->
       <div class="course" id="allergenes">
         <div class="course__head reveal">
-          <h2 class="display">Allergènes</h2>
-          <p>Allergens</p>
+          <h2 class="display" data-i18n="carte.allerg.title">Allergènes</h2>
         </div>
         <div class="frame reveal">
           <i class="frame__dot frame__dot--tl"></i><i class="frame__dot frame__dot--tr"></i>
           <i class="frame__dot frame__dot--bl"></i><i class="frame__dot frame__dot--br"></i>
           <div class="table-scroll">
             <table class="allergens">
-              <caption>Liste des allergènes présents dans nos préparations.</caption>
+              <caption data-i18n="allerg.caption">Liste des allergènes présents dans nos préparations.</caption>
               <thead>
-                <tr><th scope="col">Plat</th><th scope="col">Allergènes</th><th scope="col">Allergens (EN)</th></tr>
+                <tr>
+                  <th scope="col" data-i18n="allerg.plat">Plat</th>
+                  <th scope="col" data-i18n="allerg.liste">Allergènes</th>
+                </tr>
               </thead>
               <tbody>
-                <tr><td>Tartines</td><td>Gluten, Lait</td><td>Gluten, Dairy</td></tr>
-                <tr><td>Salade de burrata</td><td>Gluten, Lait</td><td>Gluten, Dairy</td></tr>
-                <tr><td>Brochettes de viande</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Ailes de poulet</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Pavé de saumon</td><td>Poisson</td><td>Fish</td></tr>
-                <tr><td>Faux-filet</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Magret entier</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Côtelettes d’agneau</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Meule de parmesan</td><td>Lait, Fruits à coque</td><td>Dairy, Nuts</td></tr>
-                <tr><td>Riz sauce forestière</td><td>Lait</td><td>Dairy</td></tr>
-                <tr><td>Haricots rouges</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Poêlée de légumes</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Pommes de terre grenailles</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Pâtes fraîches</td><td>Gluten, Œufs</td><td>Gluten, Eggs</td></tr>
-                <tr><td>Sauce verte</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Sauce poivre</td><td>Lait</td><td>Dairy</td></tr>
-                <tr><td>Sauce chien</td><td>Aucun</td><td>None</td></tr>
-                <tr><td>Tiramisu cuillère</td><td>Gluten, Œufs, Lait</td><td>Gluten, Eggs, Dairy</td></tr>
-                <tr><td>Tartelette</td><td>Gluten, Œufs, Lait</td><td>Gluten, Eggs, Dairy</td></tr>
-                <tr><td>Dessert du moment</td><td>Selon arrivage</td><td>Depending on availability</td></tr>
+                <tr><td data-i18n="d.tartines.n">Tartines</td><td><span data-i18n="tag.gluten">Gluten</span>, <span data-i18n="tag.lait">Lait</span></td></tr>
+                <tr><td data-i18n="d.bouchees.n">Bouchées Bona × 3</td><td><span data-i18n="tag.gluten">Gluten</span>, <span data-i18n="tag.lait">Lait</span>, <span data-i18n="tag.poisson">Poisson</span></td></tr>
+                <tr><td data-i18n="allerg.burrataE">Salade de burrata (entrée)</td><td><span data-i18n="tag.gluten">Gluten</span>, <span data-i18n="tag.lait">Lait</span></td></tr>
+                <tr><td data-i18n="d.brochettes.n">Brochettes de viande</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.ailes.n">Ailes de poulet</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="allerg.burrataP">Salade de burrata (plat)</td><td><span data-i18n="tag.lait">Lait</span>, <span data-i18n="tag.poisson">Poisson</span></td></tr>
+                <tr><td data-i18n="d.saumon.n">Pavé de saumon</td><td><span data-i18n="tag.poisson">Poisson</span></td></tr>
+                <tr><td data-i18n="d.fauxfilet.n">Faux-filet 300 g</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.entrecote.n">Entrecôte grillée 400 g</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.magret.n">Magret entier</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.cotelettes.n">Côtelettes d’agneau</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.cotebœuf.n">Côte de bœuf à partager 1 kg</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.riz.n">Riz sauce forestière</td><td><span data-i18n="tag.lait">Lait</span></td></tr>
+                <tr><td data-i18n="d.haricots.n">Haricots rouges</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.legumes.n">Poêlée de légumes</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.grenailles.n">Pommes de terre grenailles</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.pates.n">Pâtes fraîches</td><td><span data-i18n="tag.gluten">Gluten</span>, <span data-i18n="tag.oeufs">Œufs</span></td></tr>
+                <tr><td data-i18n="d.sverte.n">Sauce verte</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="d.spoivre.n">Sauce poivre</td><td><span data-i18n="tag.lait">Lait</span></td></tr>
+                <tr><td data-i18n="d.schien.n">Sauce chien</td><td><span data-i18n="allerg.aucun">Aucun</span></td></tr>
+                <tr><td data-i18n="allerg.tiramisu">Tiramisu cuillère</td><td><span data-i18n="tag.gluten">Gluten</span>, <span data-i18n="tag.oeufs">Œufs</span>, <span data-i18n="tag.lait">Lait</span></td></tr>
+                <tr><td data-i18n="d.tartelette.n">Tartelette</td><td><span data-i18n="tag.gluten">Gluten</span>, <span data-i18n="tag.oeufs">Œufs</span>, <span data-i18n="tag.lait">Lait</span></td></tr>
+                <tr><td data-i18n="d.dessertmoment.n">Dessert du moment</td><td><span data-i18n="allerg.selon">Selon arrivage</span></td></tr>
               </tbody>
             </table>
           </div>
-
-          <p class="notice">Nos créations étant confectionnées à partir de produits frais et bruts, notre cuisine manipule quotidiennement du gluten et des produits laitiers. Pour toute allergie sévère, merci d’en informer notre équipe avant votre commande.</p>
-          <p class="notice"><strong>EN —</strong> As our dishes are handmade using fresh and raw ingredients, our kitchen handles gluten and dairy daily. In case of severe allergies, please inform our team before placing your order.</p>
+          <p class="notice" data-i18n="allerg.notice">Nos créations étant confectionnées à partir de produits frais et bruts, notre cuisine manipule quotidiennement du gluten et des produits laitiers. Pour toute allergie sévère, merci d’en informer notre équipe avant votre commande.</p>
         </div>
       </div>
 
       <div class="section-head reveal" style="margin: clamp(48px,7vw,84px) 0 0">
-        <a class="btn btn--solid" href="index.html#infos">Horaires &amp; accès <svg><use href="#i-arrow"></use></svg></a>
+        <a class="btn btn--solid" href="index.html#infos">
+          <span data-i18n="carte.cta">Horaires &amp; accès</span> <svg><use href="#i-arrow"></use></svg>
+        </a>
       </div>
 
     </div>
   </section>
 </main>
 
-<!-- ===== Footer ===== -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer__top">
       <div class="footer__brand">
         <svg width="129.54" height="36.1" role="img" aria-label="Bona"><use href="#i-bona"></use></svg>
-        <p>Brasserie bordelaise. Une cuisine exclusivement faite maison, halal, à partir de produits frais rigoureusement sélectionnés.</p>
+        <p data-i18n="footer.desc">Brasserie bordelaise. Une cuisine exclusivement faite maison, halal, à partir de produits frais rigoureusement sélectionnés.</p>
       </div>
 
       <div>
-        <h4>Adresse</h4>
+        <h4 data-i18n="footer.adresse">Adresse</h4>
         <address>
           20 rue Sanche de Pomiers<br>
           33000 Bordeaux, France
         </address>
         <ul style="margin-top:14px">
-          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=20+rue+Sanche+de+Pomiers+33000+Bordeaux" target="_blank" rel="noopener">Ouvrir dans Google Maps</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=20+rue+Sanche+de+Pomiers+33000+Bordeaux" target="_blank" rel="noopener" data-i18n="footer.maps">Ouvrir dans Google Maps</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Navigation</h4>
+        <h4 data-i18n="footer.navigation">Navigation</h4>
         <ul>
-          <li><a href="index.html#histoire">Notre histoire</a></li>
-          <li><a href="carte.html">La carte</a></li>
-          <li><a href="reservation.html">Réserver</a></li>
-          <li><a href="#allergenes">Allergènes</a></li>
-          <li><a href="index.html#infos">Horaires &amp; accès</a></li>
+          <li><a href="index.html#histoire" data-i18n="footer.histoire">Notre histoire</a></li>
+          <li><a href="carte.html" data-i18n="nav.carte">La carte</a></li>
+          <li><a href="reservation.html" data-i18n="nav.reserver">Réserver</a></li>
+          <li><a href="carte.html#allergenes" data-i18n="footer.allergenes">Allergènes</a></li>
+          <li><a href="index.html#infos" data-i18n="footer.horaires">Horaires &amp; accès</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <span>© <span id="year">2026</span> Bona Brasserie — Bordeaux. Tous droits réservés.</span>
+      <span>© <span id="year">2026</span> <span data-i18n="footer.droits">Bona Brasserie — Bordeaux. Tous droits réservés.</span></span>
       <div class="socials">
         <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
         <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
         <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
-        <a href="https://g.page/r/CTl2bNih9Pk8EAE/review" target="_blank" rel="noopener" aria-label="Avis Google"><svg><use href="#i-google"></use></svg></a>
+        <a href="https://g.page/r/CTl2bNih9Pk8EAE/review" target="_blank" rel="noopener" aria-label="Google"><svg><use href="#i-google"></use></svg></a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

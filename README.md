@@ -11,6 +11,7 @@ sitemap.xml
 apps-script/        Backend des réservations (Google Apps Script) + sa notice
 assets/css/style.css
 assets/js/main.js
+assets/js/i18n.js       Traductions (fr, en, es, de, it) + moteur
 assets/js/reservation.js
 assets/img/         Photos (issues des visuels fournis)
 assets/img/map/     9 tuiles OpenStreetMap servies en local (plan statique, sans iframe)
@@ -44,6 +45,29 @@ Google Sheet, qui sert aussi à masquer les créneaux déjà pris.
 
 👉 **Le formulaire n'enverra rien tant que l'étape de branchement n'est pas faite :
 voir [`apps-script/README.md`](apps-script/README.md)** (~20 min, une seule fois).
+
+## Langues
+
+Le site est en **français, anglais, espagnol, allemand et italien**. Le sélecteur est dans
+l'en-tête (dans le menu burger sur mobile).
+
+Le HTML est écrit en français : c'est ce que voient les moteurs de recherche et ce qui
+s'affiche si le JavaScript ne s'exécute pas. Les autres langues sont appliquées par
+`assets/js/i18n.js` sur les éléments marqués :
+
+| Attribut | Effet |
+|---|---|
+| `data-i18n="cle"` | remplace le texte |
+| `data-i18n-html="cle"` | remplace le contenu HTML (`<br>`, `<em>`, `<strong>`) |
+| `data-i18n-attr="placeholder:cle"` | remplace un attribut |
+
+La langue est choisie dans cet ordre : paramètre `?lang=en`, puis dernier choix mémorisé,
+puis langue du navigateur, sinon français. Les jours et les dates du formulaire sont
+formatés par `Intl`, donc traduits automatiquement.
+
+**Pour modifier un texte**, cherchez sa clé dans `assets/js/i18n.js` : les cinq traductions
+sont sur la même ligne, dans l'ordre `fr, en, es, de, it`. Pensez à corriger aussi le
+texte français dans le HTML, qui sert de repli.
 
 ## Charte
 

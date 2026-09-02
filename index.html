@@ -8,13 +8,20 @@
 <link rel="canonical" href="https://bonabordeaux.fr/">
 <meta name="theme-color" content="#03203d">
 
+<link rel="alternate" hreflang="fr" href="https://bonabordeaux.fr/">
+<link rel="alternate" hreflang="en" href="https://bonabordeaux.fr/?lang=en">
+<link rel="alternate" hreflang="es" href="https://bonabordeaux.fr/?lang=es">
+<link rel="alternate" hreflang="de" href="https://bonabordeaux.fr/?lang=de">
+<link rel="alternate" hreflang="it" href="https://bonabordeaux.fr/?lang=it">
+<link rel="alternate" hreflang="x-default" href="https://bonabordeaux.fr/">
+
 <meta property="og:type" content="restaurant">
 <meta property="og:site_name" content="Bona Brasserie">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="Bona — Brasserie à Bordeaux">
 <meta property="og:description" content="Une cuisine 100% faite maison et halal, à partir de produits frais rigoureusement sélectionnés. 20 rue Sanche de Pomiers, Bordeaux.">
 <meta property="og:url" content="https://bonabordeaux.fr/">
-<meta property="og:image" content="https://bonabordeaux.fr/assets/img/faux-filet.jpg">
+<meta property="og:image" content="https://bonabordeaux.fr/assets/img/entrecote.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
@@ -33,10 +40,10 @@
   "name": "Bona",
   "alternateName": "Bona Brasserie",
   "url": "https://bonabordeaux.fr/",
-  "image": "https://bonabordeaux.fr/assets/img/faux-filet.jpg",
-  "description": "Brasserie à Bordeaux. Cuisine 100% faite maison et halal, à partir de produits frais rigoureusement sélectionnés.",
+  "image": "https://bonabordeaux.fr/assets/img/entrecote.jpg",
+  "description": "Brasserie à Bordeaux. Cuisine faite maison et halal, à partir de produits frais rigoureusement sélectionnés.",
   "servesCuisine": ["Brasserie", "Française", "Halal"],
-  "priceRange": "€€",
+  "priceRange": "\u20ac\u20ac",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "20 rue Sanche de Pomiers",
@@ -46,6 +53,7 @@
   },
   "geo": { "@type": "GeoCoordinates", "latitude": 44.831986, "longitude": -0.5683323 },
   "hasMenu": "https://bonabordeaux.fr/carte.html",
+  "acceptsReservations": "https://bonabordeaux.fr/reservation.html",
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Friday", "Saturday", "Sunday"],
@@ -94,20 +102,26 @@
   </symbol>
 </svg>
 
-<!-- ===== Header ===== -->
 <header class="header" id="header">
   <div class="wrap wrap--wide header__inner">
     <a class="brand" href="index.html" aria-label="Bona — accueil">
       <svg width="129.54" height="36.1" role="img" aria-label="Bona"><use href="#i-bona"></use></svg>
-      <span class="brand__tag">Brasserie</span>
+      <span class="brand__tag" data-i18n="brand.tag">Brasserie</span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Navigation principale">
-      <a href="#histoire">Histoire</a>
-      <a href="carte.html">La carte</a>
-      <a href="#galerie">Galerie</a>
-      <a href="reservation.html">Réserver</a>
-      <a href="#infos">Nous trouver</a>
+      <a href="#histoire" class="is-active" aria-current="page" data-i18n="nav.histoire">Histoire</a>
+      <a href="carte.html" data-i18n="nav.carte">La carte</a>
+      <a href="#galerie" class="is-active" aria-current="page" data-i18n="nav.galerie">Galerie</a>
+      <a href="reservation.html" data-i18n="nav.reserver">Réserver</a>
+      <a href="#infos" class="is-active" aria-current="page" data-i18n="nav.trouver">Nous trouver</a>
+      <div class="langues langues--mobile" role="group" aria-label="Choisir la langue" data-i18n-attr="aria-label:a11y.langue">
+        <button type="button" data-langue="fr">FR</button>
+        <button type="button" data-langue="en">EN</button>
+        <button type="button" data-langue="es">ES</button>
+        <button type="button" data-langue="de">DE</button>
+        <button type="button" data-langue="it">IT</button>
+      </div>
       <div class="nav__socials">
         <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
         <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
@@ -115,56 +129,68 @@
       </div>
     </nav>
 
-    <div class="header__socials">
-      <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
-      <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
-      <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
+    <div class="header__actions">
+      <div class="langues" role="group" aria-label="Choisir la langue" data-i18n-attr="aria-label:a11y.langue">
+        <button type="button" data-langue="fr">FR</button>
+        <button type="button" data-langue="en">EN</button>
+        <button type="button" data-langue="es">ES</button>
+        <button type="button" data-langue="de">DE</button>
+        <button type="button" data-langue="it">IT</button>
+      </div>
+      <div class="header__socials">
+        <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
+        <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
+        <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
+      </div>
     </div>
 
-    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"
+            data-i18n-attr="aria-label:a11y.menu">
       <span></span><span></span>
     </button>
   </div>
 </header>
-
 <main>
 
   <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero__media">
-      <img src="assets/img/carte-velours.jpg" alt="La carte de Bona présentée devant un rideau de velours bleu nuit" fetchpriority="high">
+      <img src="assets/img/entrecote.jpg" alt="Entrecôte grillée accompagnée de pommes grenailles"
+           data-i18n-attr="alt:home.hero.alt" fetchpriority="high">
     </div>
     <div class="wrap hero__inner">
       <svg class="hero__logo" width="129.54" height="36.1" viewBox="0 0 129.54 36.1" role="img" aria-label="Bona"><use href="#i-bona"></use></svg>
-      <p class="hero__sub">Brasserie · Bordeaux</p>
-      <p class="hero__line">Une cuisine brute et sincère</p>
+      <p class="hero__sub" data-i18n="home.hero.sub">Brasserie · Bordeaux</p>
+      <p class="hero__line" data-i18n="home.hero.line">Une cuisine brute et sincère</p>
       <div class="hero__meta">
-        <span>100% fait maison</span>
-        <span>Halal</span>
-        <span>Produits frais</span>
+        <span data-i18n="home.hero.m1">100% fait maison</span>
+        <span data-i18n="home.hero.m2">Halal</span>
+        <span data-i18n="home.hero.m3">Produits frais</span>
       </div>
       <div class="hero__cta">
-        <a class="btn btn--solid" href="reservation.html">Réserver une table <svg><use href="#i-arrow"></use></svg></a>
-        <a class="btn" href="carte.html">Découvrir la carte</a>
+        <a class="btn btn--solid" href="reservation.html">
+          <span data-i18n="home.hero.cta1">Réserver une table</span> <svg><use href="#i-arrow"></use></svg>
+        </a>
+        <a class="btn" href="carte.html" data-i18n="home.hero.cta2">Découvrir la carte</a>
       </div>
     </div>
-    <div class="hero__scroll" aria-hidden="true"><span>Défiler</span><i></i></div>
+    <div class="hero__scroll" aria-hidden="true"><span data-i18n="home.scroll">Défiler</span><i></i></div>
   </section>
 
   <!-- ===== Valeurs ===== -->
   <section class="values">
     <div class="values__grid">
       <div class="values__item reveal">
-        <h3>Fait maison</h3>
-        <p>Tout est confectionné sur place, chaque jour, sans raccourci.</p>
+        <h3 data-i18n="home.val1.t">Fait maison</h3>
+        <p data-i18n="home.val1.d">Tout est confectionné sur place, chaque jour, sans raccourci.</p>
       </div>
       <div class="values__item reveal">
-        <h3>Halal</h3>
-        <p>Une carte intégralement halal, du premier plat au dernier.</p>
+        <h3 data-i18n="home.val2.t">Halal</h3>
+        <p data-i18n="home.val2.d">Une carte intégralement halal, du premier plat au dernier.</p>
       </div>
       <div class="values__item reveal">
-        <h3>Produits frais</h3>
-        <p>Des matières premières brutes, rigoureusement sélectionnées.</p>
+        <h3 data-i18n="home.val3.t">Produits frais</h3>
+        <p data-i18n="home.val3.d">Des matières premières brutes, rigoureusement sélectionnées.</p>
       </div>
     </div>
   </section>
@@ -174,23 +200,23 @@
     <div class="wrap story__grid">
       <figure class="story__figure reveal">
         <img src="assets/img/chef.jpg" alt="Le chef de Bona en cuisine, dans la vapeur du service" loading="lazy">
-        <figcaption class="story__label">Le chef · En cuisine</figcaption>
+        <figcaption class="story__label" data-i18n="home.story.fig">Le chef · En cuisine</figcaption>
       </figure>
 
       <div class="reveal">
-        <span class="eyebrow">Histoire de Bona</span>
-        <h2 class="display story__title">Le Silence des Mains</h2>
-        <p class="story__intro">C’est l’histoire d’un héritage,<br>le souffle d’une transmission.</p>
+        <span class="eyebrow" data-i18n="home.story.eyebrow">Histoire de Bona</span>
+        <h2 class="display story__title" data-i18n="home.story.title">Le Silence des Mains</h2>
+        <p class="story__intro" data-i18n-html="home.story.intro">C’est l’histoire d’un héritage,<br>le souffle d’une transmission.</p>
         <div class="story__body">
-          <p>À l’âge de quatre ans, mon père a levé la main sur moi avec seulement deux doigts. Ce fut la première et la dernière fois qu’il posa sa main sur moi. Ce geste fut le plus bel acte d’amour qu’il m’ait offert.</p>
-          <p>Depuis ce jour, j’avance droit, guidé par le respect. En effleurant ma peau, il venait de graver en moi une valeur absolue : <em>la rigueur</em>. Aujourd’hui, à 27 ans, je sens encore la présence de ces deux doigts sur ma joue.</p>
-          <p>Ce sont eux qui me dictent le geste juste, ce sont eux qui me permettent de vous servir une cuisine brute et sincère, à l’image de cette empreinte sacrée.</p>
-          <p>Derrière chaque assiette, nos intentions sont pures. Un dialogue silencieux s’instaure, entre la matière vivante et le savoir hérité. Ici, nous explorons une gastronomie radicale, où le temps se suspend et où l’affinage devient le luxe ultime.</p>
-          <p>Dans ce refuge urbain, les mains orchestrent un ballet invisible. Elles apprivoisent le produit, unissent la Terre et la Mer, pour n’en révéler que la vérité la plus pure — la plus nue, à l’image des doigts de mon père sur ma joue.</p>
+          <p data-i18n="home.story.p1">À l’âge de quatre ans, mon père a levé la main sur moi avec seulement deux doigts. Ce fut la première et la dernière fois qu’il posa sa main sur moi. Ce geste fut le plus bel acte d’amour qu’il m’ait offert.</p>
+          <p data-i18n-html="home.story.p2">Depuis ce jour, j’avance droit, guidé par le respect. En effleurant ma peau, il venait de graver en moi une valeur absolue : <em>la rigueur</em>. Aujourd’hui, à 27 ans, je sens encore la présence de ces deux doigts sur ma joue.</p>
+          <p data-i18n="home.story.p3">Ce sont eux qui me dictent le geste juste, ce sont eux qui me permettent de vous servir une cuisine brute et sincère, à l’image de cette empreinte sacrée.</p>
+          <p data-i18n="home.story.p4">Derrière chaque assiette, nos intentions sont pures. Un dialogue silencieux s’instaure, entre la matière vivante et le savoir hérité. Ici, nous explorons une gastronomie radicale, où le temps se suspend et où l’affinage devient le luxe ultime.</p>
+          <p data-i18n="home.story.p5">Dans ce refuge urbain, les mains orchestrent un ballet invisible. Elles apprivoisent le produit, unissent la Terre et la Mer, pour n’en révéler que la vérité la plus pure — la plus nue, à l’image des doigts de mon père sur ma joue.</p>
         </div>
         <p class="story__sign">
           <svg width="45" height="36.1" role="img" aria-label="Bona"><use href="#i-b"></use></svg>
-          <span>Le chef · Bona</span>
+          <span data-i18n="home.story.sign">Le chef · Bona</span>
         </p>
       </div>
     </div>
@@ -200,52 +226,49 @@
   <section class="section section--deep" id="signatures">
     <div class="wrap wrap--wide">
       <div class="section-head reveal">
-        <span class="eyebrow">Nos incontournables</span>
-        <h2 class="display">Les signatures</h2>
+        <span class="eyebrow" data-i18n="home.sig.eyebrow">Nos incontournables</span>
+        <h2 class="display" data-i18n="home.sig.title">Les signatures</h2>
         <div class="rule"><i class="lozenge"></i></div>
-        <p>Une sélection de la maison, servie du vendredi au dimanche soir.</p>
+        <p data-i18n="home.sig.sub">Une sélection de la maison, servie du vendredi au dimanche soir.</p>
       </div>
 
       <div class="signatures">
         <article class="dish reveal">
-          <div class="dish__media"><img src="assets/img/tartine.jpg" alt="Tartine au bœuf effiloché et cœur de burrata fumé" loading="lazy"></div>
+          <div class="dish__media"><img src="assets/img/tartine.jpg" alt="Tartines" loading="lazy"></div>
           <div class="dish__body">
             <div>
-              <h3>Tartines</h3>
-              <p>Cœur de burrata fumé, bœuf effiloché cuit 7 h</p>
+              <h3 data-i18n="d.tartines.n">Tartines</h3>
+              <p data-i18n="home.sig.d1">Pain toasteur, cœur de burrata fumé, bœuf effiloché</p>
+            </div>
+            <span class="dish__price">10 €</span>
+          </div>
+        </article>
+        <article class="dish reveal">
+          <div class="dish__media"><img src="assets/img/bouchees.jpg" alt="Bouchées Bona × 3" loading="lazy"></div>
+          <div class="dish__body">
+            <div>
+              <h3 data-i18n="d.bouchees.n">Bouchées Bona × 3</h3>
+              <p data-i18n="home.sig.d2">Légume, bœuf effiloché, saumon fumé</p>
             </div>
             <span class="dish__price">8 €</span>
           </div>
         </article>
-
         <article class="dish reveal">
-          <div class="dish__media"><img src="assets/img/burrata.jpg" alt="Salade de burrata 250 g au basilic frais" loading="lazy"></div>
+          <div class="dish__media"><img src="assets/img/entrecote.jpg" alt="Entrecôte grillée 400 g" loading="lazy"></div>
           <div class="dish__body">
             <div>
-              <h3>Burrata</h3>
-              <p>250 g, tomates cerises, sauce persillée</p>
+              <h3 data-i18n="home.sig.n3">Entrecôte grillée</h3>
+              <p data-i18n="home.sig.d3">Grillée à la braise, thym et ail</p>
             </div>
-            <span class="dish__price">13 €</span>
+            <span class="dish__price">25 €</span>
           </div>
         </article>
-
         <article class="dish reveal">
-          <div class="dish__media"><img src="assets/img/saumon.jpg" alt="Pavé de saumon snacké à la plancha, sauce chien" loading="lazy"></div>
+          <div class="dish__media"><img src="assets/img/cotelettes.jpg" alt="Côtelettes d’agneau" loading="lazy"></div>
           <div class="dish__body">
             <div>
-              <h3>Saumon</h3>
-              <p>200 g plancha, sauce chien, citron &amp; thym</p>
-            </div>
-            <span class="dish__price">20 €</span>
-          </div>
-        </article>
-
-        <article class="dish reveal">
-          <div class="dish__media"><img src="assets/img/cotelettes.jpg" alt="Côtelettes d’agneau marinées 72 heures" loading="lazy"></div>
-          <div class="dish__body">
-            <div>
-              <h3>Agneau</h3>
-              <p>3 côtelettes marinées 72 h, secret du chef</p>
+              <h3 data-i18n="d.cotelettes.n">Côtelettes d’agneau</h3>
+              <p data-i18n="home.sig.d4">3 pièces marinées, secret du chef</p>
             </div>
             <span class="dish__price">20 €</span>
           </div>
@@ -253,49 +276,51 @@
       </div>
 
       <div class="section-head reveal" style="margin: clamp(44px,6vw,72px) 0 0">
-        <a class="btn" href="carte.html">Voir toute la carte <svg><use href="#i-arrow"></use></svg></a>
+        <a class="btn" href="carte.html">
+          <span data-i18n="home.sig.cta">Voir toute la carte</span> <svg><use href="#i-arrow"></use></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== Aperçu carte ===== -->
+  <!-- ===== Aperçu de la carte ===== -->
   <section class="section" id="carte">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Un aperçu</span>
-        <h2 class="display">La carte</h2>
+        <span class="eyebrow" data-i18n="home.prev.eyebrow">Un aperçu</span>
+        <h2 class="display" data-i18n="home.prev.title">La carte</h2>
         <div class="rule"><i class="lozenge"></i></div>
-        <p>Tous nos plats sont servis avec une salade et un accompagnement au choix, à volonté.</p>
+        <p data-i18n="home.prev.sub">Tous nos plats sont servis avec une salade et un accompagnement au choix.</p>
       </div>
 
       <div class="preview__grid">
         <div class="reveal">
-          <h3 class="menu-group__title">Entrées</h3>
-          <p class="menu-group__note">À partager ou pour soi</p>
+          <h3 class="menu-group__title" data-i18n="carte.entrees.title">Entrées</h3>
+          <p class="menu-group__note" data-i18n="carte.entrees.note">À partager ou pour soi</p>
           <ul class="menu-list">
-            <li><h4>Tartines</h4><span class="price">8 €</span><p class="desc">Pain toasteur (Boulangerie Cérès), cœur de burrata fumé, sauce persillée, parmesan, bœuf effiloché cuit 7 h.</p></li>
-            <li><h4>Salade de burrata</h4><span class="price">13 €</span><p class="desc">Burrata 250 g, salade, tomates cerises, croûton, parmesan, sauce persillée et vinaigrette maison.</p></li>
-            <li><h4>Brochettes de viande</h4><span class="price">5 €</span><p class="desc">2 × poulet mariné ou 2 × mouton mariné.</p></li>
+            <li><h4 data-i18n="d.tartines.n">Tartines</h4><span class="price">10 €</span><p class="desc" data-i18n="d.tartines.d">Pain toasteur (Boulangerie Cérès), cœur de burrata fumé, sauce persillée, parmesan, bœuf effiloché cuit 7 h.</p></li>
+            <li><h4 data-i18n="d.bouchees.n">Bouchées Bona × 3</h4><span class="price">8 €</span><p class="desc" data-i18n="d.bouchees.d">Cœur de burrata sur tartines : une au légume, une au bœuf effiloché, une au saumon fumé.</p></li>
+            <li><h4 data-i18n="d.saladeburrata.n">Salade de burrata</h4><span class="price">12 €</span><p class="desc" data-i18n="d.saladeburrata.d">Burrata 100 g, salade, tomates cerises, croûton, parmesan, sauce persillée et vinaigrette maison.</p></li>
           </ul>
         </div>
 
         <div class="reveal">
-          <h3 class="menu-group__title">Plats</h3>
-          <p class="menu-group__note">Salade + 1 accompagnement à volonté</p>
+          <h3 class="menu-group__title" data-i18n="carte.plats.title">Plats</h3>
+          <p class="menu-group__note" data-i18n="carte.plats.note">Le cœur de la maison</p>
           <ul class="menu-list">
-            <li><h4>Faux-filet</h4><span class="price">25 €</span><p class="desc">400 g – 500 g parfumé au thym et à l’ail, sublimé de fleur de sel et poivre noir.</p></li>
-            <li><h4>Magret entier</h4><span class="price">25 €</span><p class="desc">400 g – 500 g cuit à la plancha, laqué au miel &amp; thym frais.</p></li>
-            <li><h4>Meule de parmesan</h4><span class="price">25 €</span><p class="desc">Crème de truffes, noix aromatisée à la truffe.</p></li>
+            <li><h4 data-i18n="d.entrecote.n">Entrecôte grillée 400 g</h4><span class="price">25 €</span><p class="desc" data-i18n="d.entrecote.d">Grillée à la braise, thym et ail, fleur de sel et poivre noir moulu.</p></li>
+            <li><h4 data-i18n="d.cotebœuf.n">Côte de bœuf à partager 1 kg</h4><span class="price">50 €</span><p class="desc" data-i18n="d.cotebœuf.d">Pour deux, grillée à la braise, thym et ail, fleur de sel et poivre noir.</p></li>
+            <li><h4 data-i18n="d.burratplat.n">Salade de burrata</h4><span class="price">15 €</span><p class="desc" data-i18n="d.burratplat.d">Burrata 250 g, accompagnée de légumes ou de saumon fumé. Végétarien avec les légumes.</p></li>
           </ul>
         </div>
 
         <div class="reveal">
-          <h3 class="menu-group__title">Boissons</h3>
-          <p class="menu-group__note">Sans alcool, maison</p>
+          <h3 class="menu-group__title" data-i18n="carte.boissons.title">Boissons</h3>
+          <p class="menu-group__note" data-i18n="carte.boissons.note">Sans alcool · Maison</p>
           <ul class="menu-list">
-            <li><h4>Bissap</h4><span class="price">6 €</span><p class="desc">Fleurs d’hibiscus infusées, subtilement sucrées et parfumées à la menthe.</p></li>
-            <li><h4>Gingembre</h4><span class="price">6 €</span><p class="desc">Pur jus de gingembre frais, relevé d’une note de citron vert.</p></li>
-            <li><h4>Virgin mojito</h4><span class="price">4 €</span><p class="desc">Menthe fraîche pilée, citron vert et eau pétillante.</p></li>
+            <li><h4 data-i18n="d.bonba.n">Bonba</h4><span class="price">6 €</span><p class="desc" data-i18n="d.bonba.d">Sans alcool : mélange original de pêche, de fruits rouges et d’une pointe de citron.</p></li>
+            <li><h4 data-i18n="d.gingembre.n">Gingembre</h4><span class="price">6 €</span><p class="desc" data-i18n="d.gingembre.d">Boisson intense et tonifiante au pur jus de gingembre frais, relevée d’une note de citron vert.</p></li>
+            <li><h4 data-i18n="d.tropical.n">Virgin cocktail tropical</h4><span class="price">4 €</span><p class="desc" data-i18n="d.tropical.d">Mangue, fruit de la passion et citron, sans alcool.</p></li>
           </ul>
         </div>
       </div>
@@ -306,15 +331,16 @@
   <section class="section section--deep" id="galerie">
     <div class="wrap wrap--wide">
       <div class="section-head reveal">
-        <span class="eyebrow">En images</span>
-        <h2 class="display">La galerie</h2>
+        <span class="eyebrow" data-i18n="home.gal.eyebrow">En images</span>
+        <h2 class="display" data-i18n="home.gal.title">La galerie</h2>
         <div class="rule"><i class="lozenge"></i></div>
       </div>
       <div class="gallery reveal">
-        <figure class="g-tall"><img src="assets/img/tartine-boeuf.jpg" alt="Tartine de bœuf effiloché dressée sur une assiette longue" loading="lazy"></figure>
-        <figure class="g-tall"><img src="assets/img/faux-filet.jpg" alt="Faux-filet et ailes de poulet, spécialités de la maison" loading="lazy"></figure>
-        <figure class="g-wide"><img src="assets/img/cotelettes.jpg" alt="Assiette de côtelettes d’agneau et pommes grenailles" loading="lazy"></figure>
-        <figure><img src="assets/img/tartine.jpg" alt="Tartine servie à l’assiette" loading="lazy"></figure>
+        <figure><img src="assets/img/brochettes.jpg" alt="Brochettes de viande sur assiette longue" loading="lazy"></figure>
+        <figure><img src="assets/img/ailes-poulet.jpg" alt="Ailes de poulet marinées, riz et salade" loading="lazy"></figure>
+        <figure><img src="assets/img/magret.jpg" alt="Magret laqué au miel, riz et haricots rouges" loading="lazy"></figure>
+        <figure><img src="assets/img/saumon.jpg" alt="Pavé de saumon et pommes grenailles" loading="lazy"></figure>
+        <figure><img src="assets/img/haricots.jpg" alt="Cassolette de haricots rouges confits" loading="lazy"></figure>
         <figure><img src="assets/img/burrata.jpg" alt="Salade de burrata au basilic frais" loading="lazy"></figure>
       </div>
     </div>
@@ -324,25 +350,25 @@
   <section class="section" id="infos">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Informations</span>
-        <h2 class="display">Nous trouver</h2>
+        <span class="eyebrow" data-i18n="home.infos.eyebrow">Informations</span>
+        <h2 class="display" data-i18n="home.infos.title">Nous trouver</h2>
         <div class="rule"><i class="lozenge"></i></div>
       </div>
 
       <div class="infos__grid">
         <div class="hours reveal">
-          <h3 class="hours__title">Horaires</h3>
-          <p class="hours__note">Ouverture estivale</p>
+          <h3 class="hours__title" data-i18n="hours.title">Horaires</h3>
+          <p class="hours__note" data-i18n="hours.note">Ouverture estivale</p>
           <ul>
-            <li class="is-closed"><span class="day">Lundi</span><span class="time">Fermé</span></li>
-            <li class="is-closed"><span class="day">Mardi</span><span class="time">Fermé</span></li>
-            <li class="is-closed"><span class="day">Mercredi</span><span class="time">Fermé</span></li>
-            <li class="is-closed"><span class="day">Jeudi</span><span class="time">Fermé</span></li>
-            <li><span class="day">Vendredi</span><span class="time">19:00 – 02:00</span></li>
-            <li><span class="day">Samedi</span><span class="time">19:00 – 02:00</span></li>
-            <li><span class="day">Dimanche</span><span class="time">19:00 – 02:00</span></li>
+            <li class="is-closed"><span class="day" data-i18n="day.lun">Lundi</span><span class="time" data-i18n="hours.ferme">Fermé</span></li>
+            <li class="is-closed"><span class="day" data-i18n="day.mar">Mardi</span><span class="time" data-i18n="hours.ferme">Fermé</span></li>
+            <li class="is-closed"><span class="day" data-i18n="day.mer">Mercredi</span><span class="time" data-i18n="hours.ferme">Fermé</span></li>
+            <li class="is-closed"><span class="day" data-i18n="day.jeu">Jeudi</span><span class="time" data-i18n="hours.ferme">Fermé</span></li>
+            <li><span class="day" data-i18n="day.ven">Vendredi</span><span class="time">19:00 – 02:00</span></li>
+            <li><span class="day" data-i18n="day.sam">Samedi</span><span class="time">19:00 – 02:00</span></li>
+            <li><span class="day" data-i18n="day.dim">Dimanche</span><span class="time">19:00 – 02:00</span></li>
           </ul>
-          <p class="hours__foot">Les horaires peuvent évoluer selon la saison : retrouvez l’actualité de la maison sur notre Instagram.</p>
+          <p class="hours__foot" data-i18n="hours.foot">Les horaires peuvent évoluer selon la saison : retrouvez l’actualité de la maison sur notre Instagram.</p>
         </div>
 
         <div class="place reveal">
@@ -359,20 +385,20 @@
               <img src="assets/img/map/16-32665-23619.png" alt="" loading="lazy" width="256" height="256">
             </div>
             <span class="place__pin" aria-hidden="true"><svg><use href="#i-pin"></use></svg></span>
-            <p class="place__marker-label">Bona · 20 rue Sanche de Pomiers</p>
-            <p class="place__credit">Fond de plan © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></p>
+            <p class="place__marker-label" data-i18n="place.marker">Bona · 20 rue Sanche de Pomiers</p>
+            <p class="place__credit"><span data-i18n="place.credit">Fond de plan ©</span> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></p>
           </div>
           <div class="place__card">
-            <span class="eyebrow">Adresse</span>
+            <span class="eyebrow" data-i18n="footer.adresse">Adresse</span>
             <address class="place__addr">
               20 rue Sanche de Pomiers<br>
               33000 Bordeaux, France
             </address>
             <div class="place__actions">
               <a class="btn btn--solid" href="https://www.google.com/maps/search/?api=1&amp;query=20+rue+Sanche+de+Pomiers+33000+Bordeaux" target="_blank" rel="noopener">
-                <svg><use href="#i-pin"></use></svg> Itinéraire
+                <svg><use href="#i-pin"></use></svg> <span data-i18n="btn.itineraire">Itinéraire</span>
               </a>
-              <a class="btn" href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener">Nous écrire</a>
+              <a class="btn" href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" data-i18n="btn.ecrire">Nous écrire</a>
             </div>
           </div>
         </div>
@@ -384,10 +410,10 @@
   <section class="section section--deep social-band" id="reseaux">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Suivez-nous</span>
-        <h2 class="display">Les réseaux</h2>
+        <span class="eyebrow" data-i18n="home.social.eyebrow">Suivez-nous</span>
+        <h2 class="display" data-i18n="home.social.title">Les réseaux</h2>
         <div class="rule"><i class="lozenge"></i></div>
-        <p>Nouveautés, plats du moment et coulisses de la brasserie.</p>
+        <p data-i18n="home.social.sub">Nouveautés, plats du moment et coulisses de la brasserie.</p>
       </div>
       <div class="social-grid reveal">
         <a class="social-card" href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener">
@@ -400,7 +426,7 @@
           <svg><use href="#i-snapchat"></use></svg><b>Snapchat</b><span>Bona Bordeaux</span>
         </a>
         <a class="social-card" href="https://g.page/r/CTl2bNih9Pk8EAE/review" target="_blank" rel="noopener">
-          <svg><use href="#i-google"></use></svg><b>Avis</b><span>Laissez-nous un avis</span>
+          <svg><use href="#i-google"></use></svg><b data-i18n="social.avis">Avis</b><span data-i18n="social.avis.sub">Laissez-nous un avis</span>
         </a>
       </div>
     </div>
@@ -408,50 +434,50 @@
 
 </main>
 
-<!-- ===== Footer ===== -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer__top">
       <div class="footer__brand">
         <svg width="129.54" height="36.1" role="img" aria-label="Bona"><use href="#i-bona"></use></svg>
-        <p>Brasserie bordelaise. Une cuisine exclusivement faite maison, halal, à partir de produits frais rigoureusement sélectionnés.</p>
+        <p data-i18n="footer.desc">Brasserie bordelaise. Une cuisine exclusivement faite maison, halal, à partir de produits frais rigoureusement sélectionnés.</p>
       </div>
 
       <div>
-        <h4>Adresse</h4>
+        <h4 data-i18n="footer.adresse">Adresse</h4>
         <address>
           20 rue Sanche de Pomiers<br>
           33000 Bordeaux, France
         </address>
         <ul style="margin-top:14px">
-          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=20+rue+Sanche+de+Pomiers+33000+Bordeaux" target="_blank" rel="noopener">Ouvrir dans Google Maps</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=20+rue+Sanche+de+Pomiers+33000+Bordeaux" target="_blank" rel="noopener" data-i18n="footer.maps">Ouvrir dans Google Maps</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Navigation</h4>
+        <h4 data-i18n="footer.navigation">Navigation</h4>
         <ul>
-          <li><a href="#histoire">Notre histoire</a></li>
-          <li><a href="carte.html">La carte</a></li>
-          <li><a href="reservation.html">Réserver</a></li>
-          <li><a href="carte.html#allergenes">Allergènes</a></li>
-          <li><a href="#infos">Horaires &amp; accès</a></li>
+          <li><a href="#histoire" data-i18n="footer.histoire">Notre histoire</a></li>
+          <li><a href="carte.html" data-i18n="nav.carte">La carte</a></li>
+          <li><a href="reservation.html" data-i18n="nav.reserver">Réserver</a></li>
+          <li><a href="#allergenes" data-i18n="footer.allergenes">Allergènes</a></li>
+          <li><a href="#infos" data-i18n="footer.horaires">Horaires &amp; accès</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <span>© <span id="year">2026</span> Bona Brasserie — Bordeaux. Tous droits réservés.</span>
+      <span>© <span id="year">2026</span> <span data-i18n="footer.droits">Bona Brasserie — Bordeaux. Tous droits réservés.</span></span>
       <div class="socials">
         <a href="https://www.instagram.com/bonabordeaux" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></a>
         <a href="https://www.tiktok.com/@bona.bordeaux" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></a>
         <a href="https://snapchat.com/t/xNAthcWa" target="_blank" rel="noopener" aria-label="Snapchat"><svg><use href="#i-snapchat"></use></svg></a>
-        <a href="https://g.page/r/CTl2bNih9Pk8EAE/review" target="_blank" rel="noopener" aria-label="Avis Google"><svg><use href="#i-google"></use></svg></a>
+        <a href="https://g.page/r/CTl2bNih9Pk8EAE/review" target="_blank" rel="noopener" aria-label="Google"><svg><use href="#i-google"></use></svg></a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>
