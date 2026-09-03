@@ -6,6 +6,10 @@
    Mise en place : voir apps-script/README.md
    ========================================================================== */
 
+/* À incrémenter à chaque modification : doGet le renvoie, ce qui permet de
+   vérifier d'un coup d'œil que le déploiement sert bien la dernière version. */
+const VERSION = 2;
+
 const CONFIG = {
   // Numéro qui reçoit toutes les réservations, au format attendu par CallMeBot :
   // indicatif pays sans le « + » ni espaces, comme dans l'URL d'activation du bot.
@@ -268,14 +272,16 @@ function doGet(e) {
   const date = (e && e.parameter && e.parameter.date) || '';
 
   if (!estDateValide_(date)) {
-    return json_({ ok: true, creneaux: creneaux_(), pris: [], joursOuverts: CONFIG.JOURS_OUVERTS });
+    return json_({ ok: true, version: VERSION, creneaux: creneaux_(), pris: [], joursOuverts: CONFIG.JOURS_OUVERTS });
   }
 
   return json_({
     ok: true,
+    version: VERSION,
     date: date,
     creneaux: creneaux_(),
     pris: creneauxPris_(date),
+    lignes: feuille_().getLastRow() - 1,
     joursOuverts: CONFIG.JOURS_OUVERTS
   });
 }
@@ -337,6 +343,27 @@ function doPost(e) {
    Test manuel : exécuter cette fonction une fois depuis l'éditeur pour
    vérifier la clé CallMeBot et l'arrivée du message sur le téléphone.
    -------------------------------------------------------------------------- */
+
+function diagnostic() {
+  const f = feuille_();
+  const dernier = f.getLastRow();
+  Logger.log('Version du code : %s', VERSION);
+  Logger.log('Feuille « %s » — %s ligne(s) de données', CONFIG.NOM_FEUILLE, dernier - 1);
+
+  if (dernier < 2) {
+    Logger.log('Aucune réservation enregistrée : le formulaire n’écrit pas dans cette feuille.');
+    return;
+  }
+
+  const lignes = f.getRange(2, 3, dernier - 1, 2).getValues();
+  for (let i = 0; i < lignes.length; i++) {
+    Logger.log('Ligne %s → brut [%s | %s] (%s | %s) → normalisé [%s | %s]',
+      i + 2,
+      lignes[i][0], lignes[i][1],
+      typeof lignes[i][0], typeof lignes[i][1],
+      normaliserDate_(lignes[i][0]), normaliserCreneau_(lignes[i][1]));
+  }
+}
 
 function testerWhatsApp() {
   const etat = envoyerWhatsApp_('✅ Test Bona — le formulaire de réservation est bien relié.');
