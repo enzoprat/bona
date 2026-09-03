@@ -292,6 +292,27 @@
   </div>
 </footer>
 
+<!-- ===== Confirmation de réservation ===== -->
+<dialog class="modale" id="confirmation" aria-labelledby="confirmation-titre">
+  <div class="modale__corps">
+    <svg class="modale__marque" width="45" height="36.1" role="img" aria-label="Bona"><use href="#i-b"></use></svg>
+
+    <p class="modale__coche" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" d="m4 12.5 5 5L20 6.5"/></svg>
+    </p>
+
+    <h2 class="display" id="confirmation-titre" data-i18n="resa.modal.titre">Confirmation validée</h2>
+    <p class="modale__recap" id="confirmation-recap"></p>
+
+    <p class="modale__annulation">
+      <span data-i18n="resa.modal.annulation">En cas d’annulation, écrivez-nous à</span><br>
+      <a id="confirmation-annulation" href="mailto:bonabordeaux@gmail.com">bonabordeaux@gmail.com</a>
+    </p>
+
+    <button class="btn btn--solid" type="button" id="confirmation-fermer" data-i18n="resa.modal.fermer">Fermer</button>
+  </div>
+</dialog>
+
 <script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/reservation.js" defer></script>

@@ -578,11 +578,11 @@ window.BonaI18n = (function () {
     ],
     'resa.envoyer':  ['Envoyer la demande', 'Send request', 'Enviar solicitud', 'Anfrage senden', 'Invia la richiesta'],
     'resa.mentions': [
-      'Votre demande n’est pas une confirmation : nous vous rappelons pour valider la table. Vos coordonnées servent uniquement à traiter cette réservation.',
-      'Your request is not a confirmation: we will call you back to confirm the table. Your details are used only to process this booking.',
-      'Su solicitud no es una confirmación: le llamamos para confirmar la mesa. Sus datos solo se usan para gestionar esta reserva.',
-      'Ihre Anfrage ist noch keine Bestätigung: Wir rufen Sie zurück, um den Tisch zu bestätigen. Ihre Daten dienen nur der Bearbeitung dieser Reservierung.',
-      'La vostra richiesta non è una conferma: vi richiamiamo per confermare il tavolo. I vostri dati servono solo a gestire questa prenotazione.'
+      'Votre table est confirmée dès l’envoi. En cas d’annulation, écrivez-nous à bonabordeaux@gmail.com. Vos coordonnées servent uniquement à traiter cette réservation.',
+      'Your table is confirmed as soon as you send the form. To cancel, email bonabordeaux@gmail.com. Your details are used only to process this booking.',
+      'Su mesa queda confirmada al enviar el formulario. Para anular, escriba a bonabordeaux@gmail.com. Sus datos solo se usan para gestionar esta reserva.',
+      'Ihr Tisch ist mit dem Absenden bestätigt. Zum Stornieren schreiben Sie an bonabordeaux@gmail.com. Ihre Daten dienen nur der Bearbeitung dieser Reservierung.',
+      'Il vostro tavolo è confermato all’invio. Per annullare, scrivete a bonabordeaux@gmail.com. I vostri dati servono solo a gestire questa prenotazione.'
     ],
     'resa.question': ['Une question ?', 'A question?', '¿Alguna duda?', 'Eine Frage?', 'Una domanda?'],
     'resa.instagram':['Écrivez-nous sur Instagram', 'Message us on Instagram', 'Escríbenos por Instagram', 'Schreiben Sie uns auf Instagram', 'Scrivici su Instagram'],
@@ -592,12 +592,35 @@ window.BonaI18n = (function () {
     'resa.chargement': ['Recherche des créneaux disponibles…', 'Looking for available slots…', 'Buscando franjas disponibles…', 'Verfügbare Zeiten werden gesucht…', 'Ricerca delle fasce disponibili…'],
     'resa.envoi':      ['Envoi en cours…', 'Sending…', 'Enviando…', 'Wird gesendet…', 'Invio in corso…'],
     'resa.ok.resa': [
-      'Demande envoyée. Nous vous confirmons la table par téléphone.',
-      'Request sent. We will confirm your table by phone.',
-      'Solicitud enviada. Le confirmamos la mesa por teléfono.',
-      'Anfrage gesendet. Wir bestätigen Ihren Tisch telefonisch.',
-      'Richiesta inviata. Vi confermeremo il tavolo per telefono.'
+      'Votre table est réservée.',
+      'Your table is booked.',
+      'Su mesa está reservada.',
+      'Ihr Tisch ist reserviert.',
+      'Il vostro tavolo è prenotato.'
     ],
+    'resa.modal.titre': [
+      'Confirmation validée',
+      'Booking confirmed',
+      'Confirmación validada',
+      'Bestätigt',
+      'Prenotazione confermata'
+    ],
+    'resa.modal.titrePriv': [
+      'Demande envoyée',
+      'Request sent',
+      'Solicitud enviada',
+      'Anfrage gesendet',
+      'Richiesta inviata'
+    ],
+    'resa.modal.annulation': [
+      'En cas d’annulation, écrivez-nous à',
+      'To cancel, please email us at',
+      'Para anular, escríbanos a',
+      'Zum Stornieren schreiben Sie uns an',
+      'Per annullare, scriveteci a'
+    ],
+    'resa.modal.fermer': ['Fermer', 'Close', 'Cerrar', 'Schließen', 'Chiudi'],
+    'resa.recap.personnes': ['pour', 'for', 'para', 'für', 'per'],
     'resa.ok.priv': [
       'Demande de privatisation envoyée. Nous vous rappelons pour en discuter.',
       'Private hire request sent. We will call you back to discuss it.',

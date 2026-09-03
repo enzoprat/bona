@@ -265,6 +265,41 @@
     return '';
   }
 
+  var EMAIL_ANNULATION = 'bonabordeaux@gmail.com';
+
+  /** Récapitulatif lisible : « samedi 5 septembre à 20:30, pour 3 personnes ». */
+  function recapitulatif(d) {
+    var jour = new Intl.DateTimeFormat(langue(), { weekday: 'long', day: 'numeric', month: 'long' })
+      .format(new Date(d.date + 'T12:00:00'));
+
+    var texte = jour;
+    if (d.creneau) texte += ' — ' + d.creneau;
+
+    var mot = d.personnes > 1 ? T('resa.personnes.pl', 'personnes') : T('resa.personne', 'personne');
+    return texte + ', ' + T('resa.recap.personnes', 'pour') + ' ' + d.personnes + ' ' + mot + '.';
+  }
+
+  /** Pop-up de confirmation. Retombe sur le bloc en ligne si <dialog> manque. */
+  function ouvrirConfirmation(d) {
+    var modale = document.getElementById('confirmation');
+    if (!modale || typeof modale.showModal !== 'function') return false;
+
+    var priv = d.type === 'privatisation';
+    modale.querySelector('#confirmation-titre').textContent =
+      priv ? T('resa.modal.titrePriv', 'Demande envoyée') : T('resa.modal.titre', 'Confirmation validée');
+    modale.querySelector('#confirmation-recap').textContent = recapitulatif(d);
+
+    // Le courriel d'annulation part pré-rempli, pour qu'on retrouve la réservation.
+    var objet = (priv ? 'Annulation privatisation' : 'Annulation réservation')
+      + ' — ' + d.date + (d.creneau ? ' ' + d.creneau : '') + ' — ' + d.nom;
+    modale.querySelector('#confirmation-annulation').href =
+      'mailto:' + EMAIL_ANNULATION + '?subject=' + encodeURIComponent(objet);
+
+    modale.querySelector('#confirmation-fermer').onclick = function () { modale.close(); };
+    modale.showModal();
+    return true;
+  }
+
   function reussite(d) {
     var texte = d.type === 'privatisation'
       ? T('resa.ok.priv', 'Demande de privatisation envoyée.')
@@ -294,6 +329,8 @@
     bloc.appendChild(retour);
     form.innerHTML = '';
     form.appendChild(bloc);
+
+    ouvrirConfirmation(d);
   }
 
   form.addEventListener('submit', function (e) {

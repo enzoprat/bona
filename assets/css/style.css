@@ -756,3 +756,69 @@ body.menu-open .burger span:nth-child(2) { transform: translateY(-4.5px) rotate(
   .slots { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); }
   .chips { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ==========================================================================
+   Pop-up de confirmation
+   ========================================================================== */
+
+.modale {
+  width: min(460px, calc(100vw - 40px));
+  padding: 0;
+  color: var(--cream);
+  background: var(--navy-deep);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 90px rgba(2, 22, 39, .6);
+}
+.modale::backdrop {
+  background: rgba(2, 22, 39, .82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.modale[open] { animation: modale-entree .45s cubic-bezier(.2, .7, .2, 1); }
+@keyframes modale-entree {
+  from { opacity: 0; transform: translateY(14px) scale(.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+.modale__corps {
+  position: relative;
+  padding: clamp(32px, 6vw, 46px) clamp(24px, 5vw, 40px) clamp(28px, 5vw, 38px);
+  text-align: center;
+}
+/* Double filet, comme les cadres de la carte */
+.modale__corps::before {
+  content: ""; position: absolute; inset: 7px;
+  border: 1px solid rgba(247, 247, 244, .14); pointer-events: none;
+}
+
+.modale__marque { width: 34px; margin: 0 auto 18px; color: var(--cream-faint); }
+
+.modale__coche {
+  width: 52px; height: 52px; margin: 0 auto 20px;
+  display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: 50%;
+  color: var(--cream);
+}
+.modale__coche svg { width: 24px; height: 24px; }
+
+.modale h2 { font-size: clamp(46px, 8vw, 60px); line-height: 1; }
+
+.modale__recap {
+  margin-top: 14px; font-size: 15px; line-height: 1.65;
+  color: var(--cream); max-width: 30ch; margin-inline: auto;
+}
+
+.modale__annulation {
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid rgba(247, 247, 244, .14);
+  font-size: 13px; line-height: 1.7; color: var(--cream-dim);
+}
+.modale__annulation a {
+  color: var(--cream); text-decoration: underline; text-underline-offset: 3px;
+}
+
+.modale .btn { margin-top: 26px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .modale[open] { animation: none; }
+}
