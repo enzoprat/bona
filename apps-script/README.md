@@ -94,7 +94,8 @@ elle doit arriver sur WhatsApp **et** apparaître dans le Google Sheet.
   chose, la demande est quand même enregistrée — rien n'est jamais perdu.
 - Pour **bloquer un créneau à la main** (soirée privatisée, table déjà prise par téléphone),
   ajoute simplement une ligne avec la date au format `AAAA-MM-JJ` en colonne C et l'heure en
-  colonne D. Le créneau disparaît aussitôt du formulaire.
+  colonne D. Le créneau disparaît aussitôt du formulaire. Peu importe que Sheets affiche
+  « 04/09/2026 » plutôt que « 2026-09-04 » : le script sait lire les deux.
 - Pour **libérer un créneau**, supprime la ligne.
 
 ## Modifier les règles

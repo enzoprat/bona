@@ -81,8 +81,33 @@ function feuille_() {
     f.appendRow(ENTETES);
     f.getRange(1, 1, 1, ENTETES.length).setFontWeight('bold');
     f.setFrozenRows(1);
+    // Sans cela, Sheets convertit « 2026-09-04 » en date et « 23:45 » en heure.
+    f.getRange('C:D').setNumberFormat('@');
   }
   return f;
+}
+
+/**
+ * Ramène une cellule à "AAAA-MM-JJ", que Sheets l'ait gardée en texte
+ * ou convertie en date.
+ */
+function normaliserDate_(v) {
+  if (v instanceof Date) {
+    return Utilities.formatDate(v, fuseau_(), 'yyyy-MM-dd');
+  }
+  return String(v == null ? '' : v).trim().slice(0, 10);
+}
+
+/** Idem pour un créneau : "HH:MM", que Sheets l'ait converti en heure ou non. */
+function normaliserCreneau_(v) {
+  if (v instanceof Date) {
+    return Utilities.formatDate(v, fuseau_(), 'HH:mm');
+  }
+  return String(v == null ? '' : v).trim();
+}
+
+function fuseau_() {
+  return SpreadsheetApp.getActiveSpreadsheet().getSpreadsheetTimeZone() || 'Europe/Paris';
 }
 
 /** Créneaux déjà attribués pour une date de service donnée. */
@@ -95,7 +120,9 @@ function creneauxPris_(dateService) {
   const pris = [];
 
   for (let i = 0; i < lignes.length; i++) {
-    if (String(lignes[i][0]) === dateService && lignes[i][1]) pris.push(String(lignes[i][1]));
+    const jour = normaliserDate_(lignes[i][0]);
+    const creneau = normaliserCreneau_(lignes[i][1]);
+    if (jour === dateService && creneau) pris.push(creneau);
   }
   return pris;
 }
