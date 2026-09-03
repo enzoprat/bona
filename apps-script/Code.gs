@@ -7,8 +7,9 @@
    ========================================================================== */
 
 const CONFIG = {
-  // Numéro qui reçoit toutes les réservations (format international, sans espaces)
-  NUMERO_WHATSAPP: '+33749990924',
+  // Numéro qui reçoit toutes les réservations, au format attendu par CallMeBot :
+  // indicatif pays sans le « + » ni espaces, comme dans l'URL d'activation du bot.
+  NUMERO_WHATSAPP: '33749990924',
 
   // La clé CallMeBot se renseigne dans Paramètres du projet → Propriétés du script
   // (propriété « CLE_CALLMEBOT »), et surtout PAS ici : ce fichier est versionné.

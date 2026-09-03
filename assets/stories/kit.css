@@ -1,0 +1,259 @@
+/* ==========================================================================
+   BONA — Kit Instagram Story  ·  1080 × 1920
+   Système graphique repris à l'identique du site bonabordeaux.fr
+   Charte : #03203d (bleu nuit) / #f7f7f4 (crème) — Tangerine + Sarabun
+   --------------------------------------------------------------------------
+   4 types de composition :
+     TYPE A  .story--immersive   photo plein cadre + titre bas
+     TYPE B  .story--info        fond bleu nuit, cadre / liste (sans photo)
+     TYPE C  .story--conversion  photo cadrée + titre + bouton CTA
+     TYPE D  .story--menu        carte, catégories, plat à l'honneur
+   ========================================================================== */
+
+@import url("fonts.css");
+
+:root {
+  --navy: #03203d;
+  --navy-deep: #021627;
+  --navy-soft: #0a2c4e;
+  --cream: #f7f7f4;
+  --cream-dim: rgba(247, 247, 244, 0.66);
+  --cream-faint: rgba(247, 247, 244, 0.34);
+  --line: rgba(247, 247, 244, 0.22);
+  --gold: #c9a86a;
+
+  --font-display: "Tangerine", "Apple Chancery", cursive;
+  --font-body: "Sarabun", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+
+  --gutter: 96px;
+  --safe-top: 210px;      /* zone masquée par l'entête Instagram */
+  --safe-bottom: 300px;   /* zone masquée par la barre de réponse / sticker lien */
+}
+
+* , *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #0b0b0c; }
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3, h4, p, ul, li, figure { margin: 0; }
+ul { list-style: none; padding: 0; }
+
+/* ---------- Le format ---------- */
+.story {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+.safe {
+  position: absolute; inset: 0; z-index: 2;
+  padding: var(--safe-top) var(--gutter) var(--safe-bottom);
+  display: flex; flex-direction: column;
+}
+.spacer { flex: 1; }
+.center { text-align: center; align-items: center; }
+.center .rule { margin-inline: auto; }
+
+/* ---------- Logo ---------- */
+.logo        { width: 268px; margin: 0 auto; }
+.logo--small { width: 210px; }
+.monogram    { width: 84px; margin: 0 auto; }
+
+/* ---------- Typographie ---------- */
+.eyebrow {
+  font-size: 25px; font-weight: 500;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--cream-faint); text-indent: 0.42em;
+}
+.eyebrow--bright { color: var(--cream-dim); }
+.eyebrow--gold   { color: var(--gold); }
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400; line-height: 0.92; letter-spacing: 0.01em;
+  color: var(--cream);
+}
+.d-xl { font-size: 196px; }
+.d-lg { font-size: 168px; }
+.d-md { font-size: 138px; }
+.d-sm { font-size: 104px; }
+.d-xs { font-size: 82px; }
+
+.lead   { font-size: 35px; line-height: 1.55; color: var(--cream-dim); font-weight: 300; }
+.lead--tight { max-width: 22ch; }
+.note   { font-size: 26px; letter-spacing: 0.06em; color: var(--cream-faint); }
+.strong { color: var(--cream); }
+
+/* Filet ornemental du site (liseré + losange) */
+.rule {
+  display: flex; align-items: center; justify-content: center;
+  gap: 26px; max-width: 440px; width: 100%;
+  color: var(--cream-faint);
+}
+.rule::before, .rule::after {
+  content: ""; flex: 1; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+.rule .lozenge { width: 12px; height: 12px; transform: rotate(45deg); background: currentColor; }
+
+/* ---------- Boutons (identiques au site : angles vifs, capitales espacées) ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 20px;
+  padding: 34px 58px;
+  border: 2px solid var(--line);
+  font-size: 25px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--cream); text-indent: 0.24em;
+}
+.btn--solid { background: var(--cream); color: var(--navy); border-color: var(--cream); }
+.btn--block { width: 100%; }
+.btn svg { width: 26px; height: 26px; flex: none; }
+
+.pill {
+  display: inline-block; padding: 16px 34px;
+  border: 2px solid var(--line); border-radius: 999px;
+  font-size: 23px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cream-dim); text-indent: 0.2em;
+}
+
+/* Cadre double du site (.frame) */
+.frame { position: relative; border: 2px solid var(--line); padding: 78px 56px; }
+.frame::before { content: ""; position: absolute; inset: 14px; border: 2px solid rgba(247,247,244,.14); }
+
+/* ---------- Photos ---------- */
+.media { position: absolute; inset: 0; z-index: 0; }
+.media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  filter: saturate(.9) contrast(1.02) brightness(1.12);
+}
+/* Voile plein cadre — repris du .hero__media du site */
+.media--hero::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(120% 52% at 50% 36%, rgba(3,32,61,.06) 0%, rgba(3,32,61,.58) 62%, var(--navy) 100%),
+    linear-gradient(180deg, rgba(2,22,39,.72) 0%, rgba(3,32,61,.16) 26%, rgba(2,22,39,.68) 62%, var(--navy) 92%);
+}
+/* Voile bas — repris du .dish__media du site */
+.media--dish::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(2,22,39,.55) 0%, rgba(2,22,39,0) 24%, rgba(2,22,39,.72) 58%, rgba(2,22,39,.97) 88%);
+}
+
+/* Bandeau photo — la composition maîtresse du kit.
+   Les photos du restaurant sont en 3:2 : un plein cadre 9:16 couperait l'assiette.
+   Le bandeau garde un cadrage large, propre, puis se fond dans le bleu nuit
+   (même dissolution que le hero du site).
+   Réglages : top / height directement en style inline sur .band            */
+.band { position: absolute; left: 0; right: 0; top: 260px; height: 880px; z-index: 0; overflow: hidden; }
+.band img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 50%;
+  filter: saturate(.9) contrast(1.02) brightness(1.12);
+}
+.band::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    var(--navy) 0%, rgba(3,32,61,.62) 9%, rgba(3,32,61,.22) 26%,
+    rgba(3,32,61,.22) 66%, rgba(3,32,61,.70) 88%, var(--navy) 100%);
+}
+/* Bandeau collé au bord haut (photo en partie haute, plein bord) */
+.band--flush { top: 0; }
+.band--flush::after {
+  background: linear-gradient(180deg,
+    rgba(2,22,39,.80) 0%, rgba(2,22,39,.26) 20%, rgba(3,32,61,.20) 44%,
+    rgba(3,32,61,.70) 84%, var(--navy) 100%);
+}
+/* Bandeau collé au bord bas */
+.band--bottom { top: auto; bottom: 0; }
+.band--bottom::after {
+  background: linear-gradient(0deg,
+    rgba(2,22,39,.74) 0%, rgba(2,22,39,.18) 24%, rgba(3,32,61,.20) 48%,
+    rgba(3,32,61,.74) 86%, var(--navy) 100%);
+}
+
+/* Photo cadrée (traitement .story__figure du site : liseré en retrait) */
+.figure { position: relative; }
+.figure img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  filter: saturate(.9) contrast(1.02) brightness(1.12);
+}
+.figure--wide img   { aspect-ratio: 3 / 2; }
+.figure--tall img   { aspect-ratio: 3 / 4; }
+.figure--square img { aspect-ratio: 1 / 1; }
+.figure--card { width: 660px; margin-inline: auto; }
+/* voile bleu nuit : la photo s'accorde au fond, comme sur le site */
+.figure::before, .mosaic figure::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: rgba(3, 32, 61, .30); pointer-events: none;
+}
+.figure::after {
+  content: ""; position: absolute; inset: 26px;
+  border: 2px solid rgba(247, 247, 244, .28); pointer-events: none;
+}
+.figure__label {
+  position: absolute; left: 0; bottom: -30px;
+  background: var(--navy); padding: 16px 30px; border: 2px solid var(--line);
+  font-size: 22px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cream-dim);
+}
+
+/* Mosaïque très sobre de 2 photos */
+.mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
+.mosaic figure { position: relative; margin: 0; }
+.mosaic img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; filter: saturate(.9) contrast(1.02) brightness(1.12); }
+
+/* ---------- Listes (horaires, carte) ---------- */
+.hours { border: 2px solid var(--line); width: 100%; }
+.hours li {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+  padding: 30px 40px; border-bottom: 2px solid rgba(247,247,244,.12);
+}
+.hours li:last-child { border-bottom: 0; }
+.hours .day { font-size: 27px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+.hours .val { font-size: 31px; font-weight: 400; font-variant-numeric: tabular-nums; }
+.hours li.is-closed .day, .hours li.is-closed .val { color: var(--cream-faint); }
+
+.menu-list { width: 100%; }
+.menu-list li {
+  display: grid; grid-template-columns: 1fr auto; gap: 10px 34px;
+  padding: 30px 0; border-bottom: 2px solid rgba(247,247,244,.12);
+}
+.menu-list li:last-child { border-bottom: 0; }
+.menu-list h4 { font-size: 37px; font-weight: 500; letter-spacing: 0.01em; }
+.menu-list .price { font-size: 37px; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.menu-list .desc { grid-column: 1 / -1; font-size: 25px; line-height: 1.5; color: var(--cream-dim); max-width: 40ch; }
+
+/* Bloc bas d'une story produit (repris de .dish__body) */
+.dish-body { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
+.dish-body .price { font-size: 44px; font-weight: 500; letter-spacing: .04em; padding-bottom: 12px; }
+
+/* ---------- Rythme vertical ---------- */
+.mt-12 { margin-top: 12px; }  .mt-20 { margin-top: 20px; }
+.mt-28 { margin-top: 28px; }  .mt-40 { margin-top: 40px; }
+.mt-56 { margin-top: 56px; }  .mt-72 { margin-top: 72px; }
+.mt-96 { margin-top: 96px; }
+.stack { display: flex; flex-direction: column; }
+.stack--center { align-items: center; text-align: center; }
+
+/* ---------- Avis Google -------------------------------------------------- */
+.stars { display: flex; justify-content: center; gap: 18px; color: var(--gold); }
+.stars svg { width: 66px; height: 66px; }
+.stars--small svg { width: 46px; height: 46px; gap: 12px; }
+
+/* Logo Google officiel : toujours quadrichrome sur fond crème (jamais sur le bleu) */
+.gmark { width: 52px; height: 52px; flex: none; }
+.btn .gmark { width: 40px; height: 40px; }
+
+/* Carte « réseaux » du site (.social-card), état plein crème */
+.review-card {
+  display: flex; flex-direction: column; align-items: center; gap: 26px;
+  width: 100%; padding: 66px 40px 60px;
+  background: var(--cream); color: var(--navy);
+}
+.review-card .gmark { width: 78px; height: 78px; margin-bottom: 6px; }
+.review-card b {
+  font-size: 25px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; text-indent: 0.22em;
+}
+.review-card span { font-size: 28px; color: rgba(3, 32, 61, .7); }
+.review-card .stars { color: #c08b2c; }
