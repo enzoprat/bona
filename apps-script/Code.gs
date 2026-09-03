@@ -345,6 +345,12 @@ function doPost(e) {
    -------------------------------------------------------------------------- */
 
 function diagnostic() {
+  // La clé n'est jamais affichée, seulement sa présence et sa longueur.
+  const cle = PropertiesService.getScriptProperties().getProperty('CLE_CALLMEBOT');
+  Logger.log('Clé CallMeBot : %s', cle ? ('présente (' + cle.length + ' caractères)') : 'ABSENTE → aucun WhatsApp ne partira');
+  Logger.log('Propriétés définies : %s',
+    JSON.stringify(Object.keys(PropertiesService.getScriptProperties().getProperties())));
+
   const f = feuille_();
   const dernier = f.getLastRow();
   Logger.log('Version du code : %s', VERSION);
@@ -356,12 +362,15 @@ function diagnostic() {
   }
 
   const lignes = f.getRange(2, 3, dernier - 1, 2).getValues();
+  const envois = f.getRange(2, 11, dernier - 1, 1).getValues(); // colonne « WhatsApp »
+
   for (let i = 0; i < lignes.length; i++) {
-    Logger.log('Ligne %s → brut [%s | %s] (%s | %s) → normalisé [%s | %s]',
+    Logger.log('Ligne %s → brut [%s | %s] (%s | %s) → normalisé [%s | %s] → WhatsApp : %s',
       i + 2,
       lignes[i][0], lignes[i][1],
       typeof lignes[i][0], typeof lignes[i][1],
-      normaliserDate_(lignes[i][0]), normaliserCreneau_(lignes[i][1]));
+      normaliserDate_(lignes[i][0]), normaliserCreneau_(lignes[i][1]),
+      envois[i][0] || '(vide)');
   }
 }
 
