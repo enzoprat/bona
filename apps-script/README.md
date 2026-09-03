@@ -90,8 +90,12 @@ elle doit arriver sur WhatsApp **et** apparaître dans le Google Sheet.
 ## Au quotidien
 
 - Le classeur se remplit tout seul, un onglet **Réservations**, une ligne par demande.
-- La colonne **WhatsApp** indique `OK` si la notification est partie. Si elle affiche autre
-  chose, la demande est quand même enregistrée — rien n'est jamais perdu.
+- La colonne **WhatsApp** indique ce qu'ont donné les notifications, par exemple
+  `WhatsApp OK · e-mail non nécessaire`. Si WhatsApp échoue, un **e-mail** part
+  automatiquement sur l'adresse du compte Google qui possède le script : la réservation
+  ne passe jamais inaperçue. Dans tous les cas la ligne est écrite — rien n'est perdu.
+- Pour recevoir l'e-mail ailleurs, renseigne `EMAIL_SECOURS` dans `CONFIG`.
+  Mets `false` pour désactiver complètement la doublure.
 - Pour **bloquer un créneau à la main** (soirée privatisée, table déjà prise par téléphone),
   ajoute simplement une ligne avec la date au format `AAAA-MM-JJ` en colonne C et l'heure en
   colonne D. Le créneau disparaît aussitôt du formulaire. Peu importe que Sheets affiche

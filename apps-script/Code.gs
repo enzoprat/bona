@@ -32,6 +32,11 @@ const CONFIG = {
   // Au-delà, le client doit cocher « groupe de plus de 6 » et préciser l'effectif
   MAX_SANS_COCHER: 6,
 
+  // Doublure par e-mail : CallMeBot est gratuit et non officiel, un message peut
+  // ne jamais arriver. L'e-mail passe par Google, il ne se perd pas.
+  // '' = adresse du propriétaire du script. false pour désactiver l'envoi.
+  EMAIL_SECOURS: '',
+
   // Garde-fous
   MAX_PERSONNES: 60,
   JOURS_A_L_AVANCE: 90
@@ -258,6 +263,33 @@ function envoyerWhatsApp_(texte) {
   }
 }
 
+/** Double la notification par e-mail. Renvoie 'OK' ou le motif de l'échec. */
+function envoyerEmail_(r, texte) {
+  if (CONFIG.EMAIL_SECOURS === false) return 'désactivé';
+
+  let adresse = CONFIG.EMAIL_SECOURS;
+  if (!adresse) {
+    try {
+      adresse = Session.getEffectiveUser().getEmail();
+    } catch (e) {
+      return 'adresse inconnue';
+    }
+  }
+  if (!adresse) return 'adresse inconnue';
+
+  const objet = (r.type === 'privatisation' ? 'Privatisation' : 'Réservation')
+    + ' — ' + dateEnFrancais_(r.date)
+    + (r.creneau ? ' à ' + r.creneau : '')
+    + ' — ' + r.nom;
+
+  try {
+    MailApp.sendEmail({ to: adresse, subject: objet, body: texte, name: 'Bona' });
+    return 'OK';
+  } catch (e) {
+    return 'erreur : ' + e.message;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Points d'entrée HTTP
    -------------------------------------------------------------------------- */
@@ -317,7 +349,11 @@ function doPost(e) {
       return json_({ ok: false, erreur: 'Ce créneau vient d’être réservé.', creneauPris: true });
     }
 
-    const etat = envoyerWhatsApp_(messageWhatsApp_(r));
+    const texte = messageWhatsApp_(r);
+    const etatWhatsApp = envoyerWhatsApp_(texte);
+    // Une notification qui échoue ne doit jamais empêcher l'enregistrement.
+    const etatEmail = etatWhatsApp === 'OK' ? 'non nécessaire' : envoyerEmail_(r, texte);
+    const etat = 'WhatsApp ' + etatWhatsApp + ' · e-mail ' + etatEmail;
 
     feuille_().appendRow([
       new Date(),
@@ -375,6 +411,9 @@ function diagnostic() {
 }
 
 function testerWhatsApp() {
-  const etat = envoyerWhatsApp_('✅ Test Bona — le formulaire de réservation est bien relié.');
-  Logger.log(etat);
+  const texte = '✅ Test Bona — le formulaire de réservation est bien relié.';
+  Logger.log('WhatsApp : %s', envoyerWhatsApp_(texte));
+  Logger.log('E-mail   : %s', envoyerEmail_(
+    { type: 'reservation', date: Utilities.formatDate(new Date(), fuseau_(), 'yyyy-MM-dd'), creneau: '', nom: 'Test' },
+    texte));
 }
