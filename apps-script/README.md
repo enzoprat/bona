@@ -15,7 +15,7 @@ Tu obtiens à la fin :
 
 Depuis le WhatsApp du **+33 7 49 99 09 24** (le numéro qui recevra les réservations) :
 
-1. Ajoute **+34 644 51 95 23** dans tes contacts (nom au choix, « CallMeBot » par exemple).
+1. Ajoute **+34 644 33 66 63** dans tes contacts (nom au choix, « CallMeBot » par exemple).
 2. Envoie-lui exactement ce message :
 
    ```
@@ -117,6 +117,12 @@ Après toute modification du script : **Déployer → Gérer les déploiements �
 Version : Nouvelle version → Déployer.** L'URL ne change pas.
 
 ---
+
+## Mettre les notifications en pause
+
+Envoie `Stop` au bot (**+34 644 33 66 63**) pour suspendre les messages, `Resume`
+pour les réactiver. Les réservations continuent d'être enregistrées dans le classeur
+pendant la pause : seule la notification WhatsApp s'arrête.
 
 ## Si CallMeBot tombe un jour
 
