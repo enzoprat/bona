@@ -8,7 +8,7 @@
 
 /* À incrémenter à chaque modification : doGet le renvoie, ce qui permet de
    vérifier d'un coup d'œil que le déploiement sert bien la dernière version. */
-const VERSION = 3;
+const VERSION = 4;
 
 const CONFIG = {
   // Numéro qui reçoit toutes les réservations, au format attendu par CallMeBot :
@@ -35,7 +35,7 @@ const CONFIG = {
   // Canal principal. CallMeBot met parfois une demi-heure à livrer : l'e-mail
   // passe par Google, il arrive en quelques secondes et ne se perd pas.
   // '' = adresse du propriétaire du script. false pour désactiver l'envoi.
-  EMAIL_NOTIFICATION: '',
+  EMAIL_NOTIFICATION: 'bonabordeaux@gmail.com',
 
   // Notification WhatsApp en complément. Elle peut arriver avec du retard :
   // mettre false pour ne garder que l'e-mail.

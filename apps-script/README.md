@@ -5,7 +5,7 @@ il lui manque l'adresse du script Google. Compte ~20 minutes, une seule fois.
 
 Tu obtiens à la fin :
 
-- un **e-mail immédiat** à chaque réservation, sur l'adresse du compte Google ;
+- un **e-mail immédiat** à chaque réservation, sur `bonabordeaux@gmail.com` ;
 - la même notification **sur WhatsApp**, en complément ;
 - un **Google Sheet** qui garde l'historique ;
 - les **créneaux déjà pris qui disparaissent** automatiquement du formulaire.
@@ -99,8 +99,11 @@ elle doit arriver sur WhatsApp **et** apparaître dans le Google Sheet.
 - La dernière colonne indique ce qu'ont donné les deux envois, par exemple
   `e-mail OK · WhatsApp OK`. Un échec de notification n'empêche jamais l'écriture de
   la ligne — une réservation n'est jamais perdue.
-- Pour recevoir l'e-mail ailleurs, renseigne `EMAIL_NOTIFICATION` dans `CONFIG`.
+- L'e-mail part sur `EMAIL_NOTIFICATION` (`bonabordeaux@gmail.com`), depuis le compte
+  Google propriétaire du script. Change l'adresse pour la rediriger ailleurs ;
   `false` désactive l'e-mail, `WHATSAPP_ACTIF: false` désactive WhatsApp.
+- Google limite l'envoi à **100 e-mails par jour** sur un compte gratuit. Largement
+  au-dessus des 27 créneaux d'un service, mais c'est bon à savoir.
 - Pour **bloquer un créneau à la main** (soirée privatisée, table déjà prise par téléphone),
   ajoute simplement une ligne avec la date au format `AAAA-MM-JJ` en colonne C et l'heure en
   colonne D. Le créneau disparaît aussitôt du formulaire. Peu importe que Sheets affiche
