@@ -6,7 +6,7 @@
   'use strict';
 
   /* ---- À renseigner après le déploiement du script Google (voir apps-script/README.md) ---- */
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxzRFLFcTzK-FlsJga-qAadzVYgEsHJKW9cAJ8wBIQCxbJvv2aUrqrKVB0slG6WrLLF/exec';
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyT1bU71gzKyOVkJQy1Y9dMJ2VgcTJJb2PtO73ilvBdaSLz_u_E9FcMJW3cQdlaPVi6/exec';
 
   var PREMIER_CRENEAU = '19:00';
   var DERNIER_CRENEAU = '01:30';
