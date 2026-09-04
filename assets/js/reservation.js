@@ -8,6 +8,12 @@
   /* ---- À renseigner après le déploiement du script Google (voir apps-script/README.md) ---- */
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyT1bU71gzKyOVkJQy1Y9dMJ2VgcTJJb2PtO73ilvBdaSLz_u_E9FcMJW3cQdlaPVi6/exec';
 
+  /* ---- Web3Forms : envoi de la notification par e-mail ----
+     Cette clé est publique par conception : elle vit dans le JavaScript du site.
+     Elle n'ouvre l'accès à rien — elle permet seulement d'envoyer un message
+     vers l'adresse qui lui est associée. Régénérable sur web3forms.com. */
+  var WEB3FORMS_CLE = '0fce4ac9-eb59-4bdb-a765-49c45e6410a9';
+
   var PREMIER_CRENEAU = '19:00';
   var DERNIER_CRENEAU = '01:30';
   var PAS_MINUTES = 15;
@@ -267,6 +273,44 @@
 
   var TEL_ANNULATION = '+33759310735';
 
+  /**
+   * Notifie la brasserie par e-mail via Web3Forms.
+   * Volontairement isolé : si ce service tombe, la réservation reste enregistrée
+   * côté Google Sheet et le client voit quand même sa confirmation.
+   */
+  function notifier(d) {
+    if (!WEB3FORMS_CLE) return Promise.resolve('clé absente');
+
+    var priv = d.type === 'privatisation';
+    var jour = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+      .format(new Date(d.date + 'T12:00:00'));
+
+    var charge = {
+      access_key: WEB3FORMS_CLE,
+      from_name: 'Réservations Bona',
+      subject: (priv ? 'Privatisation' : 'Réservation') + ' — ' + jour
+             + (d.creneau ? ' à ' + d.creneau : '') + ' — ' + d.nom,
+      'Type': priv ? 'Demande de privatisation' : 'Réservation',
+      'Date': jour,
+      'Créneau': d.creneau || '—',
+      'Personnes': d.personnes + (d.grandGroupe ? ' (grand groupe)' : ''),
+      'Nom': d.nom,
+      'Téléphone': d.telephone,
+      'E-mail': d.email || '—',
+      'Message': d.message || '—',
+      botcheck: ''
+    };
+
+    return fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(charge)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (rep) { return rep && rep.success ? 'OK' : 'refusé'; })
+      .catch(function () { return 'injoignable'; });
+  }
+
   /** Récapitulatif lisible : « samedi 5 septembre à 20:30, pour 3 personnes ». */
   function recapitulatif(d) {
     var jour = new Intl.DateTimeFormat(langue(), { weekday: 'long', day: 'numeric', month: 'long' })
@@ -360,6 +404,8 @@
       .then(function (r) { return r.json(); })
       .then(function (rep) {
         if (rep && rep.ok) {
+          // Le créneau est acquis : on prévient la brasserie, puis on confirme au client.
+          notifier(d);
           reussite(d);
           return;
         }

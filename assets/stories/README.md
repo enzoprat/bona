@@ -6,13 +6,17 @@ Format : **1080 × 1920 px**, ratio 9:16, zones de sécurité Instagram respect�
 
 ```
 stories/
-├── png/          ← les visuels prêts à publier (c'est ce qu'on poste)
-├── html/         ← les sources, un fichier par visuel
-├── kit.css       ← le système graphique (couleurs, typos, composants)
-├── fonts.css     ← Tangerine + Sarabun embarquées (aucune connexion requise)
+├── png/            ← les visuels prêts à publier (c'est ce qu'on poste)
+├── print/          ← les PDF des cartons de table, prêts à imprimer
+├── html/           ← les sources, un fichier par visuel
+├── kit.css         ← le système graphique (couleurs, typos, composants)
+├── fonts.css       ← Tangerine + Sarabun embarquées (aucune connexion requise)
 ├── fonts/
-├── index.html    ← planche de contact : tous les visuels sur une page
-└── build.mjs     ← ré-export des PNG après modification
+├── qr-carte.svg    ← QR vers la carte
+├── qr-avis.svg     ← QR vers la fiche Google
+├── index.html      ← planche de contact : tous les visuels sur une page
+├── build.mjs       ← ré-export des PNG
+└── build-print.mjs ← ré-export des PDF d'impression
 ```
 
 ---
@@ -42,7 +46,7 @@ Tout le kit repose sur **quatre compositions**, pas quatorze designs.
 - **TYPE A — immersive** : bandeau photo + surtitre + titre Tangerine + filet + phrase.
   `nous-sommes-ouverts`, `debut-service`, `ce-soir`, `faim`
 - **TYPE B — information** : fond bleu nuit, sans photo, liste ou cadre double.
-  `horaires`, `fin-service`, `information`
+  `horaires`, `fin-service`, `information`, `rupture`
 - **TYPE C — conversion** : photo + titre + bouton crème plein + mention.
   `reservation`, `reservation-ce-soir`, `dernieres-tables`, `weekend`, `avis-google`
 - **TYPE D — carte / produit** : listes de la carte, plat à l'honneur, teaser.
@@ -108,3 +112,34 @@ https://g.page/r/CTl2bNih9Pk8EAE/review
 Le logo Google reste **toujours en quadrichromie sur fond crème**, jamais posé sur le bleu nuit :
 c'est ce que demandent les règles de marque de Google, et c'est aussi ce qui le rend lisible.
 Les étoiles sont une invitation à laisser un avis, pas une note affichée.
+
+## 7. Cartons de table (format carré, à imprimer)
+
+Deux cartons **90 × 90 mm**, même charte que les stories, à poser sur les tables :
+
+| | |
+|---|---|
+| `carte-qr` | « Notre carte » — QR vers `bonabordeaux.fr/carte.html` |
+| `avis-qr` | « Laissez-nous un avis » — logo Google, étoiles, QR vers la fiche Google |
+
+Chacun existe en deux versions :
+
+- **avec QR généré** — rien à faire, c'est prêt à imprimer, les deux QR ont été testés au scan ;
+- **`-vierge`** — carré blanc seul, si tu préfères coller ton propre QR
+  (la zone blanche fait ≈ 35 à 40 mm, ne pas la réduire : en dessous les téléphones décrochent).
+
+Dans `print/`, pour chaque version :
+
+- `xxx.pdf` — un seul carton, page de 90 × 90 mm
+- `xxx-planche-a4.pdf` — **6 cartons sur une A4**, avec traits de coupe et 3 mm de fond perdu
+
+Imprimer la planche A4 **à 100 %** (surtout pas « ajuster à la page », ça fausserait la taille),
+sur un papier épais (300 g mat de préférence), puis couper sur les traits.
+
+```bash
+node build-print.mjs        # régénérer les PDF après modification
+```
+
+Pour changer une destination de QR, régénérer le SVG correspondant avec n'importe quel
+générateur (correction d'erreur **Q**, modules en `#03203d` sur fond blanc), en gardant
+le même nom de fichier.

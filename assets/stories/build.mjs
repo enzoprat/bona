@@ -29,7 +29,7 @@ for (const f of files) {
   await page.goto(pathToFileURL(resolve(htmlDir, f)).href, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(120);
-  const el = await page.$('.story');
+  const el = await page.$('.story, .square');
   await el.screenshot({ path: join(outDir, f.replace(/\.html$/, '.png')) });
   console.log('✓', f);
 }

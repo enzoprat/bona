@@ -257,3 +257,50 @@ ul { list-style: none; padding: 0; }
 }
 .review-card span { font-size: 28px; color: rgba(3, 32, 61, .7); }
 .review-card .stars { color: #c08b2c; }
+
+/* ==========================================================================
+   FORMAT CARRÉ — carton de table à imprimer
+   90 × 90 mm à 300 dpi = 1063 × 1063 px. Marge de sécurité : 90 px (≈ 7,6 mm).
+   ========================================================================== */
+.square {
+  position: relative;
+  width: 1063px; height: 1063px;
+  overflow: hidden;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-body); font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 84px 74px 68px;
+}
+.square .logo { width: 208px; }
+.square .eyebrow { font-size: 19px; letter-spacing: 0.4em; text-indent: 0.4em; }
+.square .display { font-size: 126px; }
+.square .rule { max-width: 300px; gap: 20px; }
+.square .rule .lozenge { width: 9px; height: 9px; }
+.square .note { font-size: 21px; color: var(--cream-dim); }
+
+/* Le QR : toujours sur un aplat blanc, avec une zone de silence tout autour,
+   sinon les lecteurs décrochent. Ne pas réduire le padding. */
+.qr {
+  width: 470px; height: 470px; flex: none;
+  background: #fff; padding: 34px;
+}
+.qr img, .qr svg { width: 100%; height: 100%; display: block; }
+.qr--vide { position: relative; }          /* carré blanc seul, QR à coller */
+.qr--vide::after {
+  content: "QR"; position: absolute; inset: 34px;
+  display: grid; place-items: center;
+  font-size: 30px; font-weight: 500; letter-spacing: 0.3em;
+  color: rgba(3, 32, 61, .16);
+}
+
+/* Bandeau crème « Avis Google » du carton carré (le G reste sur fond clair) */
+.gchip {
+  display: inline-flex; align-items: center; gap: 20px;
+  padding: 16px 28px; background: var(--cream); color: var(--navy);
+}
+.gchip .gmark { width: 40px; height: 40px; }
+.gchip .stars { color: #c08b2c; gap: 9px; }
+.gchip .stars svg { width: 27px; height: 27px; }
+.gchip i { width: 2px; height: 34px; background: rgba(3,32,61,.16); }
