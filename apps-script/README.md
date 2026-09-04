@@ -110,6 +110,23 @@ elle doit arriver sur WhatsApp **et** apparaître dans le Google Sheet.
   « 04/09/2026 » plutôt que « 2026-09-04 » : le script sait lire les deux.
 - Pour **libérer un créneau**, supprime la ligne.
 
+## Retrouver le bon classeur
+
+Le script écrit **dans le classeur auquel il est rattaché**, pas dans celui que vous avez
+sous les yeux. Si le tableau semble vide alors que des réservations arrivent, c'est
+qu'il y a plusieurs classeurs.
+
+Pour lever le doute : lancez **`diagnostic`** depuis l'éditeur et lisez le
+**Journal d'exécution**. Il affiche le nom du classeur, la liste de ses onglets, et
+surtout **son URL** — cliquez dessus, vous tombez au bon endroit.
+
+Le même renseignement est aussi renvoyé par l'application web, dans le champ `classeur`.
+
+## Effacer les réservations de test
+
+Lancez **`viderLesReservations`** depuis l'éditeur : toutes les lignes partent, les
+en-têtes restent, et les créneaux redeviennent libres. Irréversible.
+
 ## Modifier les règles
 
 Tout est en haut de `Code.gs`, dans `CONFIG` :

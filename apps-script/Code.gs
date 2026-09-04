@@ -8,7 +8,7 @@
 
 /* À incrémenter à chaque modification : doGet le renvoie, ce qui permet de
    vérifier d'un coup d'œil que le déploiement sert bien la dernière version. */
-const VERSION = 4;
+const VERSION = 5;
 
 const CONFIG = {
   // Numéro qui reçoit toutes les réservations, au format attendu par CallMeBot :
@@ -322,6 +322,7 @@ function doGet(e) {
     creneaux: creneaux_(),
     pris: creneauxPris_(date),
     lignes: feuille_().getLastRow() - 1,
+    classeur: SpreadsheetApp.getActiveSpreadsheet().getName(),
     joursOuverts: CONFIG.JOURS_OUVERTS
   });
 }
@@ -390,6 +391,13 @@ function doPost(e) {
    -------------------------------------------------------------------------- */
 
 function diagnostic() {
+  const classeur = SpreadsheetApp.getActiveSpreadsheet();
+  Logger.log('=== CLASSEUR UTILISÉ PAR LE SCRIPT ===');
+  Logger.log('Nom : %s', classeur.getName());
+  Logger.log('URL : %s', classeur.getUrl());
+  Logger.log('Onglets : %s', classeur.getSheets().map(function (f) { return f.getName(); }).join(', '));
+  Logger.log('');
+
   // La clé n'est jamais affichée, seulement sa présence et sa longueur.
   const cle = PropertiesService.getScriptProperties().getProperty('CLE_CALLMEBOT');
   Logger.log('Clé CallMeBot : %s', cle ? ('présente (' + cle.length + ' caractères)') : 'ABSENTE → aucun WhatsApp ne partira');
@@ -417,6 +425,23 @@ function diagnostic() {
       normaliserDate_(lignes[i][0]), normaliserCreneau_(lignes[i][1]),
       envois[i][0] || '(vide)');
   }
+}
+
+/**
+ * Supprime TOUTES les lignes de réservation, en gardant les en-têtes.
+ * À lancer depuis l'éditeur, une fois les tests terminés. Irréversible.
+ */
+function viderLesReservations() {
+  const f = feuille_();
+  const dernier = f.getLastRow();
+
+  if (dernier < 2) {
+    Logger.log('Aucune ligne à supprimer.');
+    return;
+  }
+
+  f.deleteRows(2, dernier - 1);
+  Logger.log('%s ligne(s) supprimée(s). Tous les créneaux sont de nouveau libres.', dernier - 1);
 }
 
 function testerWhatsApp() {
