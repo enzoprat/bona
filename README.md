@@ -40,12 +40,12 @@ de 19h00 à 01h30** (27 créneaux), uniquement les vendredis, samedis et dimanch
 Au-delà de 6 personnes, le client coche « Nous sommes plus de 6 » et saisit l'effectif.
 Un second mode, **Privatisation**, demande une date libre plutôt qu'un créneau.
 
-Les demandes partent dans **un seul fil WhatsApp** (via CallMeBot) et s'enregistrent dans un
-Google Sheet, qui sert aussi à masquer les créneaux déjà pris.
+Les demandes arrivent par **e-mail immédiat**, sont doublées sur **WhatsApp** (via CallMeBot,
+avec un délai possible) et s'enregistrent dans un Google Sheet, qui sert aussi à masquer les
+créneaux déjà pris.
 
 À l'envoi, une **pop-up « Confirmation validée »** récapitule la date, l'heure et le nombre
-de convives, et renvoie vers `bonabordeaux@gmail.com` pour toute annulation — avec un objet
-de message pré-rempli, pour retrouver la réservation d'un coup d'œil. La table est confirmée
+de convives, et affiche le **07 59 31 07 35** pour toute annulation, en lien cliquable. La table est confirmée
 dès l'envoi, puisque le créneau est bloqué automatiquement.
 
 👉 **Le formulaire n'enverra rien tant que l'étape de branchement n'est pas faite :

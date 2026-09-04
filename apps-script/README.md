@@ -5,9 +5,15 @@ il lui manque l'adresse du script Google. Compte ~20 minutes, une seule fois.
 
 Tu obtiens à la fin :
 
-- **toutes les réservations dans un seul fil WhatsApp** sur le `+33 7 49 99 09 24` ;
+- un **e-mail immédiat** à chaque réservation, sur l'adresse du compte Google ;
+- la même notification **sur WhatsApp**, en complément ;
 - un **Google Sheet** qui garde l'historique ;
 - les **créneaux déjà pris qui disparaissent** automatiquement du formulaire.
+
+> **Sur les délais WhatsApp.** CallMeBot est gratuit et non officiel : il met sa file
+> d'attente à son rythme, parfois une demi-heure. C'est pour cette raison que l'e-mail
+> est le canal principal — il part par Google et arrive en quelques secondes.
+> Pour ne garder que l'e-mail, mets `WHATSAPP_ACTIF: false` dans `CONFIG`.
 
 ---
 
@@ -90,12 +96,11 @@ elle doit arriver sur WhatsApp **et** apparaître dans le Google Sheet.
 ## Au quotidien
 
 - Le classeur se remplit tout seul, un onglet **Réservations**, une ligne par demande.
-- La colonne **WhatsApp** indique ce qu'ont donné les notifications, par exemple
-  `WhatsApp OK · e-mail non nécessaire`. Si WhatsApp échoue, un **e-mail** part
-  automatiquement sur l'adresse du compte Google qui possède le script : la réservation
-  ne passe jamais inaperçue. Dans tous les cas la ligne est écrite — rien n'est perdu.
-- Pour recevoir l'e-mail ailleurs, renseigne `EMAIL_SECOURS` dans `CONFIG`.
-  Mets `false` pour désactiver complètement la doublure.
+- La dernière colonne indique ce qu'ont donné les deux envois, par exemple
+  `e-mail OK · WhatsApp OK`. Un échec de notification n'empêche jamais l'écriture de
+  la ligne — une réservation n'est jamais perdue.
+- Pour recevoir l'e-mail ailleurs, renseigne `EMAIL_NOTIFICATION` dans `CONFIG`.
+  `false` désactive l'e-mail, `WHATSAPP_ACTIF: false` désactive WhatsApp.
 - Pour **bloquer un créneau à la main** (soirée privatisée, table déjà prise par téléphone),
   ajoute simplement une ligne avec la date au format `AAAA-MM-JJ` en colonne C et l'heure en
   colonne D. Le créneau disparaît aussitôt du formulaire. Peu importe que Sheets affiche

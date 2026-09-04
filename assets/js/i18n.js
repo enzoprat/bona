@@ -578,11 +578,11 @@ window.BonaI18n = (function () {
     ],
     'resa.envoyer':  ['Envoyer la demande', 'Send request', 'Enviar solicitud', 'Anfrage senden', 'Invia la richiesta'],
     'resa.mentions': [
-      'Votre table est confirmée dès l’envoi. En cas d’annulation, écrivez-nous à bonabordeaux@gmail.com. Vos coordonnées servent uniquement à traiter cette réservation.',
-      'Your table is confirmed as soon as you send the form. To cancel, email bonabordeaux@gmail.com. Your details are used only to process this booking.',
-      'Su mesa queda confirmada al enviar el formulario. Para anular, escriba a bonabordeaux@gmail.com. Sus datos solo se usan para gestionar esta reserva.',
-      'Ihr Tisch ist mit dem Absenden bestätigt. Zum Stornieren schreiben Sie an bonabordeaux@gmail.com. Ihre Daten dienen nur der Bearbeitung dieser Reservierung.',
-      'Il vostro tavolo è confermato all’invio. Per annullare, scrivete a bonabordeaux@gmail.com. I vostri dati servono solo a gestire questa prenotazione.'
+      'Votre table est confirmée dès l’envoi. En cas d’annulation, appelez-nous au 07 59 31 07 35. Vos coordonnées servent uniquement à traiter cette réservation.',
+      'Your table is confirmed as soon as you send the form. To cancel, call us on +33 7 59 31 07 35. Your details are used only to process this booking.',
+      'Su mesa queda confirmada al enviar el formulario. Para anular, llámenos al +33 7 59 31 07 35. Sus datos solo se usan para gestionar esta reserva.',
+      'Ihr Tisch ist mit dem Absenden bestätigt. Zum Stornieren rufen Sie uns unter +33 7 59 31 07 35 an. Ihre Daten dienen nur der Bearbeitung dieser Reservierung.',
+      'Il vostro tavolo è confermato all’invio. Per annullare, chiamateci al +33 7 59 31 07 35. I vostri dati servono solo a gestire questa prenotazione.'
     ],
     'resa.question': ['Une question ?', 'A question?', '¿Alguna duda?', 'Eine Frage?', 'Una domanda?'],
     'resa.instagram':['Écrivez-nous sur Instagram', 'Message us on Instagram', 'Escríbenos por Instagram', 'Schreiben Sie uns auf Instagram', 'Scrivici su Instagram'],
@@ -613,11 +613,11 @@ window.BonaI18n = (function () {
       'Richiesta inviata'
     ],
     'resa.modal.annulation': [
-      'En cas d’annulation, écrivez-nous à',
-      'To cancel, please email us at',
-      'Para anular, escríbanos a',
-      'Zum Stornieren schreiben Sie uns an',
-      'Per annullare, scriveteci a'
+      'En cas d’annulation, appelez-nous au',
+      'To cancel, please call us on',
+      'Para anular, llámenos al',
+      'Zum Stornieren rufen Sie uns an',
+      'Per annullare, chiamateci al'
     ],
     'resa.modal.fermer': ['Fermer', 'Close', 'Cerrar', 'Schließen', 'Chiudi'],
     'resa.recap.personnes': ['pour', 'for', 'para', 'für', 'per'],

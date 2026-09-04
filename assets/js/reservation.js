@@ -265,7 +265,7 @@
     return '';
   }
 
-  var EMAIL_ANNULATION = 'bonabordeaux@gmail.com';
+  var TEL_ANNULATION = '+33759310735';
 
   /** Récapitulatif lisible : « samedi 5 septembre à 20:30, pour 3 personnes ». */
   function recapitulatif(d) {
@@ -289,11 +289,8 @@
       priv ? T('resa.modal.titrePriv', 'Demande envoyée') : T('resa.modal.titre', 'Confirmation validée');
     modale.querySelector('#confirmation-recap').textContent = recapitulatif(d);
 
-    // Le courriel d'annulation part pré-rempli, pour qu'on retrouve la réservation.
-    var objet = (priv ? 'Annulation privatisation' : 'Annulation réservation')
-      + ' — ' + d.date + (d.creneau ? ' ' + d.creneau : '') + ' — ' + d.nom;
-    modale.querySelector('#confirmation-annulation').href =
-      'mailto:' + EMAIL_ANNULATION + '?subject=' + encodeURIComponent(objet);
+    // Numéro cliquable : un appui suffit depuis un téléphone.
+    modale.querySelector('#confirmation-annulation').href = 'tel:' + TEL_ANNULATION;
 
     modale.querySelector('#confirmation-fermer').onclick = function () { modale.close(); };
     modale.showModal();

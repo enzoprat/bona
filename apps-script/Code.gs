@@ -1,14 +1,14 @@
 /* ==========================================================================
    BONA — Réservations
-   Google Apps Script : stocke les demandes dans un Google Sheet
-   et les pousse dans un seul fil WhatsApp via CallMeBot.
+   Google Apps Script : stocke les demandes dans un Google Sheet, prévient
+   par e-mail (immédiat) et, en complément, sur WhatsApp via CallMeBot.
 
    Mise en place : voir apps-script/README.md
    ========================================================================== */
 
 /* À incrémenter à chaque modification : doGet le renvoie, ce qui permet de
    vérifier d'un coup d'œil que le déploiement sert bien la dernière version. */
-const VERSION = 2;
+const VERSION = 3;
 
 const CONFIG = {
   // Numéro qui reçoit toutes les réservations, au format attendu par CallMeBot :
@@ -32,10 +32,14 @@ const CONFIG = {
   // Au-delà, le client doit cocher « groupe de plus de 6 » et préciser l'effectif
   MAX_SANS_COCHER: 6,
 
-  // Doublure par e-mail : CallMeBot est gratuit et non officiel, un message peut
-  // ne jamais arriver. L'e-mail passe par Google, il ne se perd pas.
+  // Canal principal. CallMeBot met parfois une demi-heure à livrer : l'e-mail
+  // passe par Google, il arrive en quelques secondes et ne se perd pas.
   // '' = adresse du propriétaire du script. false pour désactiver l'envoi.
-  EMAIL_SECOURS: '',
+  EMAIL_NOTIFICATION: '',
+
+  // Notification WhatsApp en complément. Elle peut arriver avec du retard :
+  // mettre false pour ne garder que l'e-mail.
+  WHATSAPP_ACTIF: true,
 
   // Garde-fous
   MAX_PERSONNES: 60,
@@ -44,7 +48,7 @@ const CONFIG = {
 
 const ENTETES = [
   'Reçue le', 'Type', 'Date du service', 'Créneau', 'Personnes',
-  'Grand groupe', 'Nom', 'Téléphone', 'E-mail', 'Message', 'WhatsApp'
+  'Grand groupe', 'Nom', 'Téléphone', 'E-mail', 'Message', 'Notifications'
 ];
 
 /* --------------------------------------------------------------------------
@@ -220,15 +224,19 @@ function dateEnFrancais_(s) {
   return jours[d.getDay()] + ' ' + d.getDate() + ' ' + mois[d.getMonth()] + ' ' + d.getFullYear();
 }
 
-function messageWhatsApp_(r) {
+/**
+ * Corps de la notification, commun à l'e-mail et à WhatsApp.
+ * Sans émoji : ils passent mal dans l'URL de CallMeBot et peuvent tronquer le message.
+ */
+function notification_(r) {
   const l = [];
 
   if (r.type === 'privatisation') {
-    l.push('🥂 DEMANDE DE PRIVATISATION');
-    l.push('Date souhaitée : ' + dateEnFrancais_(r.date));
+    l.push('BONA - DEMANDE DE PRIVATISATION');
+    l.push('Date souhaitee : ' + dateEnFrancais_(r.date));
   } else {
-    l.push('🍽️ NOUVELLE RÉSERVATION');
-    l.push(dateEnFrancais_(r.date) + ' à ' + r.creneau);
+    l.push('BONA - NOUVELLE RESERVATION');
+    l.push(dateEnFrancais_(r.date) + ' a ' + r.creneau);
   }
 
   l.push(r.personnes + (r.personnes > 1 ? ' personnes' : ' personne') + (r.grandGroupe ? ' (grand groupe)' : ''));
@@ -265,9 +273,9 @@ function envoyerWhatsApp_(texte) {
 
 /** Double la notification par e-mail. Renvoie 'OK' ou le motif de l'échec. */
 function envoyerEmail_(r, texte) {
-  if (CONFIG.EMAIL_SECOURS === false) return 'désactivé';
+  if (CONFIG.EMAIL_NOTIFICATION === false) return 'désactivé';
 
-  let adresse = CONFIG.EMAIL_SECOURS;
+  let adresse = CONFIG.EMAIL_NOTIFICATION;
   if (!adresse) {
     try {
       adresse = Session.getEffectiveUser().getEmail();
@@ -349,11 +357,12 @@ function doPost(e) {
       return json_({ ok: false, erreur: 'Ce créneau vient d’être réservé.', creneauPris: true });
     }
 
-    const texte = messageWhatsApp_(r);
-    const etatWhatsApp = envoyerWhatsApp_(texte);
+    const texte = notification_(r);
+    // L'e-mail d'abord : c'est lui qui arrive tout de suite.
+    const etatEmail = envoyerEmail_(r, texte);
+    const etatWhatsApp = CONFIG.WHATSAPP_ACTIF ? envoyerWhatsApp_(texte) : 'désactivé';
     // Une notification qui échoue ne doit jamais empêcher l'enregistrement.
-    const etatEmail = etatWhatsApp === 'OK' ? 'non nécessaire' : envoyerEmail_(r, texte);
-    const etat = 'WhatsApp ' + etatWhatsApp + ' · e-mail ' + etatEmail;
+    const etat = 'e-mail ' + etatEmail + ' · WhatsApp ' + etatWhatsApp;
 
     feuille_().appendRow([
       new Date(),
@@ -411,7 +420,7 @@ function diagnostic() {
 }
 
 function testerWhatsApp() {
-  const texte = '✅ Test Bona — le formulaire de réservation est bien relié.';
+  const texte = 'Test Bona - le formulaire de reservation est bien relie.';
   Logger.log('WhatsApp : %s', envoyerWhatsApp_(texte));
   Logger.log('E-mail   : %s', envoyerEmail_(
     { type: 'reservation', date: Utilities.formatDate(new Date(), fuseau_(), 'yyyy-MM-dd'), creneau: '', nom: 'Test' },
