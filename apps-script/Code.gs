@@ -8,7 +8,7 @@
 
 /* À incrémenter à chaque modification : doGet le renvoie, ce qui permet de
    vérifier d'un coup d'œil que le déploiement sert bien la dernière version. */
-const VERSION = 7;
+const VERSION = 8;
 
 const CONFIG = {
   // Numéro qui reçoit toutes les réservations, au format attendu par CallMeBot :
@@ -40,9 +40,15 @@ const CONFIG = {
   WHATSAPP_ACTIF: false,
 
   // Délai minimum avant une réservation, en jours.
-  // 1 = pas de réservation le jour même. 0 = le jour même redevient possible.
+  // 0 = réservation le jour même autorisée. 1 = plus de réservation le jour même.
   // À garder identique à DELAI_MINIMUM_JOURS dans assets/js/reservation.js.
-  DELAI_MINIMUM_JOURS: 1,
+  DELAI_MINIMUM_JOURS: 0,
+
+  // Soirs fermés exceptionnellement : soirée privée, fermeture, salle complète.
+  // Format AAAA-MM-JJ. À garder identique à DATES_FERMEES dans reservation.js.
+  DATES_FERMEES: [
+    '2026-09-11'   // vendredi 11 septembre
+  ],
 
   // Garde-fous
   MAX_PERSONNES: 60,
@@ -186,6 +192,10 @@ function valider_(d) {
   const limite = new Date(aujourdhui.getTime() + CONFIG.JOURS_A_L_AVANCE * 86400000);
   if (jour > limite) return { erreur: 'Réservation possible jusqu’à ' + CONFIG.JOURS_A_L_AVANCE + ' jours à l’avance.' };
 
+  if (CONFIG.DATES_FERMEES.indexOf(d.date) !== -1) {
+    return { erreur: 'Nous sommes exceptionnellement fermés ce soir-là.' };
+  }
+
   let creneau = '';
   if (type === 'reservation') {
     if (!estJourOuvert_(d.date)) return { erreur: 'Nous ouvrons le vendredi, le samedi et le dimanche.' };
@@ -326,12 +336,16 @@ function doGet(e) {
     return json_({ ok: true, version: VERSION, creneaux: creneaux_(), pris: [], joursOuverts: CONFIG.JOURS_OUVERTS });
   }
 
+  // Soir fermé : tous les créneaux sont rendus indisponibles.
+  const ferme = CONFIG.DATES_FERMEES.indexOf(date) !== -1;
+
   return json_({
     ok: true,
     version: VERSION,
     date: date,
+    ferme: ferme,
     creneaux: creneaux_(),
-    pris: creneauxPris_(date),
+    pris: ferme ? creneaux_() : creneauxPris_(date),
     lignes: feuille_().getLastRow() - 1,
     classeur: SpreadsheetApp.getActiveSpreadsheet().getName(),
     joursOuverts: CONFIG.JOURS_OUVERTS

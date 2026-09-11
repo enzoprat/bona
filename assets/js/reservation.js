@@ -22,9 +22,16 @@
   var NB_DATES_PROPOSEES = 8;
 
   /* Délai minimum avant une réservation, en jours.
-     1 = pas de réservation le jour même. 0 = le jour même redevient possible.
+     0 = réservation le jour même autorisée. 1 = plus de réservation le jour même.
      À garder identique à DELAI_MINIMUM_JOURS dans apps-script/Code.gs. */
-  var DELAI_MINIMUM_JOURS = 1;
+  var DELAI_MINIMUM_JOURS = 0;
+
+  /* Soirs fermés exceptionnellement : soirée privée, fermeture, salle complète.
+     Format AAAA-MM-JJ. Ces dates ne sont pas proposées du tout.
+     À garder identique à DATES_FERMEES dans apps-script/Code.gs. */
+  var DATES_FERMEES = [
+    '2026-09-11'   // vendredi 11 septembre
+  ];
 
   var form = document.getElementById('reservation');
   if (!form) return;
@@ -110,7 +117,9 @@
 
     for (var i = 0; out.length < NB_DATES_PROPOSEES && i < 120; i++) {
       var j = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
-      if (JOURS_OUVERTS.indexOf(j.getDay()) !== -1) out.push(j);
+      if (JOURS_OUVERTS.indexOf(j.getDay()) === -1) continue;
+      if (DATES_FERMEES.indexOf(cleISO(j)) !== -1) continue;
+      out.push(j);
     }
     return out;
   }

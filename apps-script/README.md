@@ -109,6 +109,10 @@ elle doit arriver sur WhatsApp **et** apparaître dans le Google Sheet.
   colonne D. Le créneau disparaît aussitôt du formulaire. Peu importe que Sheets affiche
   « 04/09/2026 » plutôt que « 2026-09-04 » : le script sait lire les deux.
 - Pour **libérer un créneau**, supprime la ligne.
+- Pour **fermer une soirée entière** (privatisation, congés, salle complète), ajoute la
+  date dans `DATES_FERMEES`, **aux deux endroits** : `apps-script/Code.gs` et
+  `assets/js/reservation.js`. La date disparaît alors complètement du formulaire —
+  bien plus rapide que de bloquer les 27 créneaux un par un dans le classeur.
 
 ## Retrouver le bon classeur
 
@@ -137,7 +141,8 @@ Tout est en haut de `Code.gs`, dans `CONFIG` :
 | `PAS_MINUTES` | `15` (27 créneaux par soir) |
 | `JOURS_OUVERTS` | `[5, 6, 0]` = vendredi, samedi, dimanche |
 | `MAX_SANS_COCHER` | `6` personnes |
-| `DELAI_MINIMUM_JOURS` | `1` — pas de réservation le jour même |
+| `DELAI_MINIMUM_JOURS` | `0` — réservation le jour même autorisée |
+| `DATES_FERMEES` | soirs fermés exceptionnellement |
 | `JOURS_A_L_AVANCE` | `90` jours |
 
 ⚠️ Les mêmes valeurs sont répétées en haut de `assets/js/reservation.js` pour l'affichage.
