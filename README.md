@@ -36,7 +36,8 @@ et le sitemap.
 ## Réservations
 
 Le formulaire de `reservation.html` propose **un groupe par créneau de 15 minutes,
-de 19h00 à 01h30** (27 créneaux), uniquement les vendredis, samedis et dimanches.
+de 19h00 à 01h30** (27 créneaux), uniquement les vendredis, samedis et dimanches,
+et **jamais le jour même** (`DELAI_MINIMUM_JOURS`).
 Au-delà de 6 personnes, le client coche « Nous sommes plus de 6 » et saisit l'effectif.
 Un second mode, **Privatisation**, demande une date libre plutôt qu'un créneau.
 

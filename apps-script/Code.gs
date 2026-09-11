@@ -8,7 +8,7 @@
 
 /* À incrémenter à chaque modification : doGet le renvoie, ce qui permet de
    vérifier d'un coup d'œil que le déploiement sert bien la dernière version. */
-const VERSION = 6;
+const VERSION = 7;
 
 const CONFIG = {
   // Numéro qui reçoit toutes les réservations, au format attendu par CallMeBot :
@@ -38,6 +38,11 @@ const CONFIG = {
   // Pour réactiver l'un des canaux, remettre une adresse ou true.
   EMAIL_NOTIFICATION: false,
   WHATSAPP_ACTIF: false,
+
+  // Délai minimum avant une réservation, en jours.
+  // 1 = pas de réservation le jour même. 0 = le jour même redevient possible.
+  // À garder identique à DELAI_MINIMUM_JOURS dans assets/js/reservation.js.
+  DELAI_MINIMUM_JOURS: 1,
 
   // Garde-fous
   MAX_PERSONNES: 60,
@@ -169,6 +174,14 @@ function valider_(d) {
   aujourdhui.setHours(0, 0, 0, 0);
 
   if (jour < aujourdhui) return { erreur: 'Cette date est déjà passée.' };
+
+  const plusTot = new Date(aujourdhui.getFullYear(), aujourdhui.getMonth(),
+                           aujourdhui.getDate() + CONFIG.DELAI_MINIMUM_JOURS);
+  if (jour < plusTot) {
+    return { erreur: CONFIG.DELAI_MINIMUM_JOURS === 1
+      ? 'Les réservations pour le jour même se font par téléphone.'
+      : 'Réservation possible à partir du ' + Utilities.formatDate(plusTot, fuseau_(), 'dd/MM/yyyy') + '.' };
+  }
 
   const limite = new Date(aujourdhui.getTime() + CONFIG.JOURS_A_L_AVANCE * 86400000);
   if (jour > limite) return { erreur: 'Réservation possible jusqu’à ' + CONFIG.JOURS_A_L_AVANCE + ' jours à l’avance.' };

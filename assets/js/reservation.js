@@ -21,6 +21,11 @@
   var MAX_SANS_COCHER = 6;
   var NB_DATES_PROPOSEES = 8;
 
+  /* Délai minimum avant une réservation, en jours.
+     1 = pas de réservation le jour même. 0 = le jour même redevient possible.
+     À garder identique à DELAI_MINIMUM_JOURS dans apps-script/Code.gs. */
+  var DELAI_MINIMUM_JOURS = 1;
+
   var form = document.getElementById('reservation');
   if (!form) return;
 
@@ -91,13 +96,20 @@
 
   /* ---------- Dates d'ouverture ---------- */
 
+  /** Première date réservable, compte tenu du délai minimum. */
+  function premierJour() {
+    var d = new Date();
+    // Construction jour par jour plutôt qu'en millisecondes : insensible aux
+    // changements d'heure, qui décaleraient sinon la date d'une heure.
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + DELAI_MINIMUM_JOURS);
+  }
+
   function prochainesDates() {
     var out = [];
-    var d = new Date();
-    d.setHours(0, 0, 0, 0);
+    var d = premierJour();
 
     for (var i = 0; out.length < NB_DATES_PROPOSEES && i < 120; i++) {
-      var j = new Date(d.getTime() + i * 86400000);
+      var j = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
       if (JOURS_OUVERTS.indexOf(j.getDay()) !== -1) out.push(j);
     }
     return out;
@@ -211,9 +223,9 @@
 
     if (priv) {
       if (!dateLibre.value) {
-        var d = new Date(Date.now() + 14 * 86400000);
-        dateLibre.min = cleISO(new Date());
-        dateLibre.value = cleISO(d);
+        var mini = premierJour();
+        dateLibre.min = cleISO(mini);
+        dateLibre.value = cleISO(new Date(mini.getFullYear(), mini.getMonth(), mini.getDate() + 14));
       }
       $('#personnes-libelle').textContent = T('resa.personnes.priv', 'Nombre de personnes attendues');
     } else {

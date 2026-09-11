@@ -137,6 +137,7 @@ Tout est en haut de `Code.gs`, dans `CONFIG` :
 | `PAS_MINUTES` | `15` (27 créneaux par soir) |
 | `JOURS_OUVERTS` | `[5, 6, 0]` = vendredi, samedi, dimanche |
 | `MAX_SANS_COCHER` | `6` personnes |
+| `DELAI_MINIMUM_JOURS` | `1` — pas de réservation le jour même |
 | `JOURS_A_L_AVANCE` | `90` jours |
 
 ⚠️ Les mêmes valeurs sont répétées en haut de `assets/js/reservation.js` pour l'affichage.
