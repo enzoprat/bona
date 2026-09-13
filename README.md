@@ -29,10 +29,12 @@ Puis http://127.0.0.1:4321 — ou ouvrir `index.html` directement dans le naviga
 
 ## Mise en ligne
 
-Le site est 100% statique : déposer le contenu du dossier à la racine de l'hébergement
-(OVH, Netlify, Vercel, GitHub Pages…). Aucune base de données, aucun serveur applicatif.
-Le domaine `bonabordeaux.fr` est déjà renseigné dans les balises canoniques, Open Graph
-et le sitemap.
+Le site est 100% statique : aucune base de données, aucun serveur applicatif.
+
+- **bonabordeaux.fr** — servi par **Vercel**, branché sur ce dépôt : chaque `git push`
+  sur `main` redéploie. C'est l'adresse publique, celle des balises canoniques.
+- **enzoprat.github.io/bona** — GitHub Pages, alimenté par le même dépôt. Utile pour
+  vérifier une mise en ligne, redondant par ailleurs.
 
 ## Réservations
 

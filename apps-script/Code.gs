@@ -8,7 +8,7 @@
 
 /* À incrémenter à chaque modification : doGet le renvoie, ce qui permet de
    vérifier d'un coup d'œil que le déploiement sert bien la dernière version. */
-const VERSION = 8;
+const VERSION = 9;
 
 const CONFIG = {
   // Numéro qui reçoit toutes les réservations, au format attendu par CallMeBot :
@@ -94,8 +94,21 @@ function creneaux_() {
    Feuille
    -------------------------------------------------------------------------- */
 
+/* Un appel à SpreadsheetApp coûte cher et la réponse ne change pas pendant
+   l'exécution : on ne la demande qu'une fois par requête. */
+let _classeur = null;
+let _feuille = null;
+let _fuseau = null;
+
+function classeur_() {
+  if (!_classeur) _classeur = SpreadsheetApp.getActiveSpreadsheet();
+  return _classeur;
+}
+
 function feuille_() {
-  const classeur = SpreadsheetApp.getActiveSpreadsheet();
+  if (_feuille) return _feuille;
+
+  const classeur = classeur_();
   let f = classeur.getSheetByName(CONFIG.NOM_FEUILLE);
 
   if (!f) {
@@ -106,6 +119,7 @@ function feuille_() {
     // Sans cela, Sheets convertit « 2026-09-04 » en date et « 23:45 » en heure.
     f.getRange('C:D').setNumberFormat('@');
   }
+  _feuille = f;
   return f;
 }
 
@@ -129,7 +143,10 @@ function normaliserCreneau_(v) {
 }
 
 function fuseau_() {
-  return SpreadsheetApp.getActiveSpreadsheet().getSpreadsheetTimeZone() || 'Europe/Paris';
+  // Appelé une fois par cellule de date sans cette mise en cache, soit des
+  // dizaines d'appels de service par requête et plusieurs secondes de latence.
+  if (!_fuseau) _fuseau = classeur_().getSpreadsheetTimeZone() || 'Europe/Paris';
+  return _fuseau;
 }
 
 /** Créneaux déjà attribués pour une date de service donnée. */
@@ -138,6 +155,7 @@ function creneauxPris_(dateService) {
   const dernier = f.getLastRow();
   if (dernier < 2) return [];
 
+  // Une seule lecture de plage : le tableau revient en un aller-retour.
   const lignes = f.getRange(2, 3, dernier - 1, 2).getValues(); // Date du service, Créneau
   const pris = [];
 
@@ -338,6 +356,7 @@ function doGet(e) {
 
   // Soir fermé : tous les créneaux sont rendus indisponibles.
   const ferme = CONFIG.DATES_FERMEES.indexOf(date) !== -1;
+  const nbLignes = feuille_().getLastRow() - 1;
 
   return json_({
     ok: true,
@@ -346,8 +365,8 @@ function doGet(e) {
     ferme: ferme,
     creneaux: creneaux_(),
     pris: ferme ? creneaux_() : creneauxPris_(date),
-    lignes: feuille_().getLastRow() - 1,
-    classeur: SpreadsheetApp.getActiveSpreadsheet().getName(),
+    lignes: nbLignes,
+    classeur: classeur_().getName(),
     joursOuverts: CONFIG.JOURS_OUVERTS
   });
 }
@@ -416,7 +435,7 @@ function doPost(e) {
    -------------------------------------------------------------------------- */
 
 function diagnostic() {
-  const classeur = SpreadsheetApp.getActiveSpreadsheet();
+  const classeur = classeur_();
   Logger.log('=== CLASSEUR UTILISÉ PAR LE SCRIPT ===');
   Logger.log('Nom : %s', classeur.getName());
   Logger.log('URL : %s', classeur.getUrl());

@@ -21,6 +21,12 @@
   var MAX_SANS_COCHER = 6;
   var NB_DATES_PROPOSEES = 8;
 
+  /* Le script Google répond entre 2 et 12 secondes selon son humeur. Au-delà de
+     ce délai on cesse d'attendre et on affiche tous les créneaux : mieux vaut
+     proposer un créneau déjà pris — l'envoi le refusera — que de laisser le
+     client devant un écran qui cherche indéfiniment. */
+  var DELAI_REPONSE_MS = 6000;
+
   /* Délai minimum avant une réservation, en jours.
      0 = réservation le jour même autorisée. 1 = plus de réservation le jour même.
      À garder identique à DELAI_MINIMUM_JOURS dans apps-script/Code.gs. */
@@ -197,6 +203,10 @@
     }
   }
 
+  /* Numéro de la dernière requête lancée : une réponse tardive concernant une
+     autre date ne doit pas écraser l'affichage en cours. */
+  var requete = 0;
+
   function chargerCreneaux(date) {
     var tous = listeCreneaux();
 
@@ -208,15 +218,20 @@
     champsCreneau.innerHTML = '<p class="form__chargement"></p>';
     champsCreneau.firstChild.textContent = T('resa.chargement', 'Recherche des créneaux disponibles…');
 
-    fetch(ENDPOINT + '?date=' + encodeURIComponent(date))
+    var mienne = ++requete;
+    var abandon = ('AbortController' in window) ? new AbortController() : null;
+    var minuteur = setTimeout(function () { if (abandon) abandon.abort(); }, DELAI_REPONSE_MS);
+
+    var termine = function (creneaux, pris) {
+      clearTimeout(minuteur);
+      if (mienne !== requete) return;   // une sélection plus récente a pris la main
+      afficherCreneaux(creneaux, pris);
+    };
+
+    fetch(ENDPOINT + '?date=' + encodeURIComponent(date), abandon ? { signal: abandon.signal } : undefined)
       .then(function (r) { return r.json(); })
-      .then(function (data) {
-        afficherCreneaux(data.creneaux || tous, data.pris || []);
-      })
-      .catch(function () {
-        // Le service ne répond pas : on affiche tout, la demande sera confirmée à la main.
-        afficherCreneaux(tous, []);
-      });
+      .then(function (data) { termine(data.creneaux || tous, data.pris || []); })
+      .catch(function () { termine(tous, []); });
   }
 
   /* ---------- Bascule réservation / privatisation ---------- */
