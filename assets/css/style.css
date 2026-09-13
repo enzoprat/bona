@@ -822,3 +822,34 @@ body.menu-open .burger span:nth-child(2) { transform: translateY(-4.5px) rotate(
 @media (prefers-reduced-motion: reduce) {
   .modale[open] { animation: none; }
 }
+
+/* ---------- Disponibilités du soir (carte) ---------- */
+
+.dish-row__epuise {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  font-size: 9.5px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--navy); background: var(--cream-faint);
+  background: rgba(247, 247, 244, .82);
+}
+.dish-row.is-epuise > h3,
+.dish-row.is-epuise > .price {
+  color: var(--cream-faint);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.dish-row.is-epuise > .desc,
+.dish-row.is-epuise > .tags { opacity: .45; }
+
+/* Description valable pour ce soir seulement */
+.desc--dujour { color: var(--cream); }
+.desc--dujour::before {
+  content: "";
+  display: inline-block; vertical-align: middle;
+  width: 5px; height: 5px; margin-right: 8px;
+  transform: rotate(45deg);
+  background: var(--cream);
+}

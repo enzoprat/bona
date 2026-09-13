@@ -233,11 +233,11 @@ window.BonaI18n = (function () {
       'Grigliata alla brace, timo e aglio'
     ],
     'home.sig.d4': [
-      '3 pièces marinées, secret du chef',
-      'Three chops, marinated to the chef’s recipe',
-      '3 piezas marinadas, secreto del chef',
-      'Drei Stück, mariniert nach Chefgeheimnis',
-      '3 pezzi marinati, segreto dello chef'
+      'Laqué au miel et thym frais, à la plancha',
+      'Glazed with honey and fresh thyme, on the plancha',
+      'Lacado con miel y tomillo fresco, a la plancha',
+      'Mit Honig und frischem Thymian glasiert, von der Plancha',
+      'Laccato al miele e timo fresco, alla piastra'
     ],
 
     /* ---------- Carte : structure ---------- */
@@ -297,6 +297,9 @@ window.BonaI18n = (function () {
     'tag.poisson':    ['Poisson', 'Fish', 'Pescado', 'Fisch', 'Pesce'],
     'tag.noix':       ['Fruits à coque', 'Nuts', 'Frutos secos', 'Schalenfrüchte', 'Frutta a guscio'],
     'tag.aucun':      ['Sans allergène', 'No allergens', 'Sin alérgenos', 'Ohne Allergene', 'Senza allergeni'],
+    'carte.epuise': ['Indisponible ce soir', 'Unavailable tonight', 'No disponible esta noche', 'Heute Abend nicht verfügbar', 'Non disponibile stasera'],
+    'carte.dujour': ['Ce soir', 'Tonight', 'Esta noche', 'Heute Abend', 'Stasera'],
+
     'tag.vegetarien': ['Végétarien', 'Vegetarian', 'Vegetariano', 'Vegetarisch', 'Vegetariano'],
 
     /* ---------- Carte : entrées ---------- */
@@ -370,8 +373,22 @@ window.BonaI18n = (function () {
       '400 g – 500 g von der Plancha, mit Honig und frischem Thymian glasiert, Fleur de Sel und schwarzer Pfeffer.',
       '400 g – 500 g cotto alla piastra, laccato al miele e timo fresco, fiore di sale e pepe nero macinato.'
     ],
-    'd.cotelettes.n': ['Côtelettes d’agneau', 'Lamb chops', 'Chuletas de cordero', 'Lammkoteletts', 'Costolette d’agnello'],
-    'd.cotelettes.d': ['3 pièces marinées, secret du chef.', 'Three chops, marinated to the chef’s own recipe.', '3 piezas marinadas, secreto del chef.', 'Drei Stück, mariniert nach dem Geheimnis des Küchenchefs.', '3 pezzi marinati, segreto dello chef.'],
+    'd.pouletmayo.n': ['Poulet mayo', 'Chicken mayo', 'Pollo con mayonesa', 'Hähnchen mit Mayonnaise', 'Pollo e maionese'],
+    'd.pouletmayo.d': [
+      'Poulet et sauce mayonnaise, accompagnement au choix.',
+      'Chicken with mayonnaise, with a side of your choice.',
+      'Pollo con salsa mayonesa, guarnición a elegir.',
+      'Hähnchen mit Mayonnaise, Beilage nach Wahl.',
+      'Pollo con salsa maionese, contorno a scelta.'
+    ],
+    'd.demipoulet.n': ['Demi-poulet braisé', 'Braised half chicken', 'Medio pollo estofado', 'Geschmortes halbes Hähnchen', 'Mezzo pollo brasato'],
+    'd.demipoulet.d': [
+      'Un demi-poulet braisé, accompagnement au choix.',
+      'Half a chicken, braised, with a side of your choice.',
+      'Medio pollo estofado, guarnición a elegir.',
+      'Ein halbes Hähnchen, geschmort, Beilage nach Wahl.',
+      'Mezzo pollo brasato, contorno a scelta.'
+    ],
     'd.cotebœuf.n': ['Côte de bœuf à partager 1 kg', 'Côte de bœuf to share 1 kg', 'Chuletón para compartir 1 kg', 'Rinderkotelett zum Teilen 1 kg', 'Costata da condividere 1 kg'],
     'd.cotebœuf.d': [
       'Pour deux, grillée à la braise, thym et ail, fleur de sel et poivre noir.',

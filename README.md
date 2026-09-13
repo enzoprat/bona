@@ -12,6 +12,7 @@ apps-script/        Backend des réservations (Google Apps Script) + sa notice
 assets/css/style.css
 assets/js/main.js
 assets/js/i18n.js       Traductions (fr, en, es, de, it) + moteur
+assets/js/carte.js      Disponibilités du soir (plat épuisé, description remplacée)
 assets/js/reservation.js
 assets/img/         Photos (issues des visuels fournis)
 assets/img/map/     9 tuiles OpenStreetMap servies en local (plan statique, sans iframe)
@@ -51,6 +52,24 @@ dès l'envoi, puisque le créneau est bloqué automatiquement.
 
 👉 **Le formulaire n'enverra rien tant que l'étape de branchement n'est pas faite :
 voir [`apps-script/README.md`](apps-script/README.md)** (~20 min, une seule fois).
+
+## Disponibilités du soir
+
+La carte ne bouge pas ; ce qui bouge, c'est ce qu'il reste en cuisine. Une soirée se
+déclare dans `assets/js/carte.js`, datée :
+
+```js
+'2026-09-13': {
+  epuises: ['cotebœuf'],                    // barré, « Indisponible ce soir »
+  descriptions: {                           // texte valable ce soir seulement
+    brochettes: { fr: '3 × agneau mariné…', en: '…', es: '…', de: '…', it: '…' }
+  }
+}
+```
+
+Les identifiants sont ceux de l'attribut `data-plat` dans `carte.html`. Une date passée
+n'a plus aucun effet : rien à défaire le lendemain. Ne pas confondre avec `DATES_FERMEES`,
+qui ferme une **soirée entière** à la réservation.
 
 ## Langues
 
