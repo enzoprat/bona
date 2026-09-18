@@ -209,7 +209,6 @@ window.BonaI18n = (function () {
     'social.avis.sub': ['Laissez-nous un avis', 'Leave us a review', 'Déjanos tu opinión', 'Bewerten Sie uns', 'Lasciaci una recensione'],
 
     'carte.eyebrow': ['Bona · Brasserie', 'Bona · Brasserie', 'Bona · Brasserie', 'Bona · Brasserie', 'Bona · Brasserie'],
-    'resa.jours': ['Vendredi, samedi et dimanche', 'Friday, Saturday and Sunday', 'Viernes, sábado y domingo', 'Freitag, Samstag und Sonntag', 'Venerdì, sabato e domenica'],
     'home.sig.n3': ['Entrecôte grillée', 'Grilled rib steak', 'Entrecot a la parrilla', 'Gegrilltes Entrecôte', 'Entrecôte alla griglia'],
     'home.sig.d1': [
       'Pain toasteur, cœur de burrata fumé, bœuf effiloché',
@@ -295,10 +294,8 @@ window.BonaI18n = (function () {
     'tag.lait':       ['Lait', 'Dairy', 'Lácteos', 'Milch', 'Latte'],
     'tag.oeufs':      ['Œufs', 'Eggs', 'Huevo', 'Eier', 'Uova'],
     'tag.poisson':    ['Poisson', 'Fish', 'Pescado', 'Fisch', 'Pesce'],
-    'tag.noix':       ['Fruits à coque', 'Nuts', 'Frutos secos', 'Schalenfrüchte', 'Frutta a guscio'],
     'tag.aucun':      ['Sans allergène', 'No allergens', 'Sin alérgenos', 'Ohne Allergene', 'Senza allergeni'],
     'carte.epuise': ['Indisponible ce soir', 'Unavailable tonight', 'No disponible esta noche', 'Heute Abend nicht verfügbar', 'Non disponibile stasera'],
-    'carte.dujour': ['Ce soir', 'Tonight', 'Esta noche', 'Heute Abend', 'Stasera'],
 
     'tag.vegetarien': ['Végétarien', 'Vegetarian', 'Vegetariano', 'Vegetarisch', 'Vegetariano'],
 
@@ -524,146 +521,6 @@ window.BonaI18n = (function () {
       'Poiché i nostri piatti sono preparati a mano con prodotti freschi e crudi, la nostra cucina lavora ogni giorno glutine e latticini. In caso di allergie gravi, informate il nostro personale prima di ordinare.'
     ],
 
-    /* ---------- Réservation ---------- */
-    'resa.h1':  ['Réserver', 'Book a table', 'Reservar', 'Reservieren', 'Prenota'],
-    'resa.sub': [
-      'Un seul groupe par quart d’heure, de 19h00 à 01h30. Service du vendredi au dimanche.',
-      'One group per quarter hour, from 7:00 pm to 1:30 am. Open Friday to Sunday.',
-      'Un solo grupo cada cuarto de hora, de 19:00 a 01:30. Servicio de viernes a domingo.',
-      'Nur eine Gruppe pro Viertelstunde, von 19:00 bis 01:30 Uhr. Freitag bis Sonntag geöffnet.',
-      'Un solo gruppo ogni quarto d’ora, dalle 19:00 all’01:30. Servizio dal venerdì alla domenica.'
-    ],
-    'resa.demande':      ['Votre demande', 'Your request', 'Su solicitud', 'Ihre Anfrage', 'La tua richiesta'],
-    'resa.reserver':     ['Réserver une table', 'Book a table', 'Reservar mesa', 'Tisch reservieren', 'Prenota un tavolo'],
-    'resa.privatisation':['Privatisation', 'Private hire', 'Privatización', 'Exklusivmiete', 'Privatizzazione'],
-    'resa.aide.priv': [
-      'La privatisation concerne l’ensemble de la salle, sur devis. Indiquez la date souhaitée, nous vous rappelons pour en définir les détails.',
-      'Private hire covers the whole room, quoted individually. Give us the date you have in mind and we will call you back to work out the details.',
-      'La privatización cubre toda la sala, con presupuesto a medida. Indíquenos la fecha deseada y le llamamos para concretar los detalles.',
-      'Die Exklusivmiete umfasst den gesamten Saal, Preis auf Anfrage. Nennen Sie uns das gewünschte Datum, wir rufen Sie für die Details zurück.',
-      'La privatizzazione riguarda l’intera sala, su preventivo. Indicate la data desiderata, vi richiamiamo per definire i dettagli.'
-    ],
-    'resa.soir':      ['Quel soir ?', 'Which evening?', '¿Qué noche?', 'Welcher Abend?', 'Quale sera?'],
-    'resa.soir.aide': [
-      'Nous ouvrons le vendredi, le samedi et le dimanche.',
-      'We are open on Friday, Saturday and Sunday.',
-      'Abrimos viernes, sábado y domingo.',
-      'Wir haben freitags, samstags und sonntags geöffnet.',
-      'Siamo aperti venerdì, sabato e domenica.'
-    ],
-    'resa.datesouhaitee': ['Date souhaitée', 'Preferred date', 'Fecha deseada', 'Wunschdatum', 'Data desiderata'],
-    'resa.heure':      ['À quelle heure ?', 'What time?', '¿A qué hora?', 'Um welche Uhrzeit?', 'A che ora?'],
-    'resa.heure.aide': [
-      'Les créneaux déjà pris n’apparaissent pas comme sélectionnables.',
-      'Slots already taken are shown as unavailable.',
-      'Las franjas ya reservadas aparecen como no disponibles.',
-      'Bereits vergebene Zeiten sind nicht auswählbar.',
-      'Le fasce già prenotate non sono selezionabili.'
-    ],
-    'resa.personnes':      ['Nombre de personnes', 'Number of guests', 'Número de personas', 'Anzahl der Gäste', 'Numero di persone'],
-    'resa.personnes.priv': ['Nombre de personnes attendues', 'Expected number of guests', 'Número de personas previstas', 'Erwartete Gästezahl', 'Numero di persone previste'],
-    'resa.personne':  ['personne', 'guest', 'persona', 'Gast', 'persona'],
-    'resa.personnes.pl': ['personnes', 'guests', 'personas', 'Gäste', 'persone'],
-    'resa.plus6':     ['Nous sommes plus de 6', 'We are more than 6', 'Somos más de 6', 'Wir sind mehr als 6', 'Siamo più di 6'],
-    'resa.combien':   ['Combien serez-vous ?', 'How many of you?', '¿Cuántos serán?', 'Wie viele werden Sie sein?', 'In quanti sarete?'],
-    'resa.combien.aide': [
-      'Nous vous rappelons pour organiser l’accueil du groupe.',
-      'We will call you back to organise the group’s welcome.',
-      'Le llamamos para organizar la acogida del grupo.',
-      'Wir rufen Sie zurück, um den Empfang der Gruppe zu organisieren.',
-      'Vi richiamiamo per organizzare l’accoglienza del gruppo.'
-    ],
-    'resa.nom':      ['Nom', 'Name', 'Nombre', 'Name', 'Nome'],
-    'resa.tel':      ['Téléphone', 'Phone', 'Teléfono', 'Telefon', 'Telefono'],
-    'resa.email':    ['E-mail', 'Email', 'Correo electrónico', 'E-Mail', 'E-mail'],
-    'resa.facultatif': ['facultatif', 'optional', 'opcional', 'optional', 'facoltativo'],
-    'resa.message':  ['Un mot pour nous', 'A word for us', 'Un mensaje para nosotros', 'Eine Nachricht für uns', 'Un messaggio per noi'],
-    'resa.message.ph': [
-      'Allergie, anniversaire, poussette, une envie particulière…',
-      'Allergy, birthday, pushchair, a special request…',
-      'Alergia, cumpleaños, carrito, una petición especial…',
-      'Allergie, Geburtstag, Kinderwagen, ein besonderer Wunsch…',
-      'Allergia, compleanno, passeggino, un desiderio particolare…'
-    ],
-    'resa.envoyer':  ['Envoyer la demande', 'Send request', 'Enviar solicitud', 'Anfrage senden', 'Invia la richiesta'],
-    'resa.mentions': [
-      'Votre table est confirmée dès l’envoi. En cas d’annulation, appelez-nous au 07 59 31 07 35. Vos coordonnées servent uniquement à traiter cette réservation.',
-      'Your table is confirmed as soon as you send the form. To cancel, call us on +33 7 59 31 07 35. Your details are used only to process this booking.',
-      'Su mesa queda confirmada al enviar el formulario. Para anular, llámenos al +33 7 59 31 07 35. Sus datos solo se usan para gestionar esta reserva.',
-      'Ihr Tisch ist mit dem Absenden bestätigt. Zum Stornieren rufen Sie uns unter +33 7 59 31 07 35 an. Ihre Daten dienen nur der Bearbeitung dieser Reservierung.',
-      'Il vostro tavolo è confermato all’invio. Per annullare, chiamateci al +33 7 59 31 07 35. I vostri dati servono solo a gestire questa prenotazione.'
-    ],
-    'resa.question': ['Une question ?', 'A question?', '¿Alguna duda?', 'Eine Frage?', 'Una domanda?'],
-    'resa.instagram':['Écrivez-nous sur Instagram', 'Message us on Instagram', 'Escríbenos por Instagram', 'Schreiben Sie uns auf Instagram', 'Scrivici su Instagram'],
-    'resa.retour':   ['Retour à l’accueil', 'Back to home', 'Volver al inicio', 'Zur Startseite', 'Torna alla home'],
-    'resa.merci':    ['Merci', 'Thank you', 'Gracias', 'Danke', 'Grazie'],
-
-    'resa.chargement': ['Recherche des créneaux disponibles…', 'Looking for available slots…', 'Buscando franjas disponibles…', 'Verfügbare Zeiten werden gesucht…', 'Ricerca delle fasce disponibili…'],
-    'resa.envoi':      ['Envoi en cours…', 'Sending…', 'Enviando…', 'Wird gesendet…', 'Invio in corso…'],
-    'resa.ok.resa': [
-      'Votre table est réservée.',
-      'Your table is booked.',
-      'Su mesa está reservada.',
-      'Ihr Tisch ist reserviert.',
-      'Il vostro tavolo è prenotato.'
-    ],
-    'resa.modal.titre': [
-      'Confirmation validée',
-      'Booking confirmed',
-      'Confirmación validada',
-      'Bestätigt',
-      'Prenotazione confermata'
-    ],
-    'resa.modal.titrePriv': [
-      'Demande envoyée',
-      'Request sent',
-      'Solicitud enviada',
-      'Anfrage gesendet',
-      'Richiesta inviata'
-    ],
-    'resa.modal.annulation': [
-      'En cas d’annulation, appelez-nous au',
-      'To cancel, please call us on',
-      'Para anular, llámenos al',
-      'Zum Stornieren rufen Sie uns an',
-      'Per annullare, chiamateci al'
-    ],
-    'resa.modal.fermer': ['Fermer', 'Close', 'Cerrar', 'Schließen', 'Chiudi'],
-    'resa.recap.personnes': ['pour', 'for', 'para', 'für', 'per'],
-    'resa.ok.priv': [
-      'Demande de privatisation envoyée. Nous vous rappelons pour en discuter.',
-      'Private hire request sent. We will call you back to discuss it.',
-      'Solicitud de privatización enviada. Le llamamos para hablarlo.',
-      'Anfrage zur Exklusivmiete gesendet. Wir rufen Sie zurück.',
-      'Richiesta di privatizzazione inviata. Vi richiamiamo per parlarne.'
-    ],
-    'err.date':     ['Choisissez une date.', 'Please choose a date.', 'Elija una fecha.', 'Bitte wählen Sie ein Datum.', 'Scegliete una data.'],
-    'err.creneau':  ['Choisissez un créneau.', 'Please choose a time.', 'Elija una franja horaria.', 'Bitte wählen Sie eine Uhrzeit.', 'Scegliete un orario.'],
-    'err.personnes':['Indiquez le nombre de personnes.', 'Please give the number of guests.', 'Indique el número de personas.', 'Bitte geben Sie die Gästezahl an.', 'Indicate il numero di persone.'],
-    'err.plus6':    ['Au-delà de 6 personnes, cochez « Nous sommes plus de 6 ».', 'For more than 6 guests, tick “We are more than 6”.', 'Para más de 6 personas, marque «Somos más de 6».', 'Ab 7 Gästen bitte „Wir sind mehr als 6“ ankreuzen.', 'Oltre 6 persone, spuntate « Siamo più di 6 ».'],
-    'err.nom':      ['Indiquez votre nom.', 'Please give your name.', 'Indique su nombre.', 'Bitte geben Sie Ihren Namen an.', 'Indicate il vostro nome.'],
-    'err.tel':      ['Indiquez un numéro de téléphone valide.', 'Please give a valid phone number.', 'Indique un teléfono válido.', 'Bitte geben Sie eine gültige Telefonnummer an.', 'Indicate un numero di telefono valido.'],
-    'err.endpoint': [
-      'Le formulaire n’est pas encore relié : renseignez ENDPOINT dans assets/js/reservation.js.',
-      'The form is not connected yet: set ENDPOINT in assets/js/reservation.js.',
-      'El formulario aún no está conectado: configure ENDPOINT en assets/js/reservation.js.',
-      'Das Formular ist noch nicht verbunden: ENDPOINT in assets/js/reservation.js eintragen.',
-      'Il modulo non è ancora collegato: impostate ENDPOINT in assets/js/reservation.js.'
-    ],
-    'err.envoi': [
-      'Envoi impossible. Réessayez ou écrivez-nous sur Instagram.',
-      'Could not send. Please try again or message us on Instagram.',
-      'No se pudo enviar. Inténtelo de nuevo o escríbanos por Instagram.',
-      'Senden fehlgeschlagen. Bitte erneut versuchen oder auf Instagram schreiben.',
-      'Invio non riuscito. Riprovate o scriveteci su Instagram.'
-    ],
-    'err.complet': [
-      'Ce soir-là est complet. Choisissez une autre date ou écrivez-nous sur Instagram.',
-      'That evening is fully booked. Please pick another date or message us on Instagram.',
-      'Esa noche está completa. Elija otra fecha o escríbanos por Instagram.',
-      'Dieser Abend ist ausgebucht. Bitte wählen Sie ein anderes Datum oder schreiben Sie uns auf Instagram.',
-      'Quella sera è al completo. Scegliete un’altra data o scriveteci su Instagram.'
-    ]
   };
 
   /* ---------- Moteur ---------- */

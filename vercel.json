@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/reservation.html",
+      "destination": "https://www.thefork.fr/restaurant/bona-r868023",
+      "permanent": true
+    },
+    {
+      "source": "/reservation",
+      "destination": "https://www.thefork.fr/restaurant/bona-r868023",
+      "permanent": true
+    }
+  ]
+}

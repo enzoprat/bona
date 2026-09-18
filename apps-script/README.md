@@ -1,3 +1,12 @@
+> ## ⚠️ Hors service
+>
+> Les réservations passent désormais par **TheFork**. Ce script n'est plus appelé par le
+> site : la page `reservation.html` a été supprimée et son adresse redirige vers la fiche
+> TheFork. Le dossier est conservé au cas où l'on voudrait revenir à un formulaire maison.
+>
+> Pour le réactiver : restaurer `reservation.html` et `assets/js/reservation.js` depuis
+> `git log`, puis reprendre la notice ci-dessous.
+
 # Brancher le formulaire de réservation
 
 Le formulaire est en place et fonctionne déjà en local, mais il n'envoie encore rien :

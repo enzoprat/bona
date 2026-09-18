@@ -5,15 +5,14 @@ Site vitrine statique (HTML/CSS/JS, aucun build, aucune dépendance).
 ```
 index.html          Accueil : hero, valeurs, histoire, signatures, aperçu carte, galerie, infos, réseaux
 carte.html          Carte complète + tableau des allergènes
-reservation.html    Formulaire de réservation et de privatisation
 robots.txt
 sitemap.xml
-apps-script/        Backend des réservations (Google Apps Script) + sa notice
+apps-script/        Ancien moteur de réservation (hors service, conservé au cas où)
+vercel.json         Redirection de l'ancienne page de réservation vers TheFork
 assets/css/style.css
 assets/js/main.js
 assets/js/i18n.js       Traductions (fr, en, es, de, it) + moteur
 assets/js/carte.js      Disponibilités du soir (plat épuisé, description remplacée)
-assets/js/reservation.js
 assets/img/         Photos (issues des visuels fournis)
 assets/img/map/     9 tuiles OpenStreetMap servies en local (plan statique, sans iframe)
 assets/logo/        Logotype, monogramme, favicon (SVG)
@@ -38,22 +37,16 @@ Le site est 100% statique : aucune base de données, aucun serveur applicatif.
 
 ## Réservations
 
-Le formulaire de `reservation.html` propose **un groupe par créneau de 15 minutes,
-de 19h00 à 01h30** (27 créneaux), uniquement les vendredis, samedis et dimanches.
-Les soirs de fermeture exceptionnelle se déclarent dans `DATES_FERMEES`.
-Au-delà de 6 personnes, le client coche « Nous sommes plus de 6 » et saisit l'effectif.
-Un second mode, **Privatisation**, demande une date libre plutôt qu'un créneau.
+Les réservations passent par **TheFork** : le bouton « Réserver » et la navigation
+pointent vers [la fiche du restaurant](https://www.thefork.fr/restaurant/bona-r868023).
+Le site ne prend plus aucune réservation lui-même.
 
-Les demandes arrivent par **e-mail immédiat** sur `bonabordeaux@gmail.com`, sont doublées sur **WhatsApp** (via CallMeBot,
-avec un délai possible) et s'enregistrent dans un Google Sheet, qui sert aussi à masquer les
-créneaux déjà pris.
+L'ancienne adresse `bonabordeaux.fr/reservation.html` est redirigée en 301 vers TheFork
+(`vercel.json`) : les liens déjà partagés continuent de fonctionner.
 
-À l'envoi, une **pop-up « Confirmation validée »** récapitule la date, l'heure et le nombre
-de convives, et affiche le **07 59 31 07 35** pour toute annulation, en lien cliquable. La table est confirmée
-dès l'envoi, puisque le créneau est bloqué automatiquement.
-
-👉 **Le formulaire n'enverra rien tant que l'étape de branchement n'est pas faite :
-voir [`apps-script/README.md`](apps-script/README.md)** (~20 min, une seule fois).
+Le formulaire maison — créneaux de 15 minutes, Google Sheet, notifications — a été retiré.
+Son moteur reste dans `apps-script/` si l'on souhaitait un jour y revenir ; `git log`
+conserve la page et son JavaScript.
 
 ## Disponibilités du soir
 
