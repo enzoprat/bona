@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bonabordeaux.fr/sitemap.xml
+Sitemap: https://www.bonabordeaux.fr/sitemap.xml
