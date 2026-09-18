@@ -381,14 +381,6 @@ window.BonaI18n = (function () {
       'Hähnchen mit Mayonnaise, Beilage nach Wahl.',
       'Pollo con salsa maionese, contorno a scelta.'
     ],
-    'd.demipoulet.n': ['Demi-poulet braisé', 'Braised half chicken', 'Medio pollo estofado', 'Geschmortes halbes Hähnchen', 'Mezzo pollo brasato'],
-    'd.demipoulet.d': [
-      'Un demi-poulet braisé, accompagnement au choix.',
-      'Half a chicken, braised, with a side of your choice.',
-      'Medio pollo estofado, guarnición a elegir.',
-      'Ein halbes Hähnchen, geschmort, Beilage nach Wahl.',
-      'Mezzo pollo brasato, contorno a scelta.'
-    ],
     'd.cotebœuf.n': ['Côte de bœuf à partager 1 kg', 'Côte de bœuf to share 1 kg', 'Chuletón para compartir 1 kg', 'Rinderkotelett zum Teilen 1 kg', 'Costata da condividere 1 kg'],
     'd.cotebœuf.d': [
       'Pour deux, grillée à la braise, thym et ail, fleur de sel et poivre noir.',
