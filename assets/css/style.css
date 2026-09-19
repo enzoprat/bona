@@ -633,7 +633,12 @@ body.menu-open .burger span:nth-child(2) { transform: translateY(-4.5px) rotate(
 .cta-fixe:hover { background: var(--navy-deep); color: var(--cream); }
 .cta-fixe:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
-.cta-fixe__icone { width: 17px; height: 17px; flex: none; }
+/* Pastille ronde : la marque TheFork est fournie sur fond vert, on la détoure */
+.cta-fixe__logo {
+  width: 26px; height: 26px; flex: none;
+  border-radius: 50%;
+  margin: -4px 0;
+}
 .cta-fixe__fleche { width: 13px; height: 13px; flex: none; }
 
 /* Desktop : pastille en bas à droite */

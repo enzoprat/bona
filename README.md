@@ -46,10 +46,8 @@ sur grand écran, barre pleine largeur sur mobile. Il n'apparaît qu'une fois le
 dépassé, pour ne pas doubler son bouton, et reste absent sur la carte tant qu'on n'a pas
 commencé à lire.
 
-> Le pictogramme est une fourchette dessinée pour l'occasion, **pas le logo officiel
-> TheFork** : leur site bloque la récupération automatique. Pour le vrai logo, le
-> récupérer dans TheFork Manager (ressources de marque) et remplacer le `<symbol
-> id="i-fourchette">` du sprite, présent dans `index.html` et `carte.html`.
+La pastille est la marque officielle TheFork (`assets/logo/thefork.png`), détourée depuis
+l'avatar de leur chaîne Giphy et servie en local — jamais en lien direct vers leur serveur.
 
 L'ancienne adresse `bonabordeaux.fr/reservation.html` est redirigée en 301 vers TheFork
 (`vercel.json`) : les liens déjà partagés continuent de fonctionner.
