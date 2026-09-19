@@ -377,14 +377,6 @@ window.BonaI18n = (function () {
       '400 g – 500 g von der Plancha, mit Honig und frischem Thymian glasiert, Fleur de Sel und schwarzer Pfeffer.',
       '400 g – 500 g cotto alla piastra, laccato al miele e timo fresco, fiore di sale e pepe nero macinato.'
     ],
-    'd.pouletmayo.n': ['Poulet mayo', 'Chicken mayo', 'Pollo con mayonesa', 'Hähnchen mit Mayonnaise', 'Pollo e maionese'],
-    'd.pouletmayo.d': [
-      'Poulet et sauce mayonnaise, accompagnement au choix.',
-      'Chicken with mayonnaise, with a side of your choice.',
-      'Pollo con salsa mayonesa, guarnición a elegir.',
-      'Hähnchen mit Mayonnaise, Beilage nach Wahl.',
-      'Pollo con salsa maionese, contorno a scelta.'
-    ],
     'd.cotebœuf.n': ['Côte de bœuf à partager 1 kg', 'Côte de bœuf to share 1 kg', 'Chuletón para compartir 1 kg', 'Rinderkotelett zum Teilen 1 kg', 'Costata da condividere 1 kg'],
     'd.cotebœuf.d': [
       'Pour deux, grillée à la braise, thym et ail, fleur de sel et poivre noir.',
