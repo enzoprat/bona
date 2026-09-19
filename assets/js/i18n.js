@@ -26,6 +26,13 @@ window.BonaI18n = (function () {
     'nav.carte':      ['La carte', 'Menu', 'La carta', 'Speisekarte', 'Il menù'],
     'nav.galerie':    ['Galerie', 'Gallery', 'Galería', 'Galerie', 'Galleria'],
     'nav.reserver':   ['Réserver', 'Book', 'Reservar', 'Reservieren', 'Prenota'],
+    'cta.reserver': [
+      'Réserver sur TheFork',
+      'Book on TheFork',
+      'Reservar en TheFork',
+      'Auf TheFork reservieren',
+      'Prenota su TheFork'
+    ],
     'nav.trouver':    ['Nous trouver', 'Find us', 'Cómo llegar', 'Anfahrt', 'Dove siamo'],
     'brand.tag':      ['Brasserie', 'Brasserie', 'Brasserie', 'Brasserie', 'Brasserie'],
     'a11y.menu':      ['Ouvrir le menu', 'Open menu', 'Abrir el menú', 'Menü öffnen', 'Apri il menu'],

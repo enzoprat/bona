@@ -606,3 +606,55 @@ body.menu-open .burger span:nth-child(2) { transform: translateY(-4.5px) rotate(
   transform: rotate(45deg);
   background: var(--cream);
 }
+
+/* ==========================================================================
+   Réservation, toujours à portée
+   Apparaît une fois le hero dépassé, pour ne pas doubler son bouton.
+   ========================================================================== */
+
+.cta-fixe {
+  position: fixed;
+  z-index: 55;
+  display: inline-flex; align-items: center; gap: 11px;
+  padding: 15px 24px;
+  background: var(--cream); color: var(--navy);
+  border: 1px solid var(--cream);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase;
+  box-shadow: 0 14px 40px rgba(2, 22, 39, .45);
+
+  /* Masqué tant que le hero est à l'écran */
+  opacity: 0; visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity .4s ease, transform .4s cubic-bezier(.2, .7, .2, 1),
+              visibility .4s ease, background .3s ease, color .3s ease;
+}
+.cta-fixe.is-visible { opacity: 1; visibility: visible; transform: none; }
+.cta-fixe:hover { background: var(--navy-deep); color: var(--cream); }
+.cta-fixe:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+.cta-fixe__icone { width: 17px; height: 17px; flex: none; }
+.cta-fixe__fleche { width: 13px; height: 13px; flex: none; }
+
+/* Desktop : pastille en bas à droite */
+@media (min-width: 761px) {
+  .cta-fixe { right: clamp(20px, 3vw, 40px); bottom: clamp(20px, 3vw, 40px); }
+}
+
+/* Mobile : barre pleine largeur, au-dessus de la zone gestuelle */
+@media (max-width: 760px) {
+  .cta-fixe {
+    left: 0; right: 0; bottom: 0;
+    justify-content: center;
+    padding: 17px 20px calc(17px + env(safe-area-inset-bottom));
+    border-width: 1px 0 0;
+    font-size: 12px;
+    transform: translateY(100%);
+  }
+  /* Le pied de page ne doit jamais rester caché sous la barre */
+  .footer { padding-bottom: calc(clamp(46px, 6vw, 74px) + 76px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-fixe { transition: opacity .01ms, visibility .01ms; transform: none; }
+}

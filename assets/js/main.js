@@ -67,6 +67,25 @@
     courses.forEach(function (c) { spy.observe(c); });
   }
 
+  /* Bouton de réservation fixe : on l'affiche une fois le hero dépassé, pour ne
+     pas doubler son bouton. Sur les pages sans hero, dès le premier défilement. */
+  var ctaFixe = document.getElementById('cta-fixe');
+  if (ctaFixe) {
+    var repere = document.querySelector('.hero__cta');
+
+    if (repere && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        ctaFixe.classList.toggle('is-visible', !entries[0].isIntersecting);
+      }, { threshold: 0 }).observe(repere);
+    } else {
+      var seuil = function () {
+        ctaFixe.classList.toggle('is-visible', window.scrollY > 300);
+      };
+      seuil();
+      window.addEventListener('scroll', seuil, { passive: true });
+    }
+  }
+
   /* Année du copyright */
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
