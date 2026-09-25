@@ -22,9 +22,7 @@
   'use strict';
 
   var DU_JOUR = {
-    '2026-09-25': {
-      epuises: ['brochettes']
-    }
+    // Aucune soirée déclarée : la carte est servie telle quelle.
   };
 
   // Le service court jusqu'à 2 h du matin : à 0 h 30, on est encore « ce soir ».
