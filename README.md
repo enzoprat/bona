@@ -62,8 +62,8 @@ La carte ne bouge pas ; ce qui bouge, c'est ce qu'il reste en cuisine. Une soir�
 déclare dans `assets/js/carte.js`, datée :
 
 ```js
-'2026-09-13': {
-  epuises: ['cotebœuf'],                    // barré, « Indisponible ce soir »
+'2026-09-25': {
+  epuises: ['brochettes'],                  // barré, « Indisponible ce soir »
   descriptions: {                           // texte valable ce soir seulement
     brochettes: { fr: '3 × agneau mariné…', en: '…', es: '…', de: '…', it: '…' }
   }
@@ -71,7 +71,11 @@ déclare dans `assets/js/carte.js`, datée :
 ```
 
 Les identifiants sont ceux de l'attribut `data-plat` dans `carte.html`. Une date passée
-n'a plus aucun effet : rien à défaire le lendemain. Ne pas confondre avec `DATES_FERMEES`,
+n'a plus aucun effet : rien à défaire le lendemain.
+
+La soirée est datée du jour de **l'ouverture**, pas de l'heure qu'il est : le service
+allant jusqu'à 2 h du matin, la journée bascule à **5 h** (`BASCULE_HEURE`) et non à
+minuit. Un plat barré le vendredi soir le reste jusqu'à la fermeture. Ne pas confondre avec `DATES_FERMEES`,
 qui ferme une **soirée entière** à la réservation.
 
 ## Langues

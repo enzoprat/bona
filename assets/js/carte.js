@@ -22,25 +22,22 @@
   'use strict';
 
   var DU_JOUR = {
-    '2026-09-13': {
-      epuises: ['cotebœuf'],
-      descriptions: {
-        brochettes: {
-          fr: '3 × agneau mariné (pas de poulet ce soir).',
-          en: '3 × marinated lamb (no chicken tonight).',
-          es: '3 × cordero marinado (esta noche no hay pollo).',
-          de: '3 × mariniertes Lamm (heute Abend kein Hähnchen).',
-          it: '3 × agnello marinato (stasera niente pollo).'
-        }
-      }
+    '2026-09-25': {
+      epuises: ['brochettes']
     }
   };
+
+  // Le service court jusqu'à 2 h du matin : à 0 h 30, on est encore « ce soir ».
+  // La journée bascule donc à 5 h, pas à minuit, sinon le plat épuisé
+  // réapparaîtrait sur la carte en plein service.
+  var BASCULE_HEURE = 5;
 
   var plats = document.querySelectorAll('[data-plat]');
   if (!plats.length) return;
 
   function aujourdhui() {
     var d = new Date();
+    d.setHours(d.getHours() - BASCULE_HEURE);
     return d.getFullYear() + '-' +
       ('0' + (d.getMonth() + 1)).slice(-2) + '-' +
       ('0' + d.getDate()).slice(-2);
