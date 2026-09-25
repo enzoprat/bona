@@ -218,18 +218,18 @@ window.BonaI18n = (function () {
     'carte.eyebrow': ['Bona · Brasserie', 'Bona · Brasserie', 'Bona · Brasserie', 'Bona · Brasserie', 'Bona · Brasserie'],
     'home.sig.n3': ['Entrecôte grillée', 'Grilled rib steak', 'Entrecot a la parrilla', 'Gegrilltes Entrecôte', 'Entrecôte alla griglia'],
     'home.sig.d1': [
-      'Pain toasteur, cœur de burrata fumé, bœuf effiloché',
-      'Toasted bread, smoked burrata heart, pulled beef',
-      'Pan tostado, corazón de burrata ahumada, ternera deshilachada',
-      'Getoastetes Brot, geräuchertes Burrata-Herz, geschmortes Rindfleisch',
-      'Pane tostato, cuore di burrata affumicata, manzo sfilacciato'
+      'Burrata, bœuf ou poulet effiloché, légumes — au choix',
+      'Burrata, pulled beef or chicken, vegetables — your choice',
+      'Burrata, ternera o pollo deshilachado, verduras — a elegir',
+      'Burrata, geschmortes Rind oder Hähnchen, Gemüse — nach Wahl',
+      'Burrata, manzo o pollo sfilacciato, verdure — a scelta'
     ],
     'home.sig.d2': [
-      'Légume, bœuf effiloché, saumon fumé',
-      'Vegetables, pulled beef, smoked salmon',
-      'Verduras, ternera deshilachada, salmón ahumado',
-      'Gemüse, geschmortes Rindfleisch, Räucherlachs',
-      'Verdure, manzo sfilacciato, salmone affumicato'
+      'Burrata 250 g, tomates cerises et vinaigrette maison',
+      'Burrata 250 g, cherry tomatoes and house vinaigrette',
+      'Burrata 250 g, tomates cherry y vinagreta de la casa',
+      'Burrata 250 g, Kirschtomaten und Hausdressing',
+      'Burrata 250 g, pomodorini e vinaigrette della casa'
     ],
     'home.sig.d3': [
       'Grillée à la braise, thym et ail',
@@ -309,27 +309,19 @@ window.BonaI18n = (function () {
     /* ---------- Carte : entrées ---------- */
     'd.tartines.n': ['Tartines', 'Open sandwiches', 'Tostas', 'Tartines', 'Tartine'],
     'd.tartines.d': [
-      'Pain toasteur (Boulangerie Cérès), cœur de burrata fumé, sauce persillée, parmesan, bœuf effiloché cuit 7 h.',
-      'Toasted bread (Boulangerie Cérès), smoked burrata heart, parsley sauce, parmesan, beef pulled after 7 hours of cooking.',
-      'Pan tostado (Boulangerie Cérès), corazón de burrata ahumada, salsa de perejil, parmesano y ternera deshilachada cocinada 7 h.',
-      'Getoastetes Brot (Boulangerie Cérès), geräuchertes Burrata-Herz, Petersiliensauce, Parmesan, 7 Stunden geschmortes Rindfleisch.',
-      'Pane tostato (Boulangerie Cérès), cuore di burrata affumicata, salsa al prezzemolo, parmigiano, manzo sfilacciato cotto 7 ore.'
-    ],
-    'd.bouchees.n': ['Bouchées Bona × 3', 'Bona bites × 3', 'Bocados Bona × 3', 'Bona-Häppchen × 3', 'Bocconcini Bona × 3'],
-    'd.bouchees.d': [
-      'Cœur de burrata sur tartines : une au légume, une au bœuf effiloché, une au saumon fumé.',
-      'Burrata heart on toast: one with vegetables, one with pulled beef, one with smoked salmon.',
-      'Corazón de burrata sobre tostas: una de verduras, una de ternera deshilachada y una de salmón ahumado.',
-      'Burrata-Herz auf Brot: eines mit Gemüse, eines mit geschmortem Rindfleisch, eines mit Räucherlachs.',
-      'Cuore di burrata su crostini: uno alle verdure, uno al manzo sfilacciato, uno al salmone affumicato.'
+      'Pain toasteur (Boulangerie Cérès), au choix : cœur de burrata, bœuf effiloché, poulet effiloché ou légumes.',
+      'Toasted bread (Boulangerie Cérès), your choice of: burrata heart, pulled beef, pulled chicken or vegetables.',
+      'Pan tostado (Boulangerie Cérès), a elegir: corazón de burrata, ternera deshilachada, pollo deshilachado o verduras.',
+      'Getoastetes Brot (Boulangerie Cérès), nach Wahl: Burrata-Herz, geschmortes Rindfleisch, gezupftes Hähnchen oder Gemüse.',
+      'Pane tostato (Boulangerie Cérès), a scelta: cuore di burrata, manzo sfilacciato, pollo sfilacciato o verdure.'
     ],
     'd.saladeburrata.n': ['Salade de burrata', 'Burrata salad', 'Ensalada de burrata', 'Burrata-Salat', 'Insalata di burrata'],
     'd.saladeburrata.d': [
-      'Burrata 100 g, salade, tomates cerises, croûton, parmesan, sauce persillée et vinaigrette maison.',
-      'Burrata 100 g, salad leaves, cherry tomatoes, crouton, parmesan, parsley sauce and house vinaigrette.',
-      'Burrata 100 g, ensalada, tomates cherry, picatoste, parmesano, salsa de perejil y vinagreta de la casa.',
-      'Burrata 100 g, Blattsalat, Kirschtomaten, Crouton, Parmesan, Petersiliensauce und Hausdressing.',
-      'Burrata 100 g, insalata, pomodorini, crostino, parmigiano, salsa al prezzemolo e vinaigrette della casa.'
+      'Burrata 100 g, salade, tomates cerises, parmesan et vinaigrette maison.',
+      'Burrata 100 g, salad leaves, cherry tomatoes, parmesan and house vinaigrette.',
+      'Burrata 100 g, ensalada, tomates cherry, parmesano y vinagreta de la casa.',
+      'Burrata 100 g, Blattsalat, Kirschtomaten, Parmesan und Hausdressing.',
+      'Burrata 100 g, insalata, pomodorini, parmigiano e vinaigrette della casa.'
     ],
     'd.brochettes.n': ['Brochettes de viande', 'Meat skewers', 'Brochetas de carne', 'Fleischspieße', 'Spiedini di carne'],
     'd.brochettes.d': ['3 × poulet mariné.', '3 × marinated chicken.', '3 × pollo marinado.', '3 × mariniertes Hähnchen.', '3 × pollo marinato.'],
@@ -339,11 +331,11 @@ window.BonaI18n = (function () {
     'd.ailes.d': ['4 pièces marinées persillées.', 'Four wings, marinated with parsley.', '4 piezas marinadas al perejil.', 'Vier Stück, mariniert mit Petersilie.', '4 pezzi marinati al prezzemolo.'],
     'd.burratplat.n': ['Salade de burrata', 'Burrata salad', 'Ensalada de burrata', 'Burrata-Salat', 'Insalata di burrata'],
     'd.burratplat.d': [
-      'Burrata 250 g, accompagnée de légumes ou de saumon fumé. Végétarien avec les légumes.',
-      'Burrata 250 g, served with vegetables or smoked salmon. Vegetarian with the vegetables.',
-      'Burrata 250 g, con verduras o salmón ahumado. Vegetariano en la versión con verduras.',
-      'Burrata 250 g, mit Gemüse oder Räucherlachs. Vegetarisch in der Gemüse-Variante.',
-      'Burrata 250 g, con verdure o salmone affumicato. Vegetariano nella versione con verdure.'
+      'Burrata 250 g, salade, tomates cerises, parmesan et vinaigrette maison.',
+      'Burrata 250 g, salad leaves, cherry tomatoes, parmesan and house vinaigrette.',
+      'Burrata 250 g, ensalada, tomates cherry, parmesano y vinagreta de la casa.',
+      'Burrata 250 g, Blattsalat, Kirschtomaten, Parmesan und Hausdressing.',
+      'Burrata 250 g, insalata, pomodorini, parmigiano e vinaigrette della casa.'
     ],
     'd.saumon.n': ['Pavé de saumon', 'Salmon fillet', 'Lomo de salmón', 'Lachsfilet', 'Trancio di salmone'],
     'd.saumon.d': [
