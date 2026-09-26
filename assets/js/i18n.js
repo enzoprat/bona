@@ -353,6 +353,8 @@ window.BonaI18n = (function () {
       'Mit Thymian und Knoblauch aromatisiert, veredelt mit Fleur de Sel und schwarzem Pfeffer.',
       'Profumato al timo e all’aglio, esaltato da fiore di sale e pepe nero.'
     ],
+    'd.gigot.n': ['Gigot d’agneau', 'Leg of lamb', 'Pierna de cordero', 'Lammkeule', 'Cosciotto d’agnello'],
+    'd.gigot.d': ['Servi en tranches.', 'Served sliced.', 'Servido en lonchas.', 'In Scheiben serviert.', 'Servito a fette.'],
     'd.entrecote.n': ['Entrecôte grillée 400 g', 'Grilled rib steak 400 g', 'Entrecot a la parrilla 400 g', 'Gegrilltes Entrecôte 400 g', 'Entrecôte alla griglia 400 g'],
     'd.entrecote.d': [
       'Grillée à la braise, thym et ail, fleur de sel et poivre noir moulu.',
